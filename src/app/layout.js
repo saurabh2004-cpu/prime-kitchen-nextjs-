@@ -1,14 +1,20 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Satisfy } from "next/font/google";
 import "./globals.css";
+import SmoothScrollWrapper from "@/components/home-components/SmoothScrollWrapper";
+import { CustomizerContextProvider } from "@/context/CustomizerContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["300", "400"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const satisfy = Satisfy({
   subsets: ["latin"],
+  variable: "--font-satisfy",
+  weight: ["400"], // Satisfy usually has one weight
 });
 
 export const metadata = {
@@ -20,9 +26,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${satisfy.variable} antialiased`}
       >
-        {children}
+        {/* <SmoothScrollWrapper> */}
+          <CustomizerContextProvider>
+            
+            {children}
+          </CustomizerContextProvider>,
+        {/* </SmoothScrollWrapper> */}
       </body>
     </html>
   );
