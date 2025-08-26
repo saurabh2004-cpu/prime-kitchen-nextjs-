@@ -53,15 +53,15 @@ export default function Hero() {
     <>
       {/* hero section */}
       <section className="  h-screen flex flex-col justify-center relative">
-        <div className="mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 lg:py-20 w-full">
-          <motion.div className="space-y-16" variants={staggerContainer} initial="hidden" animate="visible">
-            <motion.div className="text-center pt-24 " variants={slideUpVariants}>
+        <div className="mx-auto px-4 sm:px-6 lg:px-12  md:py-16 lg:py-20 w-full">
+          <motion.div className="space-y-6 md:space-y-16" variants={staggerContainer} initial="hidden" animate="visible">
+            <motion.div className="text-center md:pt-24 " variants={slideUpVariants}>
               <h1 className="text-4xl mt-32 md:mt-0 sm:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font-black text-[#1d322d]  tracking-tight text-center sm:text-start inter-placeholder">
-                <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-9xl tracking-tight text-[#1D322D]" >Your Ideas,</span>
+                <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-9xl tracking-tighter text-[#1D322D]" >Your Ideas,</span>
                 <span className="w-full md:flex ">
-                  <span className="font-black flex md:inline text-[60px] text-start md:text-9xl tracking-tight relative md:bottom-4 text-[#1D322D]">Our Creative </span>
+                  <span className="font-black flex md:inline text-[60px] text-start md:text-9xl tracking-tighter relative md:bottom-4 text-[#1D322D]">Our Creative </span>
                   <span
-                    className="font-light italic flex text-6xl text-start md:text-[145px] text-[#009f93] font-satisfy relative md:bottom-4"
+                    className="font-light  flex text-6xl text-start md:text-[145px] text-[#009f93] font-satisfy relative md:bottom-4"
                     style={{ color: "#009f93" }}
                   >
                     Twist
@@ -71,10 +71,10 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            <motion.div className="grid flex-row-reverse grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start " variants={staggerContainer}>
+            <motion.div className="grid  flex-row-reverse grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start " variants={staggerContainer}>
               {/* Right side card - shown first on mobile, second on desktop */}
               <motion.div
-                className=" w-full p-2 md:p-4 relative max-w-md h-55 md:h-57 rounded-2xl md:space-y-6 md:relative md:bottom-15 md:left-65  lg:order-2"
+                className=" w-full bg-[#f7f6e9] p-2 md:p-4 relative max-w-md h-55 md:h-57 rounded-2xl md:space-y-6 md:relative md:bottom-15 md:left-65  lg:order-2"
                 variants={slideUpVariants}
               >
                 <motion.p
@@ -123,7 +123,7 @@ export default function Hero() {
               </motion.div>
 
               {/* Left side carousel - shown second on mobile, first on desktop */}
-              <motion.div className="w-full px-2 md:p-6 rounded-lg max-w-sm relative md:bottom-12  " variants={slideUpVariants}>
+              <motion.div className="w-full px-2 md:p-6 rounded-lg max-w-sm relative md:bottom-18 md:right-8  " variants={slideUpVariants}>
                 <div className="flex md:space-x-1 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-[#9b6e55] text-[#9b6e55]" />
@@ -156,7 +156,7 @@ export default function Hero() {
 
       {/* video section */}
       <section
-        className="w-full  flex justify-center items-center relative px-4 pb-6 md:pb-14 mt-48 md:mt-32"
+        className="w-full  flex justify-center items-center relative px-4 pb-6 md:pb-14 mt-35 md:mt-12"
       // style={{ marginTop: "25vh", " }} // Overlap 25% above
       >
         <motion.div

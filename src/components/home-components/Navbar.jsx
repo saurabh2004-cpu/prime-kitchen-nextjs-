@@ -4,33 +4,33 @@ import { ChevronDown, Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
- 
+  
   const navItems = [
     { name: "Home", href: "/", active: true },
     { name: "About", href: "/about", active: false },
     { name: "Services", href: "/services", active: false },
     { name: "Projects", href: "/projects", active: false },
     { name: "Gallery", href: "/gallery", active: false },
-    { name: "Blog", href: "/blog", active: false },
+    { name: "Blog", href: "/blogs", active: false },
     { name: "Reviews", href: "/reviews", active: false },
     { name: "Contact", href: "/contact", active: false },
   ]
- 
+  
   return (
-    <nav className="sticky top-0 z-50 py-4 md:px-4 md:py-1 bg-[#fffef2]">
+    <nav className="fixed top-0 left-0 right-0 z-50 py-4 md:px-4 md:py-1 bg-[#fffef2] ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="rounded flex items-center justify-center">
               <img 
-                className="w-[180px] h-[60px]" 
+                className="w-[120px] h-[30px]"
                 src="/logo/logo.png"
                 alt="Logo"
               />
             </div>
           </div>
- 
+          
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 p-1 bg-[#F7F6E9] rounded-md">
             {navItems.map((item) => (
@@ -45,7 +45,7 @@ export default function Navbar() {
               </a>
             ))}
           </div>
- 
+          
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button

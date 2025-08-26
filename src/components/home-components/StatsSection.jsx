@@ -107,10 +107,10 @@ export default function StatsSection() {
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <div className="flex items-center gap-2 mt-4 md:mt-0">
-                  <div className="  text-[134px] mdxl:text-[134px]  font-medium text-[#1F3630] inter-placeholder leading-none tracking-tight">
+                  <div className="  text-[134px] md:text-[134px]  font-semibold text-[#1F3630] inter-placeholder leading-none tracking-tight">
                     <AnimatedCounter value={stat.number} duration={2.5} />
                   </div>
-                  <span className=" text-[#F3AC85] inter-placeholder text-7xl xl:text-8xl ml-1 text-[#009f93]" style={{ color: "#009f93" }}>+</span>
+                  <span className=" text-[#F3AC85] inter-placeholder font-semibold text-7xl xl:text-8xl ml-1 text-[#009f93]" style={{ color: "#009f93" }}>+</span>
                 </div>
 
                 <div className="md:py-3 ">

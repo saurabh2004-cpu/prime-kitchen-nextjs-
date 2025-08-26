@@ -17,7 +17,7 @@ const HeaderTitle = ({ title }) => {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 5,
+          duration: 15,
           ease: "linear",
         },
       },
@@ -45,7 +45,7 @@ const HeaderTitle = ({ title }) => {
           animate={inView ? "visible" : "hidden"}
         >
           <motion.h1
-            className="text-[#009f93] tracking-tighter text-[clamp(35px,95vw,38px)] md:text-[clamp(100px,60vw,150px)] inter-placeholder font-semibold whitespace-nowrap"
+            className="text-[#009f93] tracking-tighter text-[clamp(35px,95vw,38px)] md:text-[clamp(100px,60vw,160px)] inter-placeholder font-semibold whitespace-nowrap"
             variants={scrollVariants}
             animate="animate"
           >

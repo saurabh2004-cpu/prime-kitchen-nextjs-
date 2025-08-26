@@ -130,7 +130,7 @@ const JobListings = () => {
               Career
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-tight font-extrabold inter-placeholder text-[#1D322D]" style={{ color: "#009f93", fontWeight: 1000 }}>
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-tight font-extrabold inter-placeholder text-[#1D322D]" style={{ color: "#009f93", fontWeight: 1000 }}>
             We are hiring, Join our team
           </h2>
         </div>

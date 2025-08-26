@@ -43,7 +43,7 @@ const BranchesSection = () => {
 
     return (
          <div className="w-full  md:pt-16 md:mt-24 px-4 mx-auto relative md:left-1" >
-            <div className=" mx-4 md:mx-auto bg-[#1f3630] rounded-2xl py-8 px-6 md:px-12 "style={{ minHeight: "1200px" }}>
+            <div className="  md:mx-auto bg-[#1f3630] rounded-2xl py-8 px-6 md:px-12 "style={{ minHeight: "1200px" }}>
                 <motion.div
                     className="flex flex-col md:mt-10"
                     variants={staggerContainer}

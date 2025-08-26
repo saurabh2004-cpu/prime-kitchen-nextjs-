@@ -116,8 +116,8 @@ const EvolutionSection = () => {
       >
         <motion.div style={{ y, scale, opacity }} className="transform-gpu">
           {/* Desktop Layout - Hidden on mobile/tablet h-1/2 */}
-          <div className="hidden lg:block "> 
-            <div className="bg-[#f7f6e9] max-w-[50rem] max-h-[16.0625rem] relative md:left-14 mb-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div className=" lg:block "> 
+            <div className="bg-[#f7f6e9] md:max-w-[50rem] md:max-h-[16.0625rem] relative md:left-14 mb-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
               <button className="w-full p-6 text-left focus:outline-none">
                 <div className="flex items-start gap-4">
                   {/* Year Circle */}
@@ -147,33 +147,7 @@ const EvolutionSection = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Layout - Hidden on desktop */}
-          <div className="block lg:hidden">
-            <div className="bg-[#f7f6e9] w-full rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 p-4 sm:p-6">
-              <button className="w-full text-left focus:outline-none">
-                {/* Mobile Year and Label */}
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <div className="flex items-center gap-3 align-baseline ">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12  flex items-center justify-center">
-                      <span className="text-2xl sm:text-base font-bold text-[#1d322d] inter-placeholder">
-                        {faq.year}
-                      </span>
-                    </div>
-                    <span className="text-xs sm:text-sm font-bold text-[#1d322d] uppercase tracking-wide inter-placeholder relative top-1">
-                      {faq.label}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Mobile Content */}
-                <div className="pl-0">
-                  <p className="text-sm sm:text-base font-medium text-[#1d322d]/80 inter-placeholder leading-relaxed">
-                    {faq.question}
-                  </p>
-                </div>
-              </button>
-            </div>
-          </div>
+          
         </motion.div>
       </motion.div>
     )
@@ -182,7 +156,7 @@ const EvolutionSection = () => {
   return (
     <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" ref={containerRef}>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 h-full lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-1 h-full lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 md:max-h-[1380px]">
           {/* Left Side - Heading */}
           <div className="flex flex-col relative md:right-10 justify-center text-center lg:text-left lg:justify-start">
             <div className="flex items-center gap-3 justify-center lg:justify-start">
@@ -214,7 +188,7 @@ const EvolutionSection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
-            style={{ minHeight: `${faqs.length * 400}px` }}
+            style={{ minHeight: `${faqs.length * 200}px` }}
           >
             {faqs.map((faq, index) => (
               <TimelineCard key={index} faq={faq} index={index} />

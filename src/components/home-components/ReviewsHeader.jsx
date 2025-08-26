@@ -34,7 +34,7 @@ const ReviewsHeader = () => {
         >
           <div className="relative ">
             <motion.div
-              className="flex items-center justify-center md::justify-center relative top-5 md:top-15 md:right-60  mb-6 sm:mb-8 sm:ml-4 md:ml-8 lg:ml-16"
+              className="flex items-center justify-center md::justify-center relative top-5 md:top-15 md:right-50  mb-6 sm:mb-8 sm:ml-4 md:ml-8 lg:ml-16"
               variants={fadeInUp}
             >
               <svg className="w-5 h-5 text-[#009f93] " viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -47,7 +47,7 @@ const ReviewsHeader = () => {
             </motion.div>
 
             <motion.div className="text-center items-center  text-[#1D322D]" variants={fadeInUp}>
-              <h1 className="text-6xl text-[#009f93]  md:text-[230px] min-w-full  text-center font-semibold md:font-black leading-[0.75] tracking-tighter inter-placeholder" style={{ color: "#009f93" }}>
+              <h1 className="text-6xl text-[#009f93]  md:text-[230px] min-w-full  text-center font-semibold md:font-[500] leading-[0.75] tracking-tighter md:tracking-[-1.3rem] inter-placeholder" style={{ color: "#009f93" }}>
                 Reviews
               </h1>
             </motion.div>

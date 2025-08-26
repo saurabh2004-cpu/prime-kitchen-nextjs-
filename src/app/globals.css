@@ -61,3 +61,20 @@ section {
   /* font-size: 145px; */
   color: #1D322D;
 }
+
+.outer-radius-bottom-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.outer-radius-bottom-right::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background: black;
+  border-radius: 0 0 12px 0;
+  z-index: -1;
+}

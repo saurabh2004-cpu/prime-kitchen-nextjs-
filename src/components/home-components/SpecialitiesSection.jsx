@@ -121,7 +121,7 @@ const SpecialtiesSection = () => {
             viewport={{ once: true, amount: 0.1 }}
         >
             <motion.div 
-                className="relative md:w-300 h-100 md:h-[40em] overflow-hidden rounded-2xl mx-2 mb-4 md:mb-0"
+                className="relative md:w-300 h-160 md:h-[40em] overflow-hidden rounded-2xl mx-2 mb-4 md:mb-0"
                 variants={slideInLeft}
                 initial="hidden"
                 whileInView="visible"
@@ -131,13 +131,13 @@ const SpecialtiesSection = () => {
                     <img
                         src="https://framerusercontent.com/images/KGTXISgxyxmkCq256EXQwsbnNto.jpg"
                         alt="Interior design background"
-                        className="w-full h-100 md:h-full object-cover rounded-2xl"
+                        className="w-full h-160 md:h-full object-cover rounded-2xl"
                     />
                 </div>
 
                 {/* Content Container */}
                 <motion.div
-                    className="relative h-100 md:h-full flex flex-col justify-end z-10 p-4 md:p-8"
+                    className="relative h-100 md:h-full flex flex-col justify-end z-10 p-2 md:p-8"
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -145,12 +145,12 @@ const SpecialtiesSection = () => {
                 >
                     {/* Bottom Overlay Card */}
                     <motion.div
-                        className="bg-white/10 backdrop-blur-lg rounded-xl p-4 md:p-2"
+                        className="bg-white/10 backdrop-blur-lg rounded-xl p-4 md:p-2 relative top-60 md:top-0"
                         variants={fadeInUp}
                         style={{ zIndex: 20 }}
                     >
                         <motion.h2
-                            className="text-md md:text-4xl font-light md:text-[38px] md:font-medium inter-placeholder mb-4 tracking-tight"
+                            className="text-3xl font-medium md:text-4xl font-light md:text-[38px] md:font-medium inter-placeholder mb-4 tracking-tight"
                             variants={fadeInUp}
                             style={{ color: '#FDFCEE' }}
                         >
@@ -158,7 +158,7 @@ const SpecialtiesSection = () => {
                         </motion.h2>
 
                         <motion.p
-                            className="text-[#fdfcee]/80 text-xs md:text-[16px] md:font-medium mb-6 font-medium inter-placeholder"
+                            className="text-[#fdfcee]/80 text-md md:text-[16px] md:font-medium mb-6 font-medium inter-placeholder"
                             variants={fadeInUp}
                             style={{ color: '#FDFCEE' }}
                         >
@@ -212,7 +212,7 @@ const SpecialtiesSection = () => {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <motion.div
-                    className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative md:bottom-5 md:right-3 "
+                    className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative top-5 md:bottom-5 md:right-3 "
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
@@ -235,7 +235,7 @@ const SpecialtiesSection = () => {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h1 className="text-2xl  lg:text-[48px] px-2 font-bold inter-placeholder tracking-tight text-left text-[#009f93] relative md:bottom-13 md:right-3">
+                        <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8  md:px-2 font-bold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
                             Why you'll love working with Prime
                         </h1>
                     </motion.div>
@@ -247,19 +247,19 @@ const SpecialtiesSection = () => {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <p className="text-base md:text-[1rem] md:font-medium inter-placeholder mb-4" style={{ color: '#1D322D' }}>
+                        <p className="text-base font-[600] md:text-[1rem] md:font-medium inter-placeholder mb-4" style={{ color: '#1D322D' }}>
                             "Design is more than just aesthetics; it's a reflection of the soul and a journey
                             towards creating timeless spaces that resonate with individuality and purpose. At
                             Prime, we strive to craft environments that not only captivate the eye but also
                             inspire the mind and nurture the spirit."
                         </p>
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center flex-col md:flex-row space-x-3 justify-center align-center items-center mt-8 md:mt-0">
                             <img src="https://framerusercontent.com/images/XDcRjEJ0HdfRgvjaqQFTeR8Bsk.jpg?scale-down-to=1024"
                                 alt="Real Mehedi"
-                                className="w-12 h-12 md:h-6 md:w-16 md:h-16 rounded-md" />
-                            <div>
-                                <p className="text-[#1D322D] inter-placeholder text-base md:text-[18px] md:font-medium">Real Mehedi</p>
-                                <p className="text-[#1D322D] inter-placeholder text-sm md:text-[1rem] font-medium">Founder, Prime Design Studio</p>
+                                className="md:w-12 md:h-12 h-16 w-16  md:h-6 md:w-16 md:h-16 rounded-md " />
+                            <div className='flex flex-col  justify-center md:justify-start md:items-start  align-center items-center w-full'>
+                                <p className="text-[#1D322D] inter-placeholder text-base font-[600] md:text-[18px] md:font-medium">Real Mehedi</p>
+                                <p className="text-[#1D322D] inter-placeholder text-md font-[500] md:text-[1rem] md:font-medium">Founder, Prime Design Studio</p>
                             </div>
                         </div>
                     </motion.blockquote>

@@ -4,6 +4,8 @@ import { useState } from "react"
 import Image from "next/image"
 import { Play, VideoIcon } from "lucide-react"
 import { IconVideo } from "@tabler/icons-react"
+import HeaderTitle from "../common/HeaderTitle"
+import { motion, AnimatePresence } from "framer-motion"
 
 const mediaItems = [
     {
@@ -41,92 +43,179 @@ const mediaItems = [
         title: "Kitchen Design Tour",
         image: "/apartment-kitchen-2.png",
         type: "video",
+        videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
     },
     {
         id: "7",
         title: "Bathroom Renovation",
         image: "/luxury-bathroom-renovation-showcase.png",
         type: "video",
+        videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
     },
 ]
 
 export default function TabbedGallery() {
     const [activeTab, setActiveTab] = useState("photos")
+    const [selectedVideo, setSelectedVideo] = useState(null)
 
     const filteredItems = mediaItems.filter((item) =>
         activeTab === "photos" ? item.type === "photo" : item.type === "video",
     )
 
+    const openVideo = (videoUrl) => {
+        setSelectedVideo(videoUrl)
+    }
+
+    const closeVideo = () => {
+        setSelectedVideo(null)
+    }
+
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    }
+
+    const tabVariants = {
+        inactive: { 
+            scale: 1,
+            backgroundColor: "#f3f4f6",
+            color: "#4b5563"
+        },
+        active: { 
+            scale: 1.05,
+            backgroundColor: "#0d9488",
+            color: "#ffffff",
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
+        hover: {
+            scale: 1.03,
+            backgroundColor: "#e5e7eb",
+            transition: {
+                duration: 0.2
+            }
+        }
+    }
+
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 py-8">
-            {/* Tab Navigation */}
-            <div className="flex gap-2 mb-8 mx-auto w-full justify-center align-center">
-                <button
-                    onClick={() => setActiveTab("photos")}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg  text-[18px] inter-placeholder text-[#fffef2] font-[500] transition-colors ${activeTab === "photos" ? "bg-teal-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            fillRule="evenodd"
-                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                    Photos
-                </button>
-                <button
-                    onClick={() => setActiveTab("videos")}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg  text-[18px] inter-placeholder text-[#fffef2] font-[500] font-medium transition-colors ${activeTab === "videos" ? "bg-teal-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                >
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-video"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
-                        <path d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
-                    </svg>
-                    Videos
-                </button>
-            </div>
+        <>
+            {activeTab === "photos" && <HeaderTitle title={'Portfolio - Showcase -Inspiration - About us -'} />}
+            {activeTab === "videos" && <HeaderTitle title={' Videos - Stories -'} />}
 
-            {/* Gallery Grid */}
-            <div
-                className={`grid gap-6 ${activeTab === "photos"
-                    ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-                    : "grid-cols-1 md:grid-cols-2"
-                    }`}
-            >
-                {filteredItems.map((item) => (
-                    <div key={item.id} className="group cursor-pointer mx-auto w-full">
-                        <div className="relative h-[421px] w-full space-x-4  overflow-hidden rounded-lg bg-gray-100 aspect-[4/3]">
-                            <Image
-                                src={item.image || "/placeholder.svg"}
-                                alt={item.title}
-                                fill
-                                className="object-cover h-[421px] w-[306px] transition-transform duration-300 group-hover:scale-110"
+            <div className="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                {/* Tab Navigation */}
+                <div className="flex gap-2 mb-8 mx-auto w-full justify-center">
+                    <motion.button
+                        onClick={() => setActiveTab("photos")}
+                        variants={tabVariants}
+                        initial="inactive"
+                        animate={activeTab === "photos" ? "active" : "inactive"}
+                        whileHover="hover"
+                        className="flex items-center gap-2 px-4 py-2 rounded-lg text-[16px] sm:text-[18px] inter-placeholder font-medium transition-colors"
+                    >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                fillRule="evenodd"
+                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                clipRule="evenodd"
                             />
+                        </svg>
+                        Photos
+                    </motion.button>
+                    <motion.button
+                        onClick={() => setActiveTab("videos")}
+                        variants={tabVariants}
+                        initial="inactive"
+                        animate={activeTab === "videos" ? "active" : "inactive"}
+                        whileHover="hover"
+                        className="flex items-center gap-2 px-4 py-2 rounded-lg text-[16px] sm:text-[18px] inter-placeholder font-medium transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
+                            <path d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+                        </svg>
+                        Videos
+                    </motion.button>
+                </div>
 
-                            {/* Hover overlay for photos */}
-                            {item.type === "photo" && (
-                                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            )}
+                {/* Gallery Grid */}
+                <motion.div
+                    key={activeTab}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className={`grid gap-4 sm:gap-6 ${activeTab === "photos"
+                        ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                        : "grid-cols-1 md:grid-cols-2"
+                        }`}
+                >
+                    <AnimatePresence mode="popLayout">
+                        {filteredItems.map((item) => (
+                            <motion.div
+                                key={item.id}
+                                variants={itemVariants}
+                                layout
+                                className="group cursor-pointer mx-auto w-full"
+                            >
+                                <div className="relative h-[300px] sm:h-[350px] md:h-[421px] w-full overflow-hidden rounded-lg bg-gray-100">
+                                    <Image
+                                        src={item.image || "/placeholder.svg"}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                    />
 
-                            {/* Play button for videos */}
-                            {item.type === "video" && (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-black/80 transition-colors">
-                                        <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
-                                    </div>
+                                    {/* Hover overlay for photos */}
+                                    {item.type === "photo" && (
+                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    )}
+
+                                    {/* Play button for videos */}
+                                    {item.type === "video" && (
+                                        <div 
+                                            className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                                            onClick={() => openVideo(item.videoUrl)}
+                                        >
+                                            <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-black/80 transition-colors">
+                                                <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
 
-                        {/* Title */}
-                        <h3 className="mt-3 text-sm font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
-                            {item.title}
-                        </h3>
-                    </div>
-                ))}
+                                {/* Title */}
+                                <h3 className="mt-3 text-sm font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
+                                    {item.title}
+                                </h3>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+
+               
             </div>
-        </div>
+        </>
     )
 }

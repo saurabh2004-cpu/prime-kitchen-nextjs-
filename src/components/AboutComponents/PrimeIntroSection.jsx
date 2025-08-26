@@ -125,7 +125,7 @@ const PrimeIntroStyled = () => {
     };
 
     return (
-        <section className="w-full px-4 md:px-8 py-16 md:py-24 bg-[#1f3630] min-h-screen rounded-t-4xl md:rounded-t-2xl">
+        <section className="w-full  md:px-8 py-8 md:pt-24 bg-[#1f3630] min-h-screen rounded-t-4xl md:rounded-t-2xl">
             <motion.div
                 className="flex items-center justify-start md:justify-start space-x-1 mb-3 sm:ml-4 md:ml-0"
                 variants={fadeInUp}
@@ -138,7 +138,7 @@ const PrimeIntroStyled = () => {
             </motion.div>
             <div className="border-b border-gray-200 max-w-8xl mx-auto"></div>
 
-            <div ref={ref} className="w-full px-4 md:px-8 py-12 md:py-10">
+            <div ref={ref} className="w-full px-4 md:px-8 py-4 md:py-10">
                 <div className="max-w-8xl mx-auto">
                     <motion.div
                         variants={containerVariants}
@@ -147,12 +147,12 @@ const PrimeIntroStyled = () => {
                         className="space-y-8 md:space-y-12"
                     >
                         <motion.div variants={itemVariants} className="space-y-6">
-                            <p className="text-[24px] md:font-extrabold leading-relaxed text-[#fdfcee] inter-placeholder">
+                            <p className="text-3xl md:font-bold leading-tight text-[#fdfcee] inter-placeholder md:pr-8">
                                 Welcome to Prime a preme interior design studio where innovation meets elegance. Established in 2010 by visionary designer Real Mehedi, Prime has grown from a humble home office to an internationally recognized name in the world of interior design. Our mission is to create unique, functional, and sustainable living spaces that enhance the quality of life for our clients.
                             </p>
 
                             <div className="w-full flex justify-start md:justify-end">
-                                <p className="text-[18px] leading-relaxed text-[#fdfcee] inter-placeholder max-w-full md:max-w-[600px]">
+                                <p className="text-[18px] leading-relaxed text-[#fdfcee] inter-placeholder  md:max-w-[600px]">
                                     We believe that every space has a story to tell. Our team of passionate designers, architects, and project managers work collaboratively to transform your vision into reality. With a focus on creating sustainability, and client satisfaction, we have successfully completed numerous residential and commercial projects, earning accolades and industry awards along the way.
                                 </p>
                             </div>
@@ -162,8 +162,8 @@ const PrimeIntroStyled = () => {
             </div>
 
             {/* Grid section */}
-            <section className="py-8 md:py-16 px-4 md:px-6">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-8 md:pt-16  md:px-6">
+                <div className="max-w-8xl mx-auto">
                     {/* Mobile Layout */}
                     <div className="block md:hidden space-y-4">
                         {/* Left Large Card - Mobile */}
@@ -173,12 +173,12 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-white/10 rounded-2xl  h-92 md:h-full overflow-hidden relative flex flex-col justify-end h-80"
+                            className="bg-white/10 rounded-xl  h-96 md:h-full overflow-hidden relative flex flex-col justify-end h-80"
                         >
                             <img
                                 src="/images/aboutus-2.png"
                                 alt="Interior"
-                                className="absolute inset-0 w-full h-92 md:h-full object-cover"
+                                className="absolute inset-0 w-full h-96 md:h-full object-cover"
                             />
                             <div className="relative bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
                                 <p className="text-sm mb-4 inter-placeholder">
@@ -190,11 +190,11 @@ const PrimeIntroStyled = () => {
                                     <img
                                         src="https://randomuser.me/api/portraits/men/32.jpg"
                                         alt="Founder"
-                                        className="w-10 h-10 rounded-md object-cover"
+                                        className="md:w-10 md:h-10 h-15 w-15 rounded-md object-cover"
                                     />
                                     <div>
-                                        <p className="inter-placeholder text-sm">Real Mehedi</p>
-                                        <p className="text-xs opacity-75 inter-placeholder">Founder, Prime Design Studio</p>
+                                        <p className="inter-placeholder text-lg font-medium">Real Mehedi</p>
+                                        <p className="text-md opacity-75 inter-placeholder">Founder, Prime Kitchen Studio</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#2c5f4f] h-40 rounded-2xl flex items-center justify-center text-[#fffef2] text-4xl font-bold inter-placeholder"
+                            className="bg-[#2c5f4f] h-44 rounded-2xl flex items-center justify-center text-[#fffef2]  text-8xl font-extrabold inter-placeholder"
                         >
                             Prime
                         </motion.div>
@@ -219,18 +219,18 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="relative rounded-2xl h-92 md:h-full overflow-hidden h-48"
+                            className="relative rounded-2xl h-99 md:h-full overflow-hidden h-48"
                         >
                             <img
                                 src="/images/abouus-1.png"
                                 alt="Studio"
-                                className="w-full h-92 md:h-full object-cover"
+                                className="w-full h-99 md:h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
+                            <div className="absolute inset-0 bg-black/40 flex flex-col items-center gap-4 justify-center text-white">
                                 <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center text-black text-lg font-bold">
                                     <PlayCircleIcon />
                                 </div>
-                                <p className="mt-2 text-sm text-center inter-placeholder font-medium">Learn more<br />About Prime Design Studio</p>
+                                <p className="mt-2 text-md text-center inter-placeholder font-medium ">Learn more<br />About Prime Design Studio</p>
                             </div>
                         </motion.div>
 
@@ -243,10 +243,10 @@ const PrimeIntroStyled = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                                 variants={fadeUp}
-                                className="bg-[#f7f6e9] h-32 rounded-2xl p-4 flex flex-col justify-center"
+                                className="bg-[#f7f6e9] h-44 rounded-2xl p-4 flex flex-col justify-center"
                             >
-                                <p className="text-4xl font-bold text-[#1d322d] text-center inter-placeholder">150+</p>
-                                <p className="text-sm text-[#1d322d] text-center inter-placeholder">Happy Clients</p>
+                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">150+</p>
+                                <p className="text-lg font-medium text-[#1d322d] text-start inter-placeholder">Happy Clients</p>
                             </motion.div>
 
                             {/* Projects */}
@@ -256,10 +256,12 @@ const PrimeIntroStyled = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                                 variants={fadeUp}
-                                className="bg-[#fffef2] h-32 rounded-2xl p-4 flex flex-col justify-center"
+                                className="bg-[#fffef2] h-44 rounded-2xl p-4 flex flex-col justify-center"
                             >
-                                <p className="text-4xl font-bold text-[#1d322d] text-center inter-placeholder">200+</p>
-                                <p className="text-sm text-[#1d322d] text-center inter-placeholder">Projects</p>
+                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">200+</p>
+                                <p className="text-lg font-medium text-[#1d322d] text-start inter-placeholder mt-4">Projects</p>
+                                <p className="text-[#1d322d] text-[13px] mb-4 flex items-end h-full inter-placeholder">Over 200 successful projects completed</p>
+
                             </motion.div>
                         </div>
 
@@ -270,19 +272,19 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#2c5f4f] h-32 rounded-2xl flex flex-col items-center justify-center p-6"
+                            className="bg-[#2c5f4f] h-44 rounded-2xl flex flex-col items-center justify-center p-6 "
                         >
-                            <div className="flex -space-x-2">
+                            <div className="flex -space-x-6">
                                 {Array.from({ length: 6 }).map((_, i) => (
                                     <img
                                         key={i}
                                         src={`https://randomuser.me/api/portraits/men/${30 + i}.jpg`}
                                         alt="Team member"
-                                        className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                        className="w-16 h-16 rounded-full border-2 border-white object-cover"
                                     />
                                 ))}
                             </div>
-                            <p className="mt-2 text-white text-sm text-center inter-placeholder">18 Creative Masterminds</p>
+                            <p className="mt-2 text-white text-lg text-[#1d322d]/75 text-center inter-placeholder">18 Creative Masterminds</p>
                         </motion.div>
 
                         {/* Awards */}
@@ -292,15 +294,18 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#2c5f4f] h-32 rounded-2xl p-4 text-white flex flex-col justify-center"
+                            className="bg-[#2c5f4f] h-44 rounded-2xl p-4 text-white flex flex-col justify-center"
                         >
-                            <p className="text-4xl font-bold inter-placeholder text-[#fffef2] text-center">8+</p>
-                            <p className="text-sm text-[#fffef2] text-center inter-placeholder">Prestigious Awards</p>
+                            <p className="text-7xl  font-bold inter-placeholder text-[#fffef2] text-start border-b">8+</p>
+                            <p className="text-lg font-medium text-[#fffef2] text-start inter-placeholder mt-6">Prestigious Awards</p>
+                            <p className="mt-2 text-[#fffef2]/85 text-[14px] mb-4 flex items-end h-1/5 inter-placeholder mt-2">
+                                Over 8 Awards won showcasing our extensive experience and portfolio.
+                            </p>
                         </motion.div>
                     </div>
 
                     {/* Desktop Layout */}
-                    <div className="hidden md:grid grid-cols-4 gap-4">
+                    <div className="hidden md:h-full md:grid grid-cols-4 gap-4 ">
                         {/* Left Large Card */}
                         <motion.div
                             custom={0}
@@ -308,7 +313,7 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="col-span-2 bg-white/10 rounded-2xl overflow-hidden relative flex flex-col justify-end"
+                            className="col-span-2 bg-white/10 rounded-2xl h-3/4 overflow-hidden relative flex flex-col justify-end"
                         >
                             <img
                                 src="/images/aboutus-2.png"
@@ -325,17 +330,17 @@ const PrimeIntroStyled = () => {
                                     <img
                                         src="https://randomuser.me/api/portraits/men/32.jpg"
                                         alt="Founder"
-                                        className="w-10 h-10 rounded-md object-cover"
+                                        className="w-12 h-12 rounded-md object-cover"
                                     />
                                     <div>
-                                        <p className="inter-placeholder text-sm">Real Mehedi</p>
-                                        <p className="text-xs opacity-75 inter-placeholder">Founder, Prime Design Studio</p>
+                                        <p className="inter-placeholder text-sm font-semibold">Real Mehedi</p>
+                                        <p className="text-sm opacity-75 inter-placeholder">Founder, Prime Design Studio</p>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
 
-                        <div>
+                        <div className="  ">
                             {/* Prime Box */}
                             <motion.div
                                 custom={1}
@@ -343,7 +348,7 @@ const PrimeIntroStyled = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                                 variants={fadeUp}
-                                className="bg-[#2c5f4f] font-bold tracking-tighter leading-tight inter-placeholder text-[5.5375rem] h-[17.625rem] flex items-center justify-center text-[#fffef2] rounded-2xl"
+                                className="bg-[#2c5f4f] font-boldtracking-tighter max-h-[15rem] leading-tight inter-placeholder text-[5.5375rem] h-[17.625rem] flex items-center justify-center text-[#fffef2] rounded-2xl"
                             >
                                 Prime
                             </motion.div>
@@ -354,7 +359,7 @@ const PrimeIntroStyled = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                                 variants={fadeUp}
-                                className="bg-[#f7f6e9] h-[12.4rem] mt-4 rounded-2xl p-6 flex flex-col justify-center"
+                                className="bg-[#f7f6e9] h-[12.4rem] mt-4 max-h-[8.6rem] rounded-2xl p-6 flex flex-col justify-center"
                             >
                                 <p className="text-[71px] font-bold text-[#1d322d] mx-auto inter-placeholder">150+</p>
                                 <p className="text-base text-[#1d322d] mx-auto inter-placeholder">Happy Clients</p>
@@ -368,7 +373,7 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="relative rounded-2xl overflow-hidden"
+                            className="relative rounded-2xl h-3/4 overflow-hidden"
                         >
                             <img
                                 src="/images/abouus-1.png"
@@ -390,7 +395,7 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#fffef2] rounded-2xl px-6 flex flex-col justify-start"
+                            className="bg-[#fffef2] max-h-full rounded-2xl px-6 flex flex-col justify-start relative md:bottom-34"
                         >
                             <p className="text-[71px] font-bold text-[#1d322d] mx-auto inter-placeholder relative right-12">200+</p>
                             <p className="text-[#1d322d] text-[13px] font-bold mb-4 flex items-end h-full inter-placeholder relative top-35">Projects</p>
@@ -404,7 +409,7 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#2c5f4f] h-[26.625rem] w-[39.6rem] rounded-2xl flex flex-col items-center justify-center p-6"
+                            className="bg-[#2c5f4f] max-h-full w-[43.5rem] rounded-2xl flex flex-col items-center justify-center p-6 relative md:bottom-34"
                         >
                             <div className="flex -space-x-3">
                                 {Array.from({ length: 6 }).map((_, i) => (
@@ -426,10 +431,10 @@ const PrimeIntroStyled = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeUp}
-                            className="bg-[#2c5f4f] w-[18.9rem] h-[26.625rem] rounded-2xl px-2 text-white flex flex-col justify-start relative left-82"
+                            className="bg-[#2c5f4f] w-[20.9rem] md:h-[16.625rem] rounded-2xl px-2 text-white flex flex-col justify-start relative left-89 relative md:bottom-34"
                         >
                             <p className="text-[71px] font-bold inter-placeholder text-[#fffef2] border-b border-[#fffef2]">8+</p>
-                            <p className="mt-2 text-[#fffef2] text-[13px] mb-4 flex items-end h-full inter-placeholder">
+                            <p className="mt-2 text-[#fffef2] text-[13px] mb-4 flex items-end h-1/5 inter-placeholder">
                                 Prestigious Awards<br />Over 8 Awards won showcasing our extensive experience and portfolio.
                             </p>
                         </motion.div>
@@ -438,7 +443,7 @@ const PrimeIntroStyled = () => {
             </section>
 
             <motion.section
-                className="min-h-screen px-4 py-4 md:py-16 sm:px-6 lg:px-8"
+                className="min-h-screen px-4 py-4 md:pb-16 sm:px-6 lg:px-8"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
@@ -477,7 +482,7 @@ const PrimeIntroStyled = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
-                            className="inter-placeholder text-[#cacec2] md:font-[500] text-[1.5rem] md:text-[38px] max-w-9xl tracking-tighter mx-auto leading-tight"
+                            className="inter-placeholder text-[#cacec2] md:font-[500] font-medium text-[26px] md:text-[38px] md:max-w-9xl tracking-tighter mx-auto leading-tight"
                         >
                             {activeTab === 'Mission' ? missionText : visionText}
                         </motion.p>
@@ -489,7 +494,7 @@ const PrimeIntroStyled = () => {
                         variants={itemVariants}
                     >
                         <div className="relative inline-block">
-                            <div className=" relative md:top-25 md:left-60 flex items-center gap-1">
+                            <div className=" relative md:top-15 left-10 md:left-60 flex items-center gap-1">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#009F93]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <circle cx="12" cy="12" r="6" strokeWidth="2" />
                                     <circle cx="12" cy="12" r="3.2" fill="currentColor" />
@@ -498,7 +503,7 @@ const PrimeIntroStyled = () => {
                             </div>
                             {/* Main Heading */}
                             <motion.h2
-                                className="text-4xl sm:text-6xl md:text-[170px] font-black leading-[0.75] inter-placeholder md:mt-20 tracking-tighter text-[#fffef2]"
+                                className="text-6xl sm:text-6xl md:text-[170px] font-black leading-[0.75] inter-placeholder md:mt-10 tracking-tighter text-[#fffef2]"
                                 variants={itemVariants}
                             >
                                 Values

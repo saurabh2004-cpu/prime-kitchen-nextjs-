@@ -138,7 +138,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
           >
             {/* Project Title - Top */}
             <motion.h2 
-              className="text-[24px] font-bold md:text-[30px] w-full md:w-1/2 font-bold md:relative md:right-28 text-start text-black font-black leading-tight inter-placeholder mb-4 mt-4 md:mt-0 lg:mb-0"
+              className="text-[24px] font-[900] md:text-[23px] w-full md:w-1/2 font-bold md:relative md:right-28 text-start text-black font-black leading-tight inter-placeholder mb-4 mt-4 md:mt-0 lg:mb-0"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.2 + 0.7 }}

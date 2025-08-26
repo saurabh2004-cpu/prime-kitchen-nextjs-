@@ -24,7 +24,7 @@ export default function ProjectsHeader() {
   }
 
   return (
-    <section className="bg-[#FFFEF2] py-15 md:mt-8 lg:py-2 relative">
+    <section className="bg-[#FFFEF2] py-15 md:mt-8 lg:py-2 relative md:mb-10">
       <div className="max-w-7xl min-h-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="relative flex justify-center items-center"
@@ -35,10 +35,10 @@ export default function ProjectsHeader() {
         >
           <div className="relative ">
             <motion.div
-              className="flex items-center justify-center md::justify-center relative top-5 md:top-15 md:right-45 space-x-3 mb-6 sm:mb-8 sm:ml-4 md:ml-8 lg:ml-16"
+              className="flex items-center justify-center md::justify-center relative top-5 md:top-15 md:right-45  mb-6 sm:mb-8 sm:ml-4 md:ml-8 lg:ml-16"
               variants={fadeInUp}
             >
-              <svg className="w-5 h-5 text-[#009f93] relative md:left-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <svg className="w-5 h-5 text-[#009f93] relative md:left-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <circle cx="12" cy="12" r="6" strokeWidth="2" />
                 <circle cx="12" cy="12" r="3.2" fill="currentColor" />
               </svg>
@@ -46,7 +46,7 @@ export default function ProjectsHeader() {
             </motion.div>
 
             <motion.div className="text-center text-[#1D322D]" variants={fadeInUp}>
-              <h1 className="text-5xl text-[#1D322D]  md:text-[230px]   font-[500] leading-[0.75] tracking-[-1.2rem] inter-placeholder" style={{color: "#009f93"}}>
+              <h1 className="text-[80px]   text-[#1D322D]  md:text-[230px]   font-[600] md:font-[500] leading-[0.75] tracking-[-0.2rem] md:tracking-[-1.3rem] inter-placeholder" style={{color: "#009f93"}}>
                 Projects
               </h1>
             </motion.div>

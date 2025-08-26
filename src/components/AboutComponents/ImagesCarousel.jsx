@@ -83,7 +83,7 @@ const InfiniteCarousel = () => {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 10, // Slower on mobile for better visibility
+              duration: 17, // Slower on mobile for better visibility
               ease: "linear",
             },
           }}

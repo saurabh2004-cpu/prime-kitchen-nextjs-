@@ -35,7 +35,7 @@ const ClientsSection = () => {
                             <circle cx="12" cy="12" r="6" strokeWidth="2" />
                             <circle cx="12" cy="12" r="3.2" fill="currentColor" />
                         </svg>
-                        <span className="text-xsm text-[#009f93] uppercase font-semibold tracking-wider inter-placeholder tracking-[-0.2em]">
+                        <span className="text-xs text-[#009f93] uppercase font-bold md:font-semibold tracking-wider inter-placeholder tracking-[-0.2em]">
                             Clients
                         </span>
                     </div>
