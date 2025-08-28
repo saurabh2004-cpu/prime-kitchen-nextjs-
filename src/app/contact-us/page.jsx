@@ -1,6 +1,4 @@
 'use client'
-import BlogListing from '@/components/blogs-components/AllBlogs'
-import FeaturedBlogs from '@/components/blogs-components/Cards'
 import HeaderTitle from '@/components/common/HeaderTitle'
 import Footer from '@/components/home-components/Footer'
 import Navbar from '@/components/home-components/Navbar'
@@ -10,9 +8,7 @@ const page = () => {
   return (
     <>
       <Navbar />
-      <HeaderTitle title={'Articles - Blogs - News Studio - About us -'} />
-      <FeaturedBlogs />
-      {/* <BlogListing /> */}
+      <HeaderTitle title={'Lets - Talk - Work - With - Us - Contact -'} />
       <Footer />
     </>
   )

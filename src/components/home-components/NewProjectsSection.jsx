@@ -61,7 +61,7 @@ export default function NewProjectsSection() {
 
                 </div>
                 {/* Right Side - Stats */}
-                <div className="lg:relative md:left-12 md:w-3/8 md:bottom-10">
+                <div className="md:relative md:left-12 md:w-3/8 md:bottom-10">
                     <motion.div
                         className="space-y-8 lg:space-y-12"
                         variants={staggerContainer}

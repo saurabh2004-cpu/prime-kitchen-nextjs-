@@ -127,7 +127,7 @@ const PortfolioGallery = () => {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-12  lg:py-10 px-4  lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Filter Buttons */}
         <motion.div
@@ -142,7 +142,7 @@ const PortfolioGallery = () => {
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`px-4 sm:px-6 py-2 md:h-[36px] sm:py-3 align-middle justify-center items-center flex rounded-full font-medium text-sm sm:text-base border-2 border-[#009F93] transition-all duration-300 ${activeFilter === filter
-                ? "bg-[#009F93] text-white shadow-lg"
+                ? "bg-[#009F93] text-yellow shadow-lg"
                 : "bg-transparent text-[#009F93] hover:bg-[#009F93]/10"
                 }`}
               variants={filterVariants}
@@ -193,13 +193,8 @@ const PortfolioGallery = () => {
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center z-10">
                     <div className="text-center px-6">
                       <h3
-                        className="text-white font-bold leading-tight"
-                        style={{
-                          fontSize: "24px",
-                          fontWeight: 700,
-                          fontFamily: "Poppins, sans-serif",
-                          textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                        }}
+                        className="text-[#fffef2] font-bold leading-tight text-3xl font-bold font-poppins shadow-md"
+                       
                       >
                         {project.title}
                       </h3>
@@ -224,11 +219,11 @@ const PortfolioGallery = () => {
                 </div>
 
                 {/* Category Tags - Positioned at bottom left of image */}
-                <div className="relative flex gap-2 z-20 bg-[#fffef2] p-2 rounded-r-lg md:bottom-22 w-4/5 ">
+                <div className="relative flex gap-2 z-20 bg-[#fffef2] p-1 rounded-r-lg md:bottom-20  inline-block ">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 ' text-gray-800 text-xs font-medium rounded-md border border-[#1d322d] tracking-tighter"
+                      className="px-3 py-1 ' text-gray-800 text-xs mx-1 font-medium rounded-md border border-[#1d322d] tracking-tighter"
                       style={{
                         fontSize: "11px",
                         fontWeight: 500,

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Calendar, Clock } from 'lucide-react'
 import Navigation from './Navigations'
+import { motion } from "framer-motion"
+import BlogListing from './AllBlogs'
 
-// ArticleCard component (reusable)
+// ArticleCard component with enhanced hover effects
 const ArticleCard = ({
   heading,
   subheading,
@@ -12,44 +14,88 @@ const ArticleCard = ({
   readingTime,
   onClick
 }) => {
+  // Variants for coordinated hover animation
+  const arrowVariants = {
+    initial: { opacity: 0, x: -10 },
+    hover: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  }
+
+  const titleVariants = {
+    initial: { x: 0 },
+    hover: { x: 24, transition: { duration: 0.4, ease: "easeOut" } }
+  }
+
   return (
-    <article
-      className="rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+    <motion.article
+      className="rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group relative"
       onClick={onClick}
+      initial="initial"
+      whileHover="hover" // 👈 applies to all children with variants
     >
-      {/* Image Section */}
+      {/* Image Section with Hover Overlay */}
       <div className="relative overflow-hidden md:mx-6 mb-4">
         <img
           src={image}
           alt={heading}
-          className="md:w-[34.125rem] md:h-[22.4375rem] h-[20rem] rounded-lg object-cover rounded-xl"
+          className="h-full w-full md:w-[34.125rem] md:h-[22.4375rem] h-[20rem] rounded-lg object-cover rounded-xl transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-      </div>
 
-      {/* Footer Section */}
-      <div className="px-6 pb-6">
-        <div className="flex bg-[#fffef2] md:max-w-5/7 flex rounded-r-lg flex-wrap items-center gap-2 text-xs text-gray-500 uppercase tracking-wide relative bottom-12 pb-4 right-6 md:right-0 p-1">
-          <div className="flex items-center text-[12px] font-[600] inter-placeholder text-[#1d322d] space-x-1 border border-[#1d322d] p-1 rounded-md relative md:top-1 md:left-1">
-            <Calendar className="w-3 h-3" />
-            <span className='text-[12px] font-[600] inter-placeholder text-[#1d322d]'>{date}</span>
-          </div>
-          <span className="px-2 text-[12px] font-[600] inter-placeholder text-[#1d322d] py-1 bg-gray-100 rounded border-[#1d322d] border p-1 md:left-1 left-1 rounded-md relative md:top-1">
-            {type}
-          </span>
-          <div className="flex text-[12px] font-[600] inter-placeholder text-[#1d322d] items-center space-x-1 border p-1 border-[#1d322d] rounded-md relative md:top-1 md:left-1">
-            <Clock className="w-3 h-3" />
-            <span className='text-[12px] font-[600] inter-placeholder text-[#1d322d]'>{readingTime}</span>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-700 ease-out rounded-xl flex items-center justify-center">
+          <div className="text-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300 transform translate-y-4 group-hover:translate-y-0">
+            <h3 className="text-[#fffef2] text-xl md:text-4xl font-bold mb-4 inter-placeholder leading-tight">
+              {heading}
+            </h3>
           </div>
         </div>
       </div>
 
-      <div className="md:px-8 px-1 pb-4 relative bottom-17">
-        <h2 className="text-xl font-bold text-[#1d322d] tracking-tighter inter-placeholder md:text-[20px] md:font-[500] leading-tight mb-2 group-hover:text-gray-700 transition-colors duration-200">
-          {heading}
-        </h2>
+      {/* Footer Section */}
+      <div className="px-6 pb-6 transition-opacity duration-300">
+        <div className="flex bg-[#fffef2] inline-block pr-3 flex rounded-r-lg flex-wrap items-center gap-2 text-xs text-gray-500 uppercase tracking-wide relative bottom-12 pb-4 right-6 md:right-0 p-1">
+          <div className="flex space-x-2">
+            <div className="flex items-center md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d] space-x-1 border border-[#1d322d] p-1 rounded-md relative md:top-1 md:left-1">
+              <span className="text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d]">
+                {date}
+              </span>
+            </div>
+            <span className="md:px-2 text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d] py-1 rounded border-[#1d322d] border p-1 md:left-1 left-1 rounded-md relative md:top-1">
+              {type}
+            </span>
+            <div className="flex text-[12px] md:font-[600] inter-placeholder text-[#1d322d] items-center space-x-1 border p-1 border-[#1d322d] rounded-md relative md:top-1 md:left-1">
+              <span className="text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d]">
+                {readingTime}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </article>
+
+      {/* Title + Arrow */}
+      <div className="md:px-8 px-1 pb-4 relative bottom-17">
+        {/* Arrow */}
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24" height="24"
+          viewBox="0 0 24 24"
+          fill="none" stroke="currentColor"
+          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          className="absolute top-1 left-8 w-4 h-4 text-[#1d322d]"
+          variants={arrowVariants}
+        >
+          <path d="m15 10 5 5-5 5" />
+          <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+        </motion.svg>
+
+        {/* Title */}
+        <motion.h2
+          className="bg-[#fffef2] z-10 text-xl font-bold text-[#1d322d] tracking-tighter inter-placeholder md:text-[20px] md:font-[500] leading-tight mb-2 transition-colors duration-200 group-hover:text-gray-700"
+          variants={titleVariants}
+        >
+          {heading}
+        </motion.h2>
+      </div>
+    </motion.article>
   )
 }
 
@@ -61,10 +107,10 @@ const BlogSection = ({
   onCardClick = () => { }
 }) => {
   return (
-    <div className='max-w-8xl px-6 mx-auto'>
+    <div className='max-w-8xl px-4 md:px-6 mx-auto'>
       {/* Header Section */}
-      <div className="flex flex-col relative md:left-10">
-        <div className="flex items-center gap-3 justify-center lg:justify-start">
+      <div className="flex flex-col relative  md:left-10">
+        <div className="flex items-center  justify-center relative right-2 md:right-0 lg:justify-start">
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5 text-[#009F93]"
             viewBox="0 0 24 24"
@@ -79,9 +125,10 @@ const BlogSection = ({
           </span>
         </div>
         <h2
-          className="text-md font-[900] md:text-[48px] flex mx-auto md:w-full md:mx-auto md:font-[700] mb-6 sm:mb-8 inter-placeholder tracking-tighter leading-[1] text-[#009F93]"
-          style={{ color: "#009F93", fontSize: "43px" }}
+          className="text-4xl font-[600] md:font-[900] md:text-[48px] flex mx-auto md:w-full md:mx-auto md:font-[700] mb-6 sm:mb-8 inter-placeholder tracking-tighter leading-[1] text-[#009F93]"
         >
+
+
           {title}
         </h2>
       </div>
@@ -104,8 +151,6 @@ const BlogSection = ({
     </div>
   )
 }
-
-
 
 // Sample data for each section (you can keep this in separate files)
 const featuredArticles = [
@@ -208,44 +253,56 @@ const tipsAndTricks = [
   },
 ]
 
-
 const Cards = () => {
+  const [navItem, setNavItem] = useState("all");
+
+  console.log(navItem)
+
   return (
     <>
-      <Navigation />
-      <BlogSection
-        articles={featuredArticles}
-        title="Featured"
-        subtitle="Premier Insights"
-        onCardClick={(article) => console.log(article)}
-      />
+      <Navigation setNavItem={setNavItem} />
 
-      <BlogSection
-        articles={tipsAndTricks}
-        title="Tips & Tricks"
-        subtitle="Practical Guidance"
-        onCardClick={(article) => console.log(article)}
-      />
+      <div id="featured">
+        <BlogSection
+          articles={featuredArticles}
+          title="Featured"
+          subtitle="Premier Insights"
+          onCardClick={(article) => console.log(article)}
+        />
+      </div>
 
-      <BlogSection
-        articles={newsAndUpdates}
-        title="News & Updates"
-        subtitle="Latest Developments"
-        onCardClick={(article) => console.log(article)}
-      />
+      <div id="tips">
+        <BlogSection
+          articles={tipsAndTricks}
+          title="Tips & Tricks"
+          subtitle="Practical Guidance"
+          onCardClick={(article) => console.log(article)}
+        />
+      </div>
 
-      <BlogSection
-        articles={articlesAndAnalysis}
-        title="Articles and Analysis"
-        subtitle="Insights"
-        onCardClick={(article) => console.log(article)}
-      />
+      <div id="news">
+        <BlogSection
+          articles={newsAndUpdates}
+          title="News & Updates"
+          subtitle="Latest Developments"
+          onCardClick={(article) => console.log(article)}
+        />
+      </div>
 
-
-
-
+      <div id="articles">
+        <BlogSection
+          articles={articlesAndAnalysis}
+          title="Articles and Analysis"
+          subtitle="Insights"
+          onCardClick={(article) => console.log(article)}
+        />
+      </div>
+      
+      <div id="all">
+        <BlogListing />
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default Cards

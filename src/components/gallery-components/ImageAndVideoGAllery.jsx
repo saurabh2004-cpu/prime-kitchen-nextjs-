@@ -44,6 +44,7 @@ const mediaItems = [
         image: "/apartment-kitchen-2.png",
         type: "video",
         videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
+        duration: "2:45"
     },
     {
         id: "7",
@@ -51,23 +52,40 @@ const mediaItems = [
         image: "/luxury-bathroom-renovation-showcase.png",
         type: "video",
         videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
+        duration: "3:20"
+    },
+    {
+        id: "8",
+        title: "Kitchen Design Tour",
+        image: "/apartment-kitchen-2.png",
+        type: "video",
+        videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
+        duration: "2:45"
+    },
+    {
+        id: "9",
+        title: "Bathroom Renovation",
+        image: "/luxury-bathroom-renovation-showcase.png",
+        type: "video",
+        videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
+        duration: "3:20"
     },
 ]
 
 export default function TabbedGallery() {
     const [activeTab, setActiveTab] = useState("photos")
-    const [selectedVideo, setSelectedVideo] = useState(null)
+    const [playingVideo, setPlayingVideo] = useState(null)
 
     const filteredItems = mediaItems.filter((item) =>
         activeTab === "photos" ? item.type === "photo" : item.type === "video",
     )
 
-    const openVideo = (videoUrl) => {
-        setSelectedVideo(videoUrl)
+    const playVideo = (videoId) => {
+        setPlayingVideo(videoId)
     }
 
-    const closeVideo = () => {
-        setSelectedVideo(null)
+    const stopVideo = () => {
+        setPlayingVideo(null)
     }
 
     // Animation variants
@@ -123,7 +141,7 @@ export default function TabbedGallery() {
             {activeTab === "photos" && <HeaderTitle title={'Portfolio - Showcase -Inspiration - About us -'} />}
             {activeTab === "videos" && <HeaderTitle title={' Videos - Stories -'} />}
 
-            <div className="w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="w-full max-w-8xl mx-auto px-4 md:px-22 py-8">
                 {/* Tab Navigation */}
                 <div className="flex gap-2 mb-8 mx-auto w-full justify-center">
                     <motion.button
@@ -166,9 +184,9 @@ export default function TabbedGallery() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className={`grid gap-4 sm:gap-6 ${activeTab === "photos"
+                    className={`grid gap-4 ${activeTab === "photos"
                         ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-                        : "grid-cols-1 md:grid-cols-2"
+                        : "grid-cols-1 sm:grid-cols-2 max-w-8xl mx-auto"
                         }`}
                 >
                     <AnimatePresence mode="popLayout">
@@ -177,44 +195,98 @@ export default function TabbedGallery() {
                                 key={item.id}
                                 variants={itemVariants}
                                 layout
-                                className="group cursor-pointer mx-auto w-full"
+                                className="group cursor-pointer"
                             >
-                                <div className="relative h-[300px] sm:h-[350px] md:h-[421px] w-full overflow-hidden rounded-lg bg-gray-100">
-                                    <Image
-                                        src={item.image || "/placeholder.svg"}
-                                        alt={item.title}
-                                        fill
-                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
-                                    />
-
-                                    {/* Hover overlay for photos */}
-                                    {item.type === "photo" && (
-                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    )}
-
-                                    {/* Play button for videos */}
-                                    {item.type === "video" && (
-                                        <div 
-                                            className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                                            onClick={() => openVideo(item.videoUrl)}
-                                        >
-                                            <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-black/80 transition-colors">
-                                                <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
-                                            </div>
+                                {activeTab === "photos" ? (
+                                    // Photo card layout (existing)
+                                    <>
+                                        <div className="relative h-[300px] sm:h-[350px] md:h-[380px] w-full overflow-hidden rounded-lg bg-gray-100">
+                                            <Image
+                                                src={item.image || "/placeholder.svg"}
+                                                alt={item.title}
+                                                fill
+                                                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                            />
+                                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         </div>
-                                    )}
-                                </div>
+                                        <h3 className="mt-3 text-lg font-[500] inter-placeholder text-[#1d322d] group-hover:text-teal-600 transition-colors">
+                                            {item.title}
+                                        </h3>
+                                    </>
+                                ) : (
+                                    // Video card layout with inline video player
+                                    <div className="relative aspect-video bg-gray-100 overflow-hidden rounded-lg">
+                                        {playingVideo === item.id ? (
+                                            // Show video iframe when playing
+                                            <div className="relative w-full h-full">
+                                                <iframe
+                                                    src={`${item.videoUrl}?autoplay=1&rel=0&modestbranding=1`}
+                                                    className="w-full h-full"
+                                                    allowFullScreen
+                                                    title={item.title}
+                                                    allow="autoplay; encrypted-media"
+                                                />
+                                                {/* Close button */}
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation()
+                                                        stopVideo()
+                                                    }}
+                                                    className="absolute top-2 right-2 bg-black/70 text-white rounded-full p-1.5 hover:bg-black/90 transition-colors z-10"
+                                                >
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            // Show thumbnail with play button when not playing
+                                            <>
+                                                <Image
+                                                    src={item.image || "/placeholder.svg"}
+                                                    alt={item.title}
+                                                    fill
+                                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                                />
+                                                
+                                                {/* Dark overlay */}
+                                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
+                                                
+                                                {/* YouTube-style play button */}
+                                                <div 
+                                                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                                                    onClick={() => playVideo(item.id)}
+                                                >
+                                                    <motion.div 
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className="w-16 h-16 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:bg-red-600 transition-all duration-300"
+                                                    >
+                                                        <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
+                                                    </motion.div>
+                                                </div>
 
-                                {/* Title */}
-                                <h3 className="mt-3 text-sm font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
-                                    {item.title}
-                                </h3>
+                                                {/* YouTube branding in top right */}
+                                                <div className="absolute top-3 right-3">
+                                                    <div className="bg-black/70 px-2 py-1 rounded text-white text-xs font-bold">
+                                                        YouTube
+                                                    </div>
+                                                </div>
+
+                                                {/* Duration in bottom right */}
+                                                {item.duration && (
+                                                    <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                                                        {item.duration}
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
+                                    </div>
+                                )}
                             </motion.div>
                         ))}
                     </AnimatePresence>
                 </motion.div>
-
-               
             </div>
         </>
     )

@@ -36,7 +36,7 @@ const HeaderTitle = ({ title }) => {
   };
 
   return (
-    <div ref={ref} className="w-full bg-[#FFFEF2] px-4 py-8 md:py-12 flex justify-center items-center overflow-hidden">
+    <div ref={ref} className="w-full bg-[#FFFEF2] px-4 py-8 md:mt-18 flex justify-center items-center overflow-hidden">
       <div className="w-full overflow-hidden">
         <motion.div
           className="flex whitespace-nowrap"

@@ -29,15 +29,11 @@ const ReviewCard = ({ review }) => {
         }
     };
 
-
-
     return (
         <div
             className={`rounded-2xl max-h-screen shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden bg-[#f7f6e9] mb-4 ${getSizeClasses()}`}
         >
-
             <div className="flex align-center items-center justify-between p-4">
-                {/* Stars */}
                 <div className="flex items-center gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                         <Star
@@ -47,35 +43,22 @@ const ReviewCard = ({ review }) => {
                         />
                     ))}
                 </div>
-                {/* Source */}
                 <div className="mt-auto">
-                    <span className="text-[12px]  font-medium inter-placeholder uppercase tracking-wide text-[#1d322d] tracking-tighter font-semibold">
+                    <span className="text-[12px] font-medium inter-placeholder uppercase tracking-wide text-[#1d322d] tracking-tighter font-semibold">
                         {review.source}
                     </span>
                 </div>
-
             </div>
 
-            {/* Image or Video */}
             {review.type === "image" && (
                 <div className={`${getImageHeight()} overflow-hidden`}>
-                    <img
-                        src={review.image}
-                        alt={review.reviewer}
-                        className="w-full h-full object-cover"
-                    />
+                    <img src={review.image} alt={review.reviewer} className="w-full h-full object-cover" />
                 </div>
             )}
 
             {review.type === "video" && (
-                <div
-                    className={`relative ${getImageHeight()} bg-gray-200 overflow-hidden`}
-                >
-                    <img
-                        src={review.videoThumbnail}
-                        alt="Video thumbnail"
-                        className="w-full h-full object-cover"
-                    />
+                <div className={`relative ${getImageHeight()} bg-gray-200 overflow-hidden`}>
+                    <img src={review.videoThumbnail} alt="Video thumbnail" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
                         <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
                             <Play className="w-5 h-5 text-gray-700 ml-1" />
@@ -84,30 +67,18 @@ const ReviewCard = ({ review }) => {
                 </div>
             )}
 
-            {/* Content */}
             <div className="p-4 flex flex-col h-full">
-                {/* Reviewer Info */}
                 <div className="mb-3">
-                    <p className="font-[700] i inter-placeholder text-[#1d322d] text-[20px] text-base">
-                        {review.reviewer}
-                    </p>
+                    <p className="font-[700] inter-placeholder text-[#1d322d] text-[20px] text-base">{review.reviewer}</p>
                     <p className="text-[12px] font-medium inter-placeholder text-[#1d322d]">{review.location}</p>
                 </div>
 
-
-                {/* Review Text */}
                 <p
-                    className={`ext-[16px] font-medium inter-placeholder text-[#1d322d] ${review.size === "small"
-                        ? "text-sm"
-                        : review.size === "large"
-                            ? "text-base"
-                            : "text-sm"
+                    className={`ext-[16px] font-medium inter-placeholder text-[#1d322d] ${review.size === "small" ? "text-sm" : review.size === "large" ? "text-base" : "text-sm"
                         }`}
                 >
                     {review.text}
                 </p>
-
-
             </div>
         </div>
     );
@@ -115,6 +86,9 @@ const ReviewCard = ({ review }) => {
 
 export default function MasonryReviews() {
     const scrollRef = useRef(null);
+    const col2FirstRef = useRef(null);
+    const col3FirstRef = useRef(null);
+    const [phase, setPhase] = useState(1);
     const [scrollY, setScrollY] = useState(0);
 
     const reviews = [
@@ -330,38 +304,54 @@ export default function MasonryReviews() {
         }
     ];
 
-    // Track scroll for parallax
-    useEffect(() => {
-        const handleScroll = () => {
-            if (scrollRef.current) {
-                setScrollY(scrollRef.current.scrollTop);
-            }
-        };
-        const el = scrollRef.current;
-        el?.addEventListener("scroll", handleScroll);
-        return () => el?.removeEventListener("scroll", handleScroll);
-    }, []);
-
     // Split into columns
     const column1 = reviews.filter((_, i) => i % 3 === 0);
     const column2 = reviews.filter((_, i) => i % 3 === 1);
     const column3 = reviews.filter((_, i) => i % 3 === 2);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!scrollRef.current) return;
+            const el = scrollRef.current;
+            setScrollY(el.scrollTop);
+
+            const containerTop = el.getBoundingClientRect().top;
+            const col3Rect = col3FirstRef.current?.getBoundingClientRect();
+            const col2Rect = col2FirstRef.current?.getBoundingClientRect();
+
+            // Phase control
+            if (phase === 1 && col3Rect && col3Rect.top - containerTop <= col3Rect.height / 2) {
+                setPhase(2);
+            }
+            if (phase === 2 && col2Rect && col2Rect.top - containerTop <= col2Rect.height / 2) {
+                setPhase(3);
+            }
+
+            // Reverse scroll
+            if (phase === 3 && col2Rect && col2Rect.top - containerTop > col2Rect.height / 2) {
+                setPhase(2);
+            }
+            if (phase === 2 && col3Rect && col3Rect.top - containerTop > col3Rect.height / 2) {
+                setPhase(1);
+            }
+        };
+
+        const el = scrollRef.current;
+        el?.addEventListener("scroll", handleScroll);
+        return () => el?.removeEventListener("scroll", handleScroll);
+    }, [phase]);
+
     return (
         <section className="py-16 px-4 md:px-8 lg:px-16">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
-
-
-                {/* Unified Scroll Area */}
                 <div
                     ref={scrollRef}
-                    className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px] scrollbar-hide overflow-y-scroll scroll-smooth snap-y snap-mandatory scrollbar-thin scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-400"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px] overflow-y-scroll scrollbar-hide scroll-smooth snap-y snap-mandatory"
                 >
                     {/* Column 1 */}
                     <div
                         className="flex flex-col"
-                        style={{ transform: `translateY(${scrollY * 0.05}px)` }} // parallax slow
+                        style={{ transform: phase === 3 ? `translateY(${scrollY * 0.05}px)` : "none" }}
                     >
                         {column1.map((r) => (
                             <div key={r.id} className="snap-start">
@@ -373,10 +363,10 @@ export default function MasonryReviews() {
                     {/* Column 2 */}
                     <div
                         className="flex flex-col"
-                        style={{ transform: `translateY(${scrollY * -0.05}px)` }} // parallax opposite
+                        style={{ transform: phase >= 2 ? `translateY(${scrollY * -0.05}px)` : "none" }}
                     >
-                        {column2.map((r) => (
-                            <div key={r.id} className="snap-start">
+                        {column2.map((r, i) => (
+                            <div key={r.id} ref={i === 0 ? col2FirstRef : null} className="snap-start">
                                 <ReviewCard review={r} />
                             </div>
                         ))}
@@ -385,10 +375,10 @@ export default function MasonryReviews() {
                     {/* Column 3 */}
                     <div
                         className="flex flex-col"
-                        style={{ transform: `translateY(${scrollY * 0.1}px)` }} // slightly faster
+                        style={{ transform: phase >= 1 ? `translateY(${scrollY * 0.1}px)` : "none" }}
                     >
-                        {column3.map((r) => (
-                            <div key={r.id} className="snap-start">
+                        {column3.map((r, i) => (
+                            <div key={r.id} ref={i === 0 ? col3FirstRef : null} className="snap-start">
                                 <ReviewCard review={r} />
                             </div>
                         ))}
