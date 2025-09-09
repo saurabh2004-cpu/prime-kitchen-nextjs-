@@ -14,17 +14,22 @@ import ServicesGrid from "@/components/home-components/ServicesGrid";
 import ServicesHeader from "@/components/home-components/ServicesHeader";
 import SpecialitiesSection from "@/components/home-components/SpecialitiesSection";
 import Footer from "@/components/home-components/Footer";
+import { useState } from "react";
+import ProjectShowcase from "@/components/home-components/ProjectsShowcase";
 
 export default function Home() {
+  const [navItem, setNavItem] = useState("");
   return (
     <>
-      <Navbar />
+      <Navbar setNavItem={setNavItem} />
       <Hero />
       <AboutUs />
       <ProjectsHeader />
       <NewProjectsSection />
-      <ServicesHeader />
-      <ServicesGrid />
+      <div id="Services">
+        <ServicesHeader />
+        <ServicesGrid />
+      </div>
       <ImagesGrid />
       <ReviewsHeader />
       <ReviewsCarousel />

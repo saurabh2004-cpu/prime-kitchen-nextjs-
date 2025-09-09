@@ -63,7 +63,7 @@ const Navigation = ({ className = "", setNavItem }) => {
                   <button
                     key={item.label}
                     className={`px-4 py-2 text-[14px] font-medium mx-1 rounded-full transition-all duration-200 ease-in-out ${activeItem === item.label
-                        ? 'bg-gray-900 text-white'
+                        ? 'bg-[#1d322d] text-orange-300'
                         : 'text-gray-700 border border-gray-300 hover:bg-gray-100 hover:border-gray-400'
                       }`}
                     onClick={() => handleNavClick(item)}

@@ -78,7 +78,7 @@ export default function Hero() {
                 variants={slideUpVariants}
               >
                 <motion.p
-                  className="text-gray-600 text-lg leading-relaxed font-medium pr-0  lg:pr-20"
+                  className="text-[#1d322d]/65 text-[17px] leading-relaxed font-[500] pr-0  lg:pr-20"
                   whileHover={{ color: "#374151" }}
                 >
                   With a commitment to sustainability and innovative solutions where we craft beautiful, functional spaces
@@ -137,17 +137,24 @@ export default function Hero() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <blockquote className="text-gray-600 text-md leading-relaxed mb-3 font-medium">
+                  <blockquote className="text-[#1d322d]/65 text-md leading-relaxed mb-3 font-medium">
                     "{quotes[currentQuote].text} - {quotes[currentQuote].author}"
                   </blockquote>
                   {/* <cite className="text-gray-900 font-semibold text-sm">- {quotes[currentQuote].author}</cite> */}
                 </motion.div>
 
                 <div className="flex space-x-2 mt-4">
-                  <div className="w-8 h-0.5 bg-gray-900"></div>
-                  <div className="w-6 h-0.5 bg-gray-400"></div>
-                  <div className="w-4 h-0.5 bg-gray-300"></div>
+                  {quotes.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`h-0.5 rounded-full transition-all duration-300 ${index === currentQuote
+                          ? "w-8 bg-gray-900"   // Active line (longer & darker)
+                          : "w-4 bg-gray-300"   // Inactive lines (shorter & lighter)
+                        }`}
+                    ></div>
+                  ))}
                 </div>
+
               </motion.div>
             </motion.div>
           </motion.div>

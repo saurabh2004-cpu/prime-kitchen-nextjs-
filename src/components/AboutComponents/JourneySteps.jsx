@@ -72,7 +72,7 @@ export default function JourneySteps() {
                         </svg>
                         <span className="text-xs font-medium md:font-semibold text-[#009F93] tracking-wider inter-placeholder font-bold">OUR APPROACH</span>
                     </div>
-                    <h2 className="text-3xl font-[900]  md:text-[48px] font-[900]  mb-8 sm:mb-12 lg:mb-8 inter-placeholder text-[#009F93]" style={{ color: '#009F93' }}>
+                    <h2 className="text-3xl font-[900]  md:text-[48px] font-[900] tracking-tighter  mb-8 sm:mb-12 lg:mb-8 inter-placeholder text-[#009F93]" style={{ color: '#009F93' }}>
                         This is our journey with you
                     </h2>
                 </div>

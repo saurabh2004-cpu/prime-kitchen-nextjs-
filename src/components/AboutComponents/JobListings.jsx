@@ -64,7 +64,7 @@ const JobListings = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-[#f2f1e6]">
       <style jsx>{`
         @keyframes slideInUp {
           from {
@@ -118,7 +118,7 @@ const JobListings = () => {
         }
       `}</style>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-slide-in-up">
           <div className="flex items-center justify-center text-sm space-x-3">
@@ -142,7 +142,7 @@ const JobListings = () => {
               key={job.id}
               data-id={job.id}
               data-job-card
-              className={`bg-[#fffef2] rounded-xl sm:rounded-2xl shadow-lg card-hover p-4 sm:p-6 lg:p-8 transition-all duration-700 ${getAnimationClass(job.id)}`}
+              className={`bg-[#fffef2] rounded-xl sm:rounded-2xl shadow-lg max-h-58 card-hover p-4 sm:p-6 lg:p-8 transition-all duration-700 ${getAnimationClass(job.id)}`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Desktop Layout - Hidden on mobile/tablet */}

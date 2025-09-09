@@ -212,22 +212,22 @@ const SpecialtiesSection = () => {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <motion.div
-                    className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative top-5 md:bottom-5 md:right-3 "
+                    className="flex justify-center md:justify-start items-center  mb-4 md:mb-6 relative top-5 md:bottom-10  md:right-3 "
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <svg className="w-6 h-6 md:w-8 md:h-8 text-[#009f93]" viewBox="0 0 30 30" fill="none" stroke="currentColor">
+                    <svg className="w-6 h-6 md:w-8 md:h-8 text-[#009f93] relative md:bottom-10" viewBox="0 0 30 30" fill="none" stroke="currentColor">
                         <circle cx="12" cy="12" r="6" strokeWidth="2" />
                         <circle cx="12" cy="12" r="3.2" fill="currentColor" />
                     </svg>
-                    <span className="text-xs font-semibold md:text-[12px] ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative md:bottom-1 md:right-3">
+                    <span className="text-xs font-semibold md:text-[12px]  relative md:bottom-11 ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative md:bottom-1 md:right-3">
                         OUR SPECIALITIES
                     </span>
                 </motion.div>
 
-                <div className="text-white">
+                <div className="">
                     <motion.div 
                         className="mb-4 md:mb-6"
                         initial={{ opacity: 0, y: 20 }}
@@ -235,7 +235,7 @@ const SpecialtiesSection = () => {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8  md:px-2 font-bold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
+                        <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8  md:px-2 font-semibold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
                             Why you'll love working with Prime
                         </h1>
                     </motion.div>

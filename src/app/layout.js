@@ -8,7 +8,7 @@ import { CustomizerContextProvider } from "@/context/CustomizerContext";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400"],
+  weight: ["300", "400","500","600","700",],
 });
 
 const satisfy = Satisfy({

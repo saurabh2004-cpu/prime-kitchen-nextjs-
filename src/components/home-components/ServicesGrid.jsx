@@ -269,7 +269,7 @@ export default function ServicesGrid() {
 
                 <div className="text-center space-y-4">
                   <motion.h3
-                    className="text-[24px] w-3/5 font-bold md:w-4/5 md:text-stroke-md ms:text-stroke-[#1d322d]-900 text-shadow-xs text-shadow-gray-900 md:text-[30px] inter-placeholder md:font-black text-[#1d322d] leading-[1.2] text-start"
+                    className="text-[24px] w-3/5 font-bold md:w-4/5 md:text-stroke-md ms:text-stroke-[#1d322d]-900  md:text-[30px] inter-placeholder md:font-black text-[#1d322d] leading-[1.2] text-start"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}

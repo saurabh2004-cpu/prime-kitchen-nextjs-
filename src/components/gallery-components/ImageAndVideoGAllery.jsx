@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play, VideoIcon } from "lucide-react"
+import { Play, PlayIcon, VideoIcon, Youtube } from "lucide-react"
 import { IconVideo } from "@tabler/icons-react"
 import HeaderTitle from "../common/HeaderTitle"
 import { motion, AnimatePresence } from "framer-motion"
@@ -113,12 +113,12 @@ export default function TabbedGallery() {
     }
 
     const tabVariants = {
-        inactive: { 
+        inactive: {
             scale: 1,
             backgroundColor: "#f3f4f6",
             color: "#4b5563"
         },
-        active: { 
+        active: {
             scale: 1.05,
             backgroundColor: "#0d9488",
             color: "#ffffff",
@@ -135,6 +135,70 @@ export default function TabbedGallery() {
             }
         }
     }
+
+    // Card hover animation variants (similar to blog cards)
+    const arrowVariants = {
+        initial: { opacity: 0, x: 10 },
+        hover: { opacity: 1, x: 0, transition: { duration: 0.4, } }
+    }
+
+    const titleVariants = {
+        initial: { x: 0 },
+        hover: { x: 24, transition: { duration: 0.4, ease: "easeOut" } }
+    }
+
+    // Video card variants
+    const videoCardVariants = {
+        initial: { scale: 1 },
+        hover: {
+            scale: 1.02,
+            transition: { duration: 0.3, ease: "easeOut" }
+        }
+    }
+
+    const videoTitleVariants = {
+        initial: { x: 0, y: 0 },
+        hover: {
+            x: 20,
+            y: -5,
+            transition: { duration: 0.4, ease: "easeOut" }
+        }
+    }
+
+    const videoArrowVariants = {
+        initial: { opacity: 0, x: -15, y: 5 },
+        hover: {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            transition: { duration: 0.4, ease: "easeOut" }
+        }
+    }
+    const getYouTubeVideoId = (link) => {
+        try {
+            const url = new URL(link);
+            let videoId = "";
+
+            if (url.hostname.includes("youtu.be")) {
+                videoId = url.pathname.slice(1);
+            } else if (url.searchParams.get("v")) {
+                videoId = url.searchParams.get("v");
+            } else if (url.pathname.includes("/embed/")) {
+                videoId = url.pathname.split("/embed/")[1];
+            }
+
+            return videoId || null;
+        } catch {
+            return null;
+        }
+    };
+
+    const getYouTubeThumbnail = (link) => {
+        const videoId = getYouTubeVideoId(link);
+        return videoId
+            ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+            : null;
+    };
 
     return (
         <>
@@ -196,26 +260,64 @@ export default function TabbedGallery() {
                                 variants={itemVariants}
                                 layout
                                 className="group cursor-pointer"
+                                initial="initial"
+                                whileHover="hover"
                             >
                                 {activeTab === "photos" ? (
-                                    // Photo card layout (existing)
+                                    // Photo card layout with enhanced hover effects
                                     <>
                                         <div className="relative h-[300px] sm:h-[350px] md:h-[380px] w-full overflow-hidden rounded-lg bg-gray-100">
                                             <Image
                                                 src={item.image || "/placeholder.svg"}
                                                 alt={item.title}
                                                 fill
-                                                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
-                                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
+
+                                            {/* Optional: Add overlay content on hover */}
+
                                         </div>
-                                        <h3 className="mt-3 text-lg font-[500] inter-placeholder text-[#1d322d] group-hover:text-teal-600 transition-colors">
-                                            {item.title}
-                                        </h3>
+                                        <div className="md:px-8 px-1 pb-4 relative md:mt-3">
+                                            {/* Arrow */}
+                                            <motion.svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                                className="absolute top-1 left-4 w-4 h-4 -z-10 text-[#1d322d] hidden md:inline-block"
+                                                variants={arrowVariants} // keep your existing variants
+                                            >
+                                                <path d="m15 10 5 5-5 5" />
+                                                <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+                                            </motion.svg>
+                                            <motion.svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor"
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                                className="absolute top-1  w-5 h-5 font-medium  text-[#1d322d] md:hidden block"
+                                            >
+                                                <path d="m15 10 5 5-5 5" />
+                                                <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+                                            </motion.svg>
+
+                                            <motion.h2
+                                                className="md:bg-[#fffef2] z-10 text-xl font-lg md:font-semibold text-[#1d322d] relative left-6 md:left-0 md:right-5 inter-placeholder md:text-[16px] md:font-[600] mb-2 transition-colors duration-200 group-hover:text-gray-700"
+                                                variants={titleVariants} // keep your existing variants
+                                            >
+                                                {item.title}
+                                            </motion.h2>
+                                        </div>
                                     </>
                                 ) : (
-                                    // Video card layout with inline video player
-                                    <div className="relative aspect-video bg-gray-100 overflow-hidden rounded-lg">
+                                    // Video card layout with enhanced hover effects
+                                    <motion.div
+                                        className="relative aspect-video bg-gray-100 overflow-hidden rounded-lg"
+                                        variants={videoCardVariants}
+                                    >
                                         {playingVideo === item.id ? (
                                             // Show video iframe when playing
                                             <div className="relative w-full h-full">
@@ -240,48 +342,36 @@ export default function TabbedGallery() {
                                                 </button>
                                             </div>
                                         ) : (
-                                            // Show thumbnail with play button when not playing
                                             <>
-                                                <Image
-                                                    src={item.image || "/placeholder.svg"}
-                                                    alt={item.title}
-                                                    fill
-                                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                                />
-                                                
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src={getYouTubeThumbnail(item.videoUrl) || "/placeholder.svg"}
+                                                        alt={item.title}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                        className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-lg"
+                                                    />
+                                                </div>
+
                                                 {/* Dark overlay */}
-                                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
-                                                
-                                                {/* YouTube-style play button */}
-                                                <div 
+                                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/40 transition-all duration-500" />
+
+                                                {/* Play button */}
+                                                <div
                                                     className="absolute inset-0 flex items-center justify-center cursor-pointer"
                                                     onClick={() => playVideo(item.id)}
                                                 >
-                                                    <motion.div 
+                                                    <motion.div
                                                         whileHover={{ scale: 1.1 }}
                                                         whileTap={{ scale: 0.95 }}
-                                                        className="w-16 h-16 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:bg-red-600 transition-all duration-300"
+                                                        className="w-16 h-12 bg-black/80 opacity-80 backdrop-blur-sm rounded-2xl flex items-center justify-center "
                                                     >
-                                                        <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
+                                                        <PlayIcon className="w-8 h-8 text-white ml-1" fill="#fff" />
                                                     </motion.div>
                                                 </div>
-
-                                                {/* YouTube branding in top right */}
-                                                <div className="absolute top-3 right-3">
-                                                    <div className="bg-black/70 px-2 py-1 rounded text-white text-xs font-bold">
-                                                        YouTube
-                                                    </div>
-                                                </div>
-
-                                                {/* Duration in bottom right */}
-                                                {item.duration && (
-                                                    <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs px-2 py-1 rounded">
-                                                        {item.duration}
-                                                    </div>
-                                                )}
                                             </>
                                         )}
-                                    </div>
+                                    </motion.div>
                                 )}
                             </motion.div>
                         ))}

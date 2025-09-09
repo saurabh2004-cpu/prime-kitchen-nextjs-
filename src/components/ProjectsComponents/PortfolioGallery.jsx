@@ -68,176 +68,124 @@ const PortfolioGallery = () => {
   ]
 
   const filteredProjects =
-    activeFilter === "All" ? projects : projects.filter((project) => project.category === activeFilter)
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter)
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
+  const handleFilterChange = (filter) => {
+    if (filter !== activeFilter) setActiveFilter(filter)
   }
 
+  // Card fade-in/out animation
   const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.3,
-      },
-    },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
   }
 
-  const filterVariants = {
-    active: {
-      backgroundColor: "#009F93",
-      color: "#ffffff",
-      scale: 1.05,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
-    inactive: {
-      backgroundColor: "transparent",
-      color: "#1F2937",
-      scale: 1,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
+  const arrowVariants = {
+    initial: { opacity: 0, x: -10 },
+    hover: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  }
+
+  const titleVariants = {
+    initial: { x: 0 },
+    hover: { x: 24, transition: { duration: 0.4, ease: "easeOut" } }
   }
 
   return (
-    <section className="py-12  lg:py-10 px-4  lg:px-8">
+    <section className="py-12 lg:py-10 px-2 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
+
         {/* Filter Buttons */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
           {filters.map((filter) => (
-            <motion.button
+            <button
               key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-4 sm:px-6 py-2 md:h-[36px] sm:py-3 align-middle justify-center items-center flex rounded-full font-medium text-sm sm:text-base border-2 border-[#009F93] transition-all duration-300 ${activeFilter === filter
-                ? "bg-[#009F93] text-yellow shadow-lg"
-                : "bg-transparent text-[#009F93] hover:bg-[#009F93]/10"
+              onClick={() => handleFilterChange(filter)}
+              className={`px-4 sm:px-6 py-2 md:h-[36px] sm:py-3 flex items-center justify-center rounded-full font-medium text-sm sm:text-base border-2 transition-all duration-300 ${activeFilter === filter
+                ? "bg-[#009F93] text-white  shadow-lg"
+                : "bg-transparent text-[#009F93] border-[#009F93] hover:bg-[#009F93]/10"
                 }`}
-              variants={filterVariants}
-              animate={activeFilter === filter ? "active" : "inactive"}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               {filter}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Projects Grid */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-items-center"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
+        <motion.div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-16">
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
               <motion.div
-                key={`${activeFilter}-${project.id}`}
-                className="group relative ' rounded-2xl overflow-hidden  transition-all duration-500"
-                style={{ width: "300px", minHeight: "400px" }}
-                variants={cardVariants}
+                key={project.id}
                 layout
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.3 },
-                }}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="group relative rounded-lg overflow-hidden md:w-[320px] md:min-h-[400px] cursor-pointer"
+                // style={{ width: "320px", minHeight: "400px" }}
+                whileHover="hover" // <-- added this
               >
-                {/* Image Container with Overlay Tags */}
-                <div className="relative overflow-hidden" style={{ height: "320px" }}>
-                  <motion.img
+                {/* Image */}
+                <div className="relative w-full" style={{ height: "320px" }}>
+                  <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
+                    className="w-full h-full object-cover rounded-lg transition-transform duration-500 "
                   />
-
-
-
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center z-10">
-                    <div className="text-center px-6">
-                      <h3
-                        className="text-[#fffef2] font-bold leading-tight text-3xl font-bold font-poppins shadow-md"
-                       
-                      >
-                        {project.title}
-                      </h3>
-                    </div>
+                    <h3 className="text-white text-3xl text-[#1d322d] inter-placeholder font-bold text-center px-6">
+                      {project.title}
+                    </h3>
                   </div>
                 </div>
+                
 
-                {/* Title Container - Below image */}
-                <div className="p-4 ">
+                {/* Title below image */}
+                <div className="p-4 relative">
+                  <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24"
+                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor"
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    className="absolute top-5 left-4 w-4 h-4 -z-10 text-[#1d322d]"
+                    variants={arrowVariants} // keep your existing variants
+                  >
+                    <path d="m15 10 5 5-5 5" />
+                    <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+                  </motion.svg>
 
-
-                  <h3
-                    className="text-gray-800 font-medium leading-tight group-hover:text-[#009F93] transition-colors duration-300"
-                    style={{
-                      fontSize: "18px",
-                      fontWeight: 500,
-                      fontFamily: "Poppins, sans-serif",
-                    }}
+                  <motion.h2
+                    className="bg-[#fffef2] z-10 text-xl font-bold text-[#1d322d] tracking-tighter inter-placeholder md:text-[16px] md:font-[600] mb-2 transition-colors duration-200 group-hover:text-gray-700"
+                    variants={titleVariants} // keep your existing variants
                   >
                     {project.title}
-                  </h3>
-                </div>
+                  </motion.h2>
 
-                {/* Category Tags - Positioned at bottom left of image */}
-                <div className="relative flex gap-2 z-20 bg-[#fffef2] p-1 rounded-r-lg md:bottom-20  inline-block ">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 ' text-gray-800 text-xs mx-1 font-medium rounded-md border border-[#1d322d] tracking-tighter"
-                      style={{
-                        fontSize: "11px",
-                        fontWeight: 500,
-                        fontFamily: "Poppins, sans-serif",
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Category Tags */}
+                  <div className="relative flex gap-2 z-20 bg-[#fffef2] p-1 rounded-r-lg right-4 bottom-18 inline-block">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 text-gray-800 text-xs mx-1 font-semibold rounded-md border border-[#1d322d]"
+                        style={{
+                          fontSize: "11px",
+                          fontFamily: "Poppins, sans-serif",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
-
             ))}
           </AnimatePresence>
+
         </motion.div>
 
         {/* Empty State */}
@@ -255,5 +203,26 @@ const PortfolioGallery = () => {
     </section>
   )
 }
+
+
+const CurvedOverlay = ({ position = "top", color = "transparent" }) => {
+  // Curve paths for top and bottom
+  const paths = {
+    top: "M0,90 C95,80 75,120 100,100 L100,0 L0,0 Z",
+    bottom: "M0,0 C25,20 75,-20 100,0 L100,100 L0,100 Z",
+  };
+
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      className="w-full h-full pointer-events-none relative inset-0"
+    >
+      <path d={paths[position]} fill={color} />
+    </svg>
+  );
+};
+
+
 
 export default PortfolioGallery

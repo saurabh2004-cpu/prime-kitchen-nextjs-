@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import MobileHeaderTitle from "./MobileHeaderTitle";
 
 const HeaderTitle = ({ title }) => {
   const [ref, inView] = useInView({
@@ -36,32 +37,35 @@ const HeaderTitle = ({ title }) => {
   };
 
   return (
-    <div ref={ref} className="w-full bg-[#FFFEF2] px-4 py-8 md:mt-18 flex justify-center items-center overflow-hidden">
-      <div className="w-full overflow-hidden">
-        <motion.div
-          className="flex whitespace-nowrap"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <motion.h1
-            className="text-[#009f93] tracking-tighter text-[clamp(35px,95vw,38px)] md:text-[clamp(100px,60vw,160px)] inter-placeholder font-semibold whitespace-nowrap"
-            variants={scrollVariants}
-            animate="animate"
+    <>
+      {/* <MobileHeaderTitle title={title} className="md:hidden"/> */}
+      <div ref={ref} className=" w-full bg-[#FFFEF2] px-4 py-8 mt-18 flex justify-center items-center overflow-hidden">
+        <div className="w-full overflow-hidden">
+          <motion.div
+            className="flex whitespace-nowrap"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
           >
-            {scrollingText}
-          </motion.h1>
-          {/* Duplicate for seamless loop */}
-          <motion.h1
-            className="text-[#009f93] text-[clamp(35px,95vw,38px)] md:text-[clamp(100px,60vw,150px)] inter-placeholder font-semibold whitespace-nowrap"
-            variants={scrollVariants}
-            animate="animate"
-          >
-            {scrollingText}
-          </motion.h1>
-        </motion.div>
+            <motion.h1
+              className="text-[#009f93] tracking-tighter text-[clamp(80px,40vw,100px)]  md:text-[clamp(100px,60vw,160px)] inter-placeholder font-medium md:font-semibold whitespace-nowrap"
+              variants={scrollVariants}
+              animate="animate"
+            >
+              {scrollingText}
+            </motion.h1>
+            {/* Duplicate for seamless loop */}
+            <motion.h1
+              className="text-[#009f93]  md:text-[clamp(100px,60vw,150px)] inter-placeholder font-semibold whitespace-nowrap"
+              variants={scrollVariants}
+              animate="animate"
+            >
+              {scrollingText}
+            </motion.h1>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

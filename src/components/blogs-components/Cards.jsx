@@ -25,6 +25,8 @@ const ArticleCard = ({
     hover: { x: 24, transition: { duration: 0.4, ease: "easeOut" } }
   }
 
+  
+
   return (
     <motion.article
       className="rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group relative"
@@ -37,13 +39,13 @@ const ArticleCard = ({
         <img
           src={image}
           alt={heading}
-          className="h-full w-full md:w-[34.125rem] md:h-[22.4375rem] h-[20rem] rounded-lg object-cover rounded-xl transition-transform duration-700 group-hover:scale-110"
+          className="h-full w-full md:w-[34.125rem] md:h-[22.4375rem] h-[20rem] rounded-lg object-cover rounded-xl transition-transform duration-700 "
         />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-700 ease-out rounded-xl flex items-center justify-center">
           <div className="text-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300 transform translate-y-4 group-hover:translate-y-0">
-            <h3 className="text-[#fffef2] text-xl md:text-4xl font-bold mb-4 inter-placeholder leading-tight">
+            <h3 className="text-[#fffef2] text-xl md:text-4xl font-[700] mb-4 inter-placeholder tracking-tighter">
               {heading}
             </h3>
           </div>
@@ -51,19 +53,19 @@ const ArticleCard = ({
       </div>
 
       {/* Footer Section */}
-      <div className="px-6 pb-6 transition-opacity duration-300">
-        <div className="flex bg-[#fffef2] inline-block pr-3 flex rounded-r-lg flex-wrap items-center gap-2 text-xs text-gray-500 uppercase tracking-wide relative bottom-12 pb-4 right-6 md:right-0 p-1">
+      <div className="px-6 pb-6 transition-opacity duration-300 -mb-16">
+        <div className="flex bg-[#fffef2] inline-block pr-3 flex rounded-r-lg flex-wrap items-center gap-2 text-xs  uppercase tracking-wide relative bottom-12 pb-4 right-6 md:right-0 p-1">
           <div className="flex space-x-2">
-            <div className="flex items-center md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d] space-x-1 border border-[#1d322d] p-1 rounded-md relative md:top-1 md:left-1">
-              <span className="text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d]">
+            <div className="flex items-center md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d]/80 space-x-1 border border-[#1d322d] p-1 rounded-md relative md:top-1 md:left-1">
+              <span className="text-xs md:text-[11px] md:font-[600] inter-placeholder text-[#1d322d]/80">
                 {date}
               </span>
             </div>
-            <span className="md:px-2 text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d] py-1 rounded border-[#1d322d] border p-1 md:left-1 left-1 rounded-md relative md:top-1">
+            <span className="md:px-2 text-xs md:text-[11px] md:font-[600] inter-placeholder text-[#1d322d]/80 py-1 rounded border-[#1d322d] border p-1 md:left-1 left-1 rounded-md relative md:top-1">
               {type}
             </span>
-            <div className="flex text-[12px] md:font-[600] inter-placeholder text-[#1d322d] items-center space-x-1 border p-1 border-[#1d322d] rounded-md relative md:top-1 md:left-1">
-              <span className="text-xs md:text-[12px] md:font-[600] inter-placeholder text-[#1d322d]">
+            <div className="flex text-[12px] md:font-[600] inter-placeholder text-[#1d322d]/80 items-center space-x-1 border p-1 border-[#1d322d] rounded-md relative md:top-1 md:left-1">
+              <span className="text-xs md:text-[11px] font-[400] md:font-[600] inter-placeholder text-[#1d322d]/80">
                 {readingTime}
               </span>
             </div>
@@ -72,7 +74,7 @@ const ArticleCard = ({
       </div>
 
       {/* Title + Arrow */}
-      <div className="md:px-8 px-1 pb-4 relative bottom-17">
+      <div className="md:px-8 px-1 pb-4 relative bottom-4 md:top-1">
         {/* Arrow */}
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +91,7 @@ const ArticleCard = ({
 
         {/* Title */}
         <motion.h2
-          className="bg-[#fffef2] z-10 text-xl font-bold text-[#1d322d] tracking-tighter inter-placeholder md:text-[20px] md:font-[500] leading-tight mb-2 transition-colors duration-200 group-hover:text-gray-700"
+          className="bg-[#fffef2] z-10 text-lg  font-[500] md:font-[500] text-[#1d322d] md:tracking-tighter inter-placeholder md:text-[19px] md:font-[500]  leading-tight mb-2 transition-colors duration-200 "
           variants={titleVariants}
         >
           {heading}
@@ -255,6 +257,14 @@ const tipsAndTricks = [
 
 const Cards = () => {
   const [navItem, setNavItem] = useState("all");
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  }
 
   console.log(navItem)
 
@@ -262,45 +272,75 @@ const Cards = () => {
     <>
       <Navigation setNavItem={setNavItem} />
 
-      <div id="featured">
+      <motion.div
+        id="featured"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUpVariants}
+      >
         <BlogSection
           articles={featuredArticles}
           title="Featured"
           subtitle="Premier Insights"
           onCardClick={(article) => console.log(article)}
         />
-      </div>
+      </motion.div>
 
-      <div id="tips">
+      <motion.div
+        id="tips"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUpVariants}
+      >
         <BlogSection
           articles={tipsAndTricks}
           title="Tips & Tricks"
           subtitle="Practical Guidance"
           onCardClick={(article) => console.log(article)}
         />
-      </div>
+      </motion.div>
 
-      <div id="news">
+      <motion.div
+        id="news"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUpVariants}
+      >
         <BlogSection
           articles={newsAndUpdates}
           title="News & Updates"
           subtitle="Latest Developments"
           onCardClick={(article) => console.log(article)}
         />
-      </div>
+      </motion.div>
 
-      <div id="articles">
+      <motion.div
+        id="articles"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUpVariants}
+      >
         <BlogSection
           articles={articlesAndAnalysis}
           title="Articles and Analysis"
           subtitle="Insights"
           onCardClick={(article) => console.log(article)}
         />
-      </div>
-      
-      <div id="all">
+      </motion.div>
+
+      <motion.div
+        id="all"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUpVariants}
+      >
         <BlogListing />
-      </div>
+      </motion.div>
     </>
   );
 };

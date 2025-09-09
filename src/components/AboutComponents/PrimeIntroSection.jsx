@@ -125,7 +125,7 @@ const PrimeIntroStyled = () => {
     };
 
     return (
-        <section className="w-full  md:px-8 py-8 md:pt-24 bg-[#1f3630] min-h-screen rounded-t-4xl md:rounded-t-2xl">
+        <section className="w-full  md:px-8 py-8 md:pt-24 bg-[#1f3630] min-h-screen rounded-t-2xl md:rounded-t-2xl">
             <motion.div
                 className="flex items-center justify-start md:justify-start space-x-1 mb-3 sm:ml-4 md:ml-0"
                 variants={fadeInUp}
@@ -147,7 +147,7 @@ const PrimeIntroStyled = () => {
                         className="space-y-8 md:space-y-12"
                     >
                         <motion.div variants={itemVariants} className="space-y-6">
-                            <p className="text-3xl md:font-bold leading-tight text-[#fdfcee] inter-placeholder md:pr-8">
+                            <p className="text-3xl md:font-medium leading-tight text-[#fdfcee] inter-placeholder md:pr-8">
                                 Welcome to Prime a preme interior design studio where innovation meets elegance. Established in 2010 by visionary designer Real Mehedi, Prime has grown from a humble home office to an internationally recognized name in the world of interior design. Our mission is to create unique, functional, and sustainable living spaces that enhance the quality of life for our clients.
                             </p>
 
@@ -297,8 +297,8 @@ const PrimeIntroStyled = () => {
                             className="bg-[#2c5f4f] h-44 rounded-2xl p-4 text-white flex flex-col justify-center"
                         >
                             <p className="text-7xl  font-bold inter-placeholder text-[#fffef2] text-start border-b">8+</p>
-                            <p className="text-lg font-medium text-[#fffef2] text-start inter-placeholder mt-6">Prestigious Awards</p>
-                            <p className="mt-2 text-[#fffef2]/85 text-[14px] mb-4 flex items-end h-1/5 inter-placeholder mt-2">
+                            <p className="text-lg font-bold text-[#fffef2] text-start inter-placeholder mt-6"style={{ fontWeight: 900 }}>Prestigious Awards</p>
+                            <p className="mt-2 text-[#fffef2]/85 text-[14px] mb-4 flex items-end h-1/5 inter-placeholder relative">
                                 Over 8 Awards won showcasing our extensive experience and portfolio.
                             </p>
                         </motion.div>

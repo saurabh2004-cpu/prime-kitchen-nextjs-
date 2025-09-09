@@ -61,7 +61,7 @@ export default function AboutUs() {
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
         >
-          <div className="text-[26px] font-[700] text-shadow-md shadow-[#2d322d] md:font-semibold md:px-2 text-[#1D322D] text-start lg:text-[32px] leading-tight tracking-[-1px] inter-placeholder md:pl-32 md:pt-12 md:ml-16" style={{ fontWeight: 540 }}>
+          <div className="text-[26px] font-[700]  md:font-semibold md:px-2 text-[#1D322D] text-start lg:text-[32px] leading-tight tracking-[-1px] inter-placeholder md:pl-32 md:pt-12 md:ml-16" style={{ fontWeight: 540 }}>
             <span className="inline-block w-8 md:w-20"></span>
             {paragraphLines.map((line, index) => (
               <motion.span
