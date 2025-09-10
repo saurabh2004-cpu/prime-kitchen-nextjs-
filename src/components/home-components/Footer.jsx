@@ -191,7 +191,7 @@ const Footer = () => {
                                 {/* Submit Button */}
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#00374b] md:text[16px] md:font-medium text-[#fffef2] font-medium py-3 px-6 hover:/75 hover:bg-[#00374b]/75 rounded-lg inter-placeholder  transition-colors"
+                                    className="w-full bg-[#165a65]  md:text[16px] md:font-medium text-[#fffef2] font-medium py-3 px-6 hover:/75  rounded-lg inter-placeholder  transition-colors"
                                 >
                                     Request Free Estimate
                                 </button>
@@ -275,7 +275,7 @@ const Footer = () => {
                                 />
                                 <button
                                     type="submit"
-                                    className="w-full px-6 py-3 bg-[#00374b] md:text[24px] md:font-medium inter-placeholder rounded-md text-[#fdfcee] font-medium hover:bg-gray-200 text-sm uppercase rounded-md"
+                                    className="w-full px-6 py-3 bg-[#165a65] md:text[24px] md:font-medium inter-placeholder rounded-md text-[#fdfcee] font-medium hover:bg-gray-200 text-sm uppercase rounded-md"
                                 >
                                     Submit
                                 </button>

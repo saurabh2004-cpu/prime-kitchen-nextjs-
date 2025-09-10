@@ -27,8 +27,6 @@ function AnimatedCounter({ value, duration = 2 }) {
     return <span ref={ref}>{displayValue}</span>
 }
 
-
-
 export default function NewProjectsSection() {
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
@@ -51,26 +49,29 @@ export default function NewProjectsSection() {
     }
 
     return (
-        <div className=" bg-[#FFFEF2] ">
-            <div className=" mx-auto flex flex-col-reverse md:flex-row px-4 lg:px-8 py-8 md:py-0  md:justify-between">
-                <div className="grid grid-cols-1  md:w-6/7  items-start">
-                    {/* Left Side - Projects */}
-                    <div className="space-y-8">
-                        <ProjectShowcase />
+        <div className="bg-[#FFFEF2]">
+            <div className="mx-auto   flex flex-col-reverse md:flex-row px-4 lg:px-8 py-8 md:py-0 md:justify-between md:h-[130vh]">
+                <div className="grid grid-cols-1 md:relative md:right-15  items-start">
+                    <div className="h-full  overflow-y-auto scrollbar-thin scrollbar-hide scrollbar-thumb-gray-300 scrollbar-track-transparent pr-4">
+                        <div className="space-y-18 py-6">
+                            <ProjectShowcase />
+                        </div>
                     </div>
-
                 </div>
-                {/* Right Side - Stats */}
-                <div className="md:relative md:left-12 md:w-3/8 md:bottom-10">
-                    <motion.div
-                        className="space-y-8 lg:space-y-12"
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                    >
-                        <StatsSection />
-                    </motion.div>
+                
+                {/* Right Side - Static Stats */}
+                <div className=" relative md:bottom-10 md:right-40  md:py-8">
+                    <div className="sticky top-8">
+                        <motion.div
+                            className="space-y-8 lg:space-y-12"
+                            variants={staggerContainer}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                        >
+                            <StatsSection />
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

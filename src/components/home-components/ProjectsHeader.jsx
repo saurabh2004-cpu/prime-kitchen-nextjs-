@@ -24,7 +24,7 @@ export default function ProjectsHeader() {
   }
 
   return (
-    <section className="bg-[#FFFEF2] py-15 md:mt-8 lg:py-2 relative md:mb-10">
+    <section className="bg-[#FFFEF2] py-15 md:mt-8 lg:py-2 relative md:mb-10 md:min-h-[40vh]">
       <div className="max-w-7xl min-h-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="relative flex justify-center items-center"

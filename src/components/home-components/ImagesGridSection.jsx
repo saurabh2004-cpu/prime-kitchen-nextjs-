@@ -86,19 +86,19 @@ const ImagesGrid = () => {
                         display: "block",
                       }}
                     />
-                    <div className="absolute inset-0 bg-[#2c5f4f]/30 hover:bg-[#2c5f4f]/10 transition-colors duration-300 rounded-[12px]" />
+                    {/* <div className="absolute inset-0 bg-[#2c5f4f]/30 hover:bg-[#2c5f4f]/10 transition-colors duration-300 rounded-[12px]" /> */}
                   </div>
                 ))}
               </motion.div>
             </div>
           ))}
 
-          <div className="absolute  inset-0 flex flex-col items-center justify-center z-10 text-center ">
-            <div className="absolute inset-0 bg-[#ffffff]/20 bg-blur z-[-1]    transition-colors duration-300 sm:relative top-50 rounded-[12px] h-[160px] md:h-[172px]  md:top-1/7 md:w-[400px] md:left-48 md:-translate-x-1/2" >
-              <h2 className="text-3xl font-bold text-[#1F3630] z-10 realtive ">Get inspired by our</h2>
-              <h2 className="text-3xl font-bold text-[#1F3630]">1000+ project images</h2>
+          <div className="absolute  inset-0 flex flex-col items-center justify-center z-10 text-center md:bottom-5 ">
+            <div className="absolute inset-0     transition-colors duration-300 sm:relative top-50 rounded-[12px] h-[160px] md:h-[172px]  md:top-1/7 md:w-[550px] md:left-68 md:-translate-x-1/2" >
+              <h2 className="text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder ">Get inspired by our</h2>
+              <h2 className="text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder">1000+ project images</h2>
             </div>
-            <div className="flex gap-2 mt-4">
+            <div className="flex gap-2 mt-4 md:mt-8">
               <motion.button
                 className="bg-[#FDFCEE] z-10 text-[#1F3630] px-6 py-3 rounded-xl font-semibold"
                 whileHover={{ scale: 1.05 }}

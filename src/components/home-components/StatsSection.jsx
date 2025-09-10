@@ -99,7 +99,7 @@ export default function StatsSection() {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="md:space-y-6 text-left bg-[#F7F6E9] rounded-2xl px-4 my-2 pb-4 md:pb-0 md:my-0"
+                className="md:space-y-6 text-left bg-[#F7F6E9] min-w-[22rem] rounded-2xl px-4 my-2 pb-4 md:pb-0 md:my-0"
                 variants={cardVariants}
                 custom={index}
                 initial="hidden"

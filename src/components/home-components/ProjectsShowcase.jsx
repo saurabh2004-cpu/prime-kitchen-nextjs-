@@ -70,7 +70,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div
-          className="flex flex-col lg:flex-row items-start md:gap-8 lg:gap-16 rounded-3xl p-6 my-2 min-h-[80vh] lg:min-h-[70vh] shadow-xl"
+          className="flex flex-col lg:flex-row items-start md:gap-8 lg:gap-16 rounded-3xl p-6 my-2 min-h-[80vh] lg:min-h-[70vh] "
           style={{ backgroundColor: color }}
         >
           {/* Left - Categories */}
@@ -166,8 +166,8 @@ const Card = ({ title, description, src, color, categories, i }) => {
 
 const ProjectShowcase = () => {
   return (
-    <div className="relative h-[175vh] md:min-h-[200vh] ">
-      <div className="relative  z-10 md:bottom-9">
+    <div className="relative   ">
+      <div className="relative md:max-h-screen  md:bottom-9">
         {projects.map((project, i) => (
           <Card key={i} {...project} i={i} />
         ))}

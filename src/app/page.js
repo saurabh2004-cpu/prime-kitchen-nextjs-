@@ -26,10 +26,8 @@ export default function Home() {
       <AboutUs />
       <ProjectsHeader />
       <NewProjectsSection />
-      <div id="Services">
-        <ServicesHeader />
-        <ServicesGrid />
-      </div>
+      <ServicesHeader />
+      <ServicesGrid />
       <ImagesGrid />
       <ReviewsHeader />
       <ReviewsCarousel />
