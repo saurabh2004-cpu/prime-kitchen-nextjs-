@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, ReactElement } from 'react';
 import { useLocation } from 'react-router';
 

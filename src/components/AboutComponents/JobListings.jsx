@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRight, Calendar, DollarSign, Clock, MapPin } from 'lucide-react';
 
