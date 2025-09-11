@@ -359,7 +359,7 @@ const PrimeIntroStyled = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.3 }}
                                 variants={fadeUp}
-                                className="bg-[#f7f6e9] h-[12.4rem] mt-4 max-h-[8.6rem] rounded-2xl p-6 flex flex-col justify-center"
+                                className="bg-[#f7f6e9] h-[12.8rem] mt-4 max-h-[8.9rem] md:max-h-[8.85rem] rounded-2xl p-6 flex flex-col justify-center"
                             >
                                 <p className="text-[71px] font-bold text-[#1d322d] mx-auto inter-placeholder">150+</p>
                                 <p className="text-base text-[#1d322d] mx-auto inter-placeholder">Happy Clients</p>

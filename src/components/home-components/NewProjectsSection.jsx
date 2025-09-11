@@ -50,9 +50,12 @@ export default function NewProjectsSection() {
 
     return (
         <div className="bg-[#FFFEF2]">
+            <div className="bg-[#FFFEF2] p-4 h-[87px] absolute w-full z-10 "></div>
             <div className="mx-auto   flex flex-col-reverse md:flex-row px-4 lg:px-8 py-8 md:py-0 md:justify-between md:h-[130vh]">
-                <div className="grid grid-cols-1 md:relative md:right-15  items-start">
-                    <div className="h-full  overflow-y-auto scrollbar-thin scrollbar-hide scrollbar-thumb-gray-300 scrollbar-track-transparent pr-4">
+
+
+                <div className="grid grid-cols-1 md:relative md:right-15  items-start ">
+                    <div className="h-full  overflow-y-auto scrollbar-thin overflow-x-hidden scrollbar-hide scrollbar-thumb-gray-300 scrollbar-track-transparent pr-4">
                         <div className="space-y-18 py-6">
                             <ProjectShowcase />
                         </div>

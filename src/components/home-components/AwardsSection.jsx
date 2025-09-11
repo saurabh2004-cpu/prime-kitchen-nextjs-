@@ -26,24 +26,24 @@ const BranchesSection = () => {
     const branches = [
         {
             location: "Branch 1 - Chatrapati Sambhaji Nagar",
-            title: "MODERN LUXURY KITCHEN",
+            title: "Modern Luxury Kitchen",
             image: "/images/image-315.png",
         },
         {
             location: "Branch 2 - Chatrapati Sambhaji Nagar",
-            title: "TIMELESS ITALIAN KITCHEN",
+            title: "Timeless Italian Kitchen",
             image: "/images/image-316.png",
         },
         {
             location: "Branch 3 - Jalna",
-            title: "PREMIUM KITCHEN LIVING",
+            title: "Premium Kitchen Living",
             image: "/images/image-317.png",
         },
     ]
 
     return (
-         <div className="w-full  md:pt-16 md:mt-24  mx-auto relative md:left-1" >
-            <div className="  md:mx-auto bg-[#1f3630] rounded-2xl py-8 px-6 md:px-12 "style={{ minHeight: "1200px" }}>
+         <div className="  md:pt-16 md:mt-24 md:mx-1   mx-auto relative " >
+            <div className="  md:mx-auto bg-[#1f3630]  rounded-2xl py-8 px-6 md:px-12 relative "style={{ minHeight: "1200px" }}>
                 <motion.div
                     className="flex flex-col md:mt-10"
                     variants={staggerContainer}
@@ -77,9 +77,9 @@ const BranchesSection = () => {
                                 variants={fadeInUp}
                                 whileHover={{ y: -5 }}
                             >
-                                <div className=" p-2 md:p-6 pb-4">
-                                    <p className="text-sm text-white/80 font-medium mb-3 md:text-[18px] md:font-normal inter-placeholder text-start">{branch.location}</p>
-                                    <h3 className="font-inter text-[#fffef2] inter-placeholder uppercase tracking-normal leading-[63.33px]  text-2xl md:text-[40px] md:font-[600] leading-none"
+                                <div className=" p-2 md:py-6 pb-4">
+                                    <p className="text-sm text-[#fffef2] font-medium mb-3 md:text-[18px] md:font-bold inter-placeholder text-start">{branch.location}</p>
+                                    <h3 className="font-inter text-[#fffef2] inter-placeholder  tracking-normal leading-[63.33px]  text-2xl md:text-[40px] md:font-bold leading-none"
                                        >
                                         {branch.title}
                                     </h3>
@@ -96,7 +96,7 @@ const BranchesSection = () => {
                                     {/* View services button - positioned at bottom-left of image */}
                                     <div className="absolute bottom-6 left-6">
                                         <button className=" backdrop-blur-[2px] text-white py-3 px-6 rounded-md font-semibold text-sm uppercase tracking-wider  transition-all duration-200 flex items-center gap-2">
-                                            <span className="inter-placeholder font-semibold">VIEW SERVICES</span>
+                                            <span className="inter-placeholder font-bold text-white">VIEW SERVICES</span>
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                 <path d="M7 17L17 7M17 7H7M17 7V17" />
                                             </svg>
