@@ -31,8 +31,24 @@ body {
   overflow-x: hidden !important;
 }
 
-html, body {
-  overflow-x: hidden;
+body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Ensure containers don't exceed viewport width */
+* {
+    box-sizing: border-box;
+}
+
+body{
+    overflow-y: hidden;
+}
+
+/* Or target specific elements */
+body {
+    margin: 0;
+    padding: 0;
 }
 
 html {
