@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play, PlayIcon, VideoIcon, Youtube } from "lucide-react"
+import { Play, PlayIcon, VideoIcon, Youtube, X } from "lucide-react"
 import { IconVideo } from "@tabler/icons-react"
 import HeaderTitle from "../common/HeaderTitle"
 import { motion, AnimatePresence } from "framer-motion"
@@ -75,6 +75,8 @@ const mediaItems = [
 export default function TabbedGallery() {
     const [activeTab, setActiveTab] = useState("photos")
     const [playingVideo, setPlayingVideo] = useState(null)
+    const [fullscreenImage, setFullscreenImage] = useState(null)
+    const [videoPopup, setVideoPopup] = useState(null)
 
     const filteredItems = mediaItems.filter((item) =>
         activeTab === "photos" ? item.type === "photo" : item.type === "video",
@@ -86,6 +88,22 @@ export default function TabbedGallery() {
 
     const stopVideo = () => {
         setPlayingVideo(null)
+    }
+
+    const openFullscreenImage = (item) => {
+        setFullscreenImage(item)
+    }
+
+    const closeFullscreenImage = () => {
+        setFullscreenImage(null)
+    }
+
+    const openVideoPopup = (item) => {
+        setVideoPopup(item)
+    }
+
+    const closeVideoPopup = () => {
+        setVideoPopup(null)
     }
 
     // Animation variants
@@ -174,6 +192,40 @@ export default function TabbedGallery() {
             transition: { duration: 0.4, ease: "easeOut" }
         }
     }
+
+    // Modal animation variants
+    const modalVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
+        exit: {
+            opacity: 0,
+            scale: 0.8,
+            transition: {
+                duration: 0.2,
+                ease: "easeIn"
+            }
+        }
+    }
+
+    const backdropVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { duration: 0.2 }
+        },
+        exit: {
+            opacity: 0,
+            transition: { duration: 0.2 }
+        }
+    }
+
     const getYouTubeVideoId = (link) => {
         try {
             const url = new URL(link);
@@ -262,6 +314,13 @@ export default function TabbedGallery() {
                                 className="group cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
+                                onClick={() => {
+                                    if (activeTab === "photos") {
+                                        openFullscreenImage(item)
+                                    } else {
+                                        openVideoPopup(item)
+                                    }
+                                }}
                             >
                                 {activeTab === "photos" ? (
                                     // Photo card layout with enhanced hover effects
@@ -357,10 +416,7 @@ export default function TabbedGallery() {
                                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/40 transition-all duration-500" />
 
                                                 {/* Play button */}
-                                                <div
-                                                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                                                    onClick={() => playVideo(item.id)}
-                                                >
+                                                <div className="absolute inset-0 flex items-center justify-center cursor-pointer">
                                                     <motion.div
                                                         whileHover={{ scale: 1.1 }}
                                                         whileTap={{ scale: 0.95 }}
@@ -378,6 +434,98 @@ export default function TabbedGallery() {
                     </AnimatePresence>
                 </motion.div>
             </div>
+
+            {/* Full-Screen Image Modal */}
+            <AnimatePresence>
+                {fullscreenImage && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+                        variants={backdropVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        onClick={closeFullscreenImage}
+                    >
+                        {/* Close button */}
+                        <button
+                            onClick={closeFullscreenImage}
+                            className="absolute top-4 right-4 z-60 bg-white/10 text-white rounded-full p-2 hover:bg-white/20 transition-colors"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+
+                        {/* Full-screen image */}
+                        <motion.div
+                            className="relative max-w-[95vw] max-h-[95vh] w-full h-full"
+                            variants={modalVariants}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Image
+                                src={fullscreenImage.image}
+                                alt={fullscreenImage.title}
+                                fill
+                                className="object-contain"
+                                sizes="95vw"
+                                priority
+                            />
+                            
+                            {/* Image title */}
+                            {/* <div className="absolute bottom-4 left-4 right-4">
+                                <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2">
+                                    <h3 className="text-white text-lg font-medium">{fullscreenImage.title}</h3>
+                                </div>
+                            </div> */}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Video Popup Modal */}
+            <AnimatePresence>
+                {videoPopup && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+                        variants={backdropVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        onClick={closeVideoPopup}
+                    >
+                        {/* Close button */}
+                        <button
+                            onClick={closeVideoPopup}
+                            className="absolute top-4 right-4 z-60 bg-white/10 text-white rounded-full p-2 hover:bg-white/20 transition-colors"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+
+                        {/* Video popup */}
+                        <motion.div
+                            className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden"
+                            variants={modalVariants}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <iframe
+                                src={`${videoPopup.videoUrl}?autoplay=1&rel=0&modestbranding=1`}
+                                className="w-full h-full"
+                                allowFullScreen
+                                title={videoPopup.title}
+                                allow="autoplay; encrypted-media"
+                            />
+                            
+                            {/* Video title */}
+                            {/* <div className="absolute -bottom-12 left-0 right-0">
+                                <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2">
+                                    <h3 className="text-white text-lg font-medium">{videoPopup.title}</h3>
+                                    {videoPopup.duration && (
+                                        <p className="text-white/70 text-sm">Duration: {videoPopup.duration}</p>
+                                    )}
+                                </div>
+                            </div> */}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }

@@ -58,7 +58,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative md:h-[140vh]">
+    <div className="relative md:h-[140vh] 3xl:h-[150vh]">
       {/* hero section */}
       <section ref={heroRef} className="h-screen flex flex-col justify-center relative z-0">
         <div className="mx-auto px-4 sm:px-6 lg:px-12  md:py-16 lg:py-20 w-full">

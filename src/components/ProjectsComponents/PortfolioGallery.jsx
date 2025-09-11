@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const PortfolioGallery = () => {
   const [activeFilter, setActiveFilter] = useState("All")
+  const [hoveredImage, setHoveredImage] = useState(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const filters = ["All", "Residential", "Commercial", "Specialized"]
 
@@ -76,6 +78,26 @@ const PortfolioGallery = () => {
     if (filter !== activeFilter) setActiveFilter(filter)
   }
 
+  const handleMouseEnter = (project, event) => {
+    setHoveredImage(project)
+    updateMousePosition(event)
+  }
+
+  const handleMouseMove = (event) => {
+    updateMousePosition(event)
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredImage(null)
+  }
+
+  const updateMousePosition = (event) => {
+    setMousePosition({
+      x: event.clientX,
+      y: event.clientY
+    })
+  }
+
   // Card fade-in/out animation
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -91,6 +113,17 @@ const PortfolioGallery = () => {
   const titleVariants = {
     initial: { x: 0 },
     hover: { x: 24, transition: { duration: 0.4, ease: "easeOut" } }
+  }
+
+  const popupVariants = {
+    hidden: { opacity: 0, scale: 0.8, x: -50, y: -50 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      x: -50, 
+      y: -50,
+      transition: { duration: 0.2, ease: "easeOut" }
+    }
   }
 
   return (
@@ -125,11 +158,16 @@ const PortfolioGallery = () => {
                 animate="visible"
                 exit="exit"
                 className="group relative rounded-lg overflow-hidden md:w-[320px] md:min-h-[400px] cursor-pointer"
-                // style={{ width: "320px", minHeight: "400px" }}
-                whileHover="hover" // <-- added this
+                whileHover="hover"
               >
                 {/* Image */}
-                <div className="relative w-full" style={{ height: "320px" }}>
+                <div 
+                  className="relative w-full" 
+                  style={{ height: "320px" }}
+                  onMouseEnter={(e) => handleMouseEnter(project, e)}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
@@ -153,7 +191,7 @@ const PortfolioGallery = () => {
                     fill="none" stroke="currentColor"
                     strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                     className="absolute top-5 left-4 w-4 h-4 -z-10 text-[#1d322d]"
-                    variants={arrowVariants} // keep your existing variants
+                    variants={arrowVariants}
                   >
                     <path d="m15 10 5 5-5 5" />
                     <path d="M4 4v7a4 4 0 0 0 4 4h12" />
@@ -161,7 +199,7 @@ const PortfolioGallery = () => {
 
                   <motion.h2
                     className="bg-[#fffef2] z-10 text-xl font-bold text-[#1d322d] tracking-tighter inter-placeholder md:text-[16px] md:font-[600] mb-2 transition-colors duration-200 group-hover:text-gray-700"
-                    variants={titleVariants} // keep your existing variants
+                    variants={titleVariants}
                   >
                     {project.title}
                   </motion.h2>
@@ -200,6 +238,39 @@ const PortfolioGallery = () => {
           </motion.div>
         )}
       </div>
+
+      {/* Image Popup */}
+      {/* <AnimatePresence>
+        {hoveredImage && (
+          <motion.div
+            className="fixed pointer-events-none z-50"
+            style={{
+              left: mousePosition.x,
+              top: mousePosition.y,
+            }}
+            variants={popupVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <div className="bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-gray-200">
+              <img
+                src={hoveredImage.image}
+                alt={hoveredImage.title}
+                className="w-100 h-100 object-cover"
+              />
+              {/* <div className="p-3">
+                <h4 className="font-semibold text-sm text-gray-800 mb-1">
+                  {hoveredImage.title}
+                </h4>
+                <p className="text-xs text-gray-600">
+                  {hoveredImage.category}
+                </p>
+              </div> */}
+            {/* </div> */}
+          {/* </motion.div> */}
+        {/* )} 
+      {/* </AnimatePresence> */} 
     </section>
   )
 }

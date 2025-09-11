@@ -43,8 +43,14 @@ const reviews = [
   },
 ]
 
-const ReviewCard = ({ review, index }) => {
+const ReviewCard = ({ review, index, onExpandChange }) => {
   const [expanded, setExpanded] = useState(false)
+
+  const handleToggleExpanded = () => {
+    const newExpanded = !expanded
+    setExpanded(newExpanded)
+    onExpandChange(newExpanded)
+  }
 
   return (
     <motion.div
@@ -81,7 +87,7 @@ const ReviewCard = ({ review, index }) => {
         transition={{ duration: 0.4 }}
         className={`absolute bottom-0 left-0 w-full cursor-pointer z-20 ${expanded ? "h-[85%] px-4" : "h-[60px] px-2"
           }`}
-        onClick={() => setExpanded(!expanded)}
+        onClick={handleToggleExpanded}
       >
         <motion.img
           src={review.projectImage || "/placeholder.svg"}
@@ -116,6 +122,7 @@ export default function ReviewsCarousel() {
   const [duplicatedReviews, setDuplicatedReviews] = useState([])
   const [isHovered, setIsHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isAnyExpanded, setIsAnyExpanded] = useState(false)
 
   // Touch/drag functionality
   const x = useMotionValue(0)
@@ -135,6 +142,10 @@ export default function ReviewsCarousel() {
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
+  const handleExpandChange = (isExpanded) => {
+    setIsAnyExpanded(isExpanded)
+  }
+
   const containerVariants = {
     hidden: { opacity: 0, y: 100 },
     visible: {
@@ -152,6 +163,9 @@ export default function ReviewsCarousel() {
   const cardWidth = isMobile ? 280 + 16 : 320 + 32 // card width + margin
   const totalDistance = cardWidth * reviews.length
 
+  // Determine if carousel should be paused
+  const shouldPauseCarousel = isAnyExpanded || isHovered
+
   return (
     <motion.section
       ref={containerRef}
@@ -161,7 +175,7 @@ export default function ReviewsCarousel() {
       animate={isInView ? "visible" : "hidden"}
     >
       {/* Reviews Carousel */}
-      <div className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className="relative" >
         <motion.div
           ref={carouselRef}
           className="flex cursor-grab active:cursor-grabbing"
@@ -170,19 +184,19 @@ export default function ReviewsCarousel() {
           dragConstraints={isMobile ? { left: -totalDistance * 2, right: 0 } : {}}
           dragElastic={0.1}
           animate={
-            !isMobile
+            !isMobile && !shouldPauseCarousel
               ? {
                 x: [0, -totalDistance],
               }
               : {}
           }
           transition={
-            !isMobile
+            !isMobile && !shouldPauseCarousel
               ? {
                 x: {
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "loop",
-                  duration: isHovered ? 60 : 30, // Slower when hovered, faster normally
+                  duration: 30,
                   ease: "linear",
                 },
               }
@@ -190,7 +204,12 @@ export default function ReviewsCarousel() {
           }
         >
           {duplicatedReviews.map((review, index) => (
-            <ReviewCard key={`${review.id}-${index}`} review={review} index={index} />
+            <ReviewCard 
+              key={`${review.id}-${index}`} 
+              review={review} 
+              index={index} 
+              onExpandChange={handleExpandChange}
+            />
           ))}
         </motion.div>
       </div>

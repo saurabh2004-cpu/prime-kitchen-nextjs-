@@ -56,7 +56,7 @@ const ImagesGrid = () => {
     <section style={{ padding: "2rem 1rem", backgroundColor: "#fffef2" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-1 h-[90vh] md:h-[532px] rounded-2xl md:rounded-3xl overflow-hidden bg-[#2c5f4f] p-1 relative"
+          className="grid grid-cols-2 md:grid-cols-4 gap-1 h-[90vh] md:h-[612px] rounded-2xl md:rounded-3xl overflow-hidden bg-[#2c5f4f] p-1 relative"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
