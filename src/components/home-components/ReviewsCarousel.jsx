@@ -90,15 +90,15 @@ const ReviewCard = ({ review, index }) => {
             scale: expanded ? 1.02 : 1,
           }}
           transition={{ duration: 0.4 }}
-          className="w-full h-full object-cover rounded-lg"
+          className={`w-full h-full object-cover rounded-lg `}
           onError={(e) => {
             e.target.src = "/placeholder.svg?height=100&width=300&text=Project+Image"
           }}
         />
 
-        <div className="absolute top-2 sm:top-3 right-3 bg-black bg-opacity-50 rounded-lg p-1.5 sm:p-2">
+        <div className="absolute top-2 sm:top-3 right-3 bg-black bg-opacity-50 rounded-lg p-1.5 sm:p-2 md:mx-2">
           {expanded ? (
-            <Minimize2 className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+            <Minimize2 className="h-3 w-3 sm:h-4 sm:w-4 text-white " />
           ) : (
             <Maximize2 className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
           )}

@@ -56,7 +56,7 @@ const Footer = () => {
     return (
         <div>
             <motion.div
-                className="bg-[#1f3630] py-16 mx-2 md:mx-10 sm:px-6 lg:px-8 rounded-lg md:mt-20"
+                className="bg-[#1f3630] py-16 mx-2 md:mx-2 sm:px-6 lg:px-8 rounded-lg md:mt-20"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -202,7 +202,7 @@ const Footer = () => {
             </motion.div>
 
             <motion.footer
-                className="bg-[#1f3630] py-16 mx-2 mt-10 md:mx-10 sm:px-6 lg:px-8 rounded-lg"
+                className="bg-[#1f3630] py-16 mx-2 mt-10 md:mx-2 sm:px-6 lg:px-8 rounded-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}

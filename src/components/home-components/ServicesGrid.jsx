@@ -321,10 +321,8 @@ export default function ServicesGrid() {
             </motion.button>
 
             <motion.button
-              className="bg-[#009f93] text-[#1d322d] p-4 rounded-2xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l focus:outline-none relative z-10"
-              whileHover={{
-                scale: 1.05,
-              }}
+              className="bg-[#009f93] text-[#1d322d] p-5 rounded-2xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l focus:outline-none relative z-10"
+             
               whileTap={{ scale: 0.95 }}
               onClick={handleButtonClick}
             >
@@ -333,7 +331,7 @@ export default function ServicesGrid() {
                 transition={{ duration: 0.2 }}
                 animate={{ rotate: showAllServices ? 180 : 0 }}
               >
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 28 28">
+                <svg className="h-[22px] w-6" fill="none" stroke="currentColor" viewBox="0 0 28 28">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </motion.div>
