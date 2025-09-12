@@ -12,6 +12,19 @@ const SpecialtiesSection = () => {
 
   const toggleAccordion = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index)
+    
+    // Scroll the expanded item into view after a short delay
+    if (expandedIndex !== index && rightSectionRef.current) {
+      setTimeout(() => {
+        const accordionItem = rightSectionRef.current.children[1]?.children[1]?.children[index]
+        if (accordionItem) {
+          accordionItem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+          })
+        }
+      }, 300)
+    }
   }
 
   useEffect(() => {
@@ -249,7 +262,7 @@ const SpecialtiesSection = () => {
       {/* Right Section - Specialties */}
       <motion.div
         ref={rightSectionRef}
-        className={`w-full md:max-h-[40em] lg:w-5/5  rounded-2xl md:px-4 md:pt-6 overflow-y-auto mb-4 md:mb-0 scrollbar-hide ${isScrolling ? "scroll-smooth" : ""}`}
+        className={`w-full md:max-h-[40em] lg:w-5/5 rounded-2xl md:px-4 md:pt-6 mb-4 md:mb-0 scrollbar-hide overflow-y-auto ${isScrolling ? "scroll-smooth" : ""}`}
         variants={slideInRight}
         initial="hidden"
         whileInView="visible"
@@ -260,7 +273,7 @@ const SpecialtiesSection = () => {
         }}
       >
         <motion.div
-          className="flex justify-center md:justify-start items-center  mb-4 md:mb-6 relative top-5 md:bottom-10  md:right-3 "
+          className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative top-5 md:bottom-10 md:right-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
@@ -275,58 +288,26 @@ const SpecialtiesSection = () => {
             <circle cx="12" cy="12" r="6" strokeWidth="2" />
             <circle cx="12" cy="12" r="3.2" fill="currentColor" />
           </svg>
-          <span className="text-xs font-semibold md:text-[12px]  relative md:bottom-11 ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative md:bottom-1 md:right-3">
+          <span className="text-xs font-semibold md:text-[12px] relative md:bottom-11 ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative md:bottom-1 md:right-3">
             OUR SPECIALITIES
           </span>
         </motion.div>
 
         <div className="">
           <motion.div
-            className="mb-4 md:mb-6"
+            className="mb-4 md:mb-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8  md:px-2 font-semibold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
+            <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8 md:px-2 font-semibold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
               Why you'll love working with Prime
             </h1>
           </motion.div>
 
-          <motion.blockquote
-            className="border-l-4 border-[#f7f6e9] bg-[#F7F6E9] rounded-2xl p-4 md:p-6 mb-6 relative md:bottom-13 md:right-3 "
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <p
-              className="text-base font-[600] md:text-[1rem] md:font-medium inter-placeholder mb-4"
-              style={{ color: "#1D322D" }}
-            >
-              "Design is more than just aesthetics; it's a reflection of the soul and a journey towards creating
-              timeless spaces that resonate with individuality and purpose. At Prime, we strive to craft environments
-              that not only captivate the eye but also inspire the mind and nurture the spirit."
-            </p>
-            <div className="flex items-center flex-col md:flex-row space-x-3 justify-center align-center items-center mt-8 md:mt-0">
-              <img
-                src="https://framerusercontent.com/images/XDcRjEJ0HdfRgvjaqQFTeR8Bsk.jpg?scale-down-to=1024"
-                alt="Real Mehedi"
-                className="md:w-12 md:h-12 h-16 w-16  md:h-6 md:w-16 md:h-16 rounded-md "
-              />
-              <div className="flex flex-col  justify-center md:justify-start md:items-start  align-center items-center w-full">
-                <p className="text-[#1D322D] inter-placeholder text-base font-[600] md:text-[18px] md:font-medium">
-                  Real Mehedi
-                </p>
-                <p className="text-[#1D322D] inter-placeholder text-md font-[500] md:text-[1rem] md:font-medium">
-                  Founder, Prime Design Studio
-                </p>
-              </div>
-            </div>
-          </motion.blockquote>
-
           <motion.div
-            className="space-y-4 overflow-y-auto bg-[#1D322D] relative md:right-3 rounded-2xl md:py-3"
+            className="space-y-4 md:-mt-12 bg-[#1D322D] relative md:right-3 rounded-2xl md:py-3 pb-6"
             variants={accordionContainer}
             initial="hidden"
             whileInView="visible"
@@ -336,7 +317,7 @@ const SpecialtiesSection = () => {
               <motion.div
                 key={index}
                 variants={accordionItemVariants}
-                className="px-3  md:px-6   transition-all cursor-pointer"
+                className="px-3 md:px-6 transition-all cursor-pointer"
                 onClick={() => toggleAccordion(index)}
               >
                 <div className="flex justify-between items-center hover:bg-[#FFFFFF0D] p-2 rounded-lg">
@@ -372,7 +353,7 @@ const SpecialtiesSection = () => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden mt-2"
                     >
-                      <p className="text-[#fdfcee]/75 text-sm md:text-[16px] md:font-medium leading-relaxed relative md:left-15 md:pr-15">
+                      <p className="text-[#fdfcee]/75 text-sm md:text-[16px] md:font-medium leading-relaxed relative md:left-15 md:pr-15 pb-2">
                         {item.content}
                       </p>
                     </motion.div>

@@ -297,7 +297,7 @@ const PrimeIntroStyled = () => {
                             className="bg-[#2c5f4f] h-44 rounded-2xl p-4 text-white flex flex-col justify-center"
                         >
                             <p className="text-7xl font-bold inter-placeholder text-[#fffef2] text-start border-b">8+</p>
-                            <p className="text-lg font-bold text-[#fffef2] text-start inter-placeholder mt-6" style={{ fontWeight: 900 }}>Prestigious Awards</p>
+                            <p className="text-lg font-bold text-[#fffef2] text-start inter-placeholder mt-6" style={{ fontWeight: 900 }}>Prestigious Experience</p>
                             <p className="mt-2 text-[#fffef2]/85 text-[14px] mb-4 flex items-end h-1/5 inter-placeholder relative">
                                 Over 8 Awards won showcasing our extensive experience and portfolio.
                             </p>
@@ -441,9 +441,9 @@ const PrimeIntroStyled = () => {
                             >
                                 <p className="text-4xl lg:text-5xl xl:text-6xl font-bold inter-placeholder text-[#fffef2] border-b border-[#fffef2] pb-2">8+</p>
                                 <div>
-                                    <p className="text-sm lg:text-base font-bold text-[#fffef2] inter-placeholder">Prestigious Awards</p>
+                                    <p className="text-sm lg:text-base font-bold text-[#fffef2] inter-placeholder">Experience</p>
                                     <p className="text-xs lg:text-sm text-[#fffef2]/85 inter-placeholder mt-1">
-                                        Over 8 Awards won showcasing our extensive experience and portfolio.
+                                        Over 8 Years of experience .
                                     </p>
                                 </div>
                             </motion.div>

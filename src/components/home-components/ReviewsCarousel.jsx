@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion"
+import { motion, useInView, useMotionValue, useSpring, useAnimationControls } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 import { Maximize2, Minimize2 } from "lucide-react"
 
@@ -123,6 +123,13 @@ export default function ReviewsCarousel() {
   const [isHovered, setIsHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [isAnyExpanded, setIsAnyExpanded] = useState(false)
+  
+  // Animation controls and position tracking
+  const controls = useAnimationControls()
+  const [currentX, setCurrentX] = useState(0)
+  const [animationStartTime, setAnimationStartTime] = useState(Date.now())
+  const [pausedTime, setPausedTime] = useState(0)
+  const [totalPausedDuration, setTotalPausedDuration] = useState(0)
 
   // Touch/drag functionality
   const x = useMotionValue(0)
@@ -162,9 +169,72 @@ export default function ReviewsCarousel() {
   // Calculate card width based on screen size
   const cardWidth = isMobile ? 280 + 16 : 320 + 32 // card width + margin
   const totalDistance = cardWidth * reviews.length
+  const animationDuration = 30 // seconds
 
   // Determine if carousel should be paused
   const shouldPauseCarousel = isAnyExpanded || isHovered
+
+  // Handle hover start
+  const handleHoverStart = () => {
+    setIsHovered(true)
+    setPausedTime(Date.now())
+    if (!isMobile) {
+      controls.stop()
+    }
+  }
+
+  // Handle hover end
+  const handleHoverEnd = () => {
+    setIsHovered(false)
+    if (!isMobile && pausedTime > 0) {
+      const pauseDuration = Date.now() - pausedTime
+      setTotalPausedDuration(prev => prev + pauseDuration)
+    }
+  }
+
+  // Main animation effect
+  useEffect(() => {
+    if (!isMobile && !shouldPauseCarousel && isInView) {
+      const startAnimation = async () => {
+        // Calculate how much time has passed since the animation started (excluding paused time)
+        const elapsed = (Date.now() - animationStartTime - totalPausedDuration) / 1000
+        const cycleProgress = elapsed % animationDuration
+        const remainingTime = animationDuration - cycleProgress
+        
+        // Calculate current position based on progress
+        const progress = cycleProgress / animationDuration
+        const startPosition = -totalDistance * progress
+
+        // Start animation from current position
+        await controls.start({
+          x: [startPosition, -totalDistance],
+          transition: {
+            duration: remainingTime,
+            ease: "linear",
+          }
+        })
+
+        // Continue with infinite loop
+        controls.start({
+          x: [0, -totalDistance],
+          transition: {
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "loop",
+            duration: animationDuration,
+            ease: "linear",
+          }
+        })
+      }
+
+      startAnimation()
+    }
+  }, [shouldPauseCarousel, isMobile, isInView, controls, totalDistance, animationDuration, animationStartTime, totalPausedDuration])
+
+  // Reset animation when component mounts
+  useEffect(() => {
+    setAnimationStartTime(Date.now())
+    setTotalPausedDuration(0)
+  }, [])
 
   return (
     <motion.section
@@ -183,25 +253,9 @@ export default function ReviewsCarousel() {
           drag={isMobile ? "x" : false}
           dragConstraints={isMobile ? { left: -totalDistance * 2, right: 0 } : {}}
           dragElastic={0.1}
-          animate={
-            !isMobile && !shouldPauseCarousel
-              ? {
-                x: [0, -totalDistance],
-              }
-              : {}
-          }
-          transition={
-            !isMobile && !shouldPauseCarousel
-              ? {
-                x: {
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
-              }
-              : {}
-          }
+          animate={!isMobile ? controls : {}}
+          onHoverStart={handleHoverStart}
+          onHoverEnd={handleHoverEnd}
         >
           {duplicatedReviews.map((review, index) => (
             <ReviewCard 
@@ -213,13 +267,6 @@ export default function ReviewsCarousel() {
           ))}
         </motion.div>
       </div>
-
-      
-
-      {/* Side UI Elements */}
-     
-
-     
     </motion.section>
   )
 }
