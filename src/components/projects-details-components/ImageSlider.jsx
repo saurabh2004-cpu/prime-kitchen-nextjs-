@@ -94,102 +94,130 @@ const ImageSlider = () => {
     }, [isDragging])
 
     return (
-        <div className="w-full max-w-7xl mx-auto p-4">
-            {/* Main Container */}
-            <div
-                ref={containerRef}
-                className="relative w-full h-[400px] md:h-[500px] lg:h-[680px] overflow-hidden rounded-2xl shadow-2xl cursor-col-resize select-none"
-                style={{ aspectRatio: '16/9' }}
-            >
-                {/* Right Image (Base Layer) */}
-                <div className="absolute inset-0 w-full h-full">
-                    <img
-                        src={rightImage}
-                        alt="After renovation"
-                        className="w-full h-full object-cover "
-                        draggable={false}
-                    />
-                </div>
-
-                {/* Left Image (Clipped Layer) */}
+        <>
+            <div className="w-full max-w-5xl mx-auto p-4">
+                {/* Main Container */}
                 <div
-                    className="absolute inset-0 w-full h-full overflow-hidden"
-                    style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+                    ref={containerRef}
+                    className="relative w-full h-[400px] md:h-[500px] lg:h-[680px] overflow-hidden rounded-2xl shadow-2xl cursor-col-resize select-none"
+                    style={{ aspectRatio: '16/9' }}
                 >
-                    <img
-                        src={leftImage}
-                        alt="Before renovation"
-                        className="w-full h-full object-cover"
-                        draggable={false}
-                    />
-                </div>
+                    {/* Right Image (Base Layer) */}
+                    <div className="absolute inset-0 w-full h-full">
+                        <img
+                            src={rightImage}
+                            alt="After renovation"
+                            className="w-full h-full object-cover "
+                            draggable={false}
+                        />
+                    </div>
 
-                {/* Slider Line and Handle */}
-                <div
-                    className="absolute top-0 bottom-0 w-1 bg-white shadow-lg z-10 cursor-col-resize"
-                    style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
-                    onMouseDown={handleMouseDown}
-                    onTouchStart={handleTouchStart}
-                >
-                    {/* Slider Handle */}
-                    <div className="absolute bg-white/50  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-transparent rounded-full shadow-lg flex items-center justify-center cursor-col-resize ">
-                        {/* Left Arrow */}
-                        <svg
-                            className="w-5 h-5 text-[#1d322d] mr-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-                        </svg>
-                        {/* Right Arrow */}
-                        <svg
-                            className="w-5 h-5 text-[#1d322d] ml-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                        </svg>
+                    {/* Left Image (Clipped Layer) */}
+                    <div
+                        className="absolute inset-0 w-full h-full overflow-hidden"
+                        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+                    >
+                        <img
+                            src={leftImage}
+                            alt="Before renovation"
+                            className="w-full h-full object-cover"
+                            draggable={false}
+                        />
+                    </div>
+
+                    {/* Slider Line and Handle */}
+                    <div
+                        className="absolute top-0 bottom-0 w-1 bg-white shadow-lg z-10 cursor-col-resize"
+                        style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+                        onMouseDown={handleMouseDown}
+                        onTouchStart={handleTouchStart}
+                    >
+                        {/* Slider Handle */}
+                        <div className="absolute bg-white/50  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-transparent rounded-full shadow-lg flex items-center justify-center cursor-col-resize ">
+                            {/* Left Arrow */}
+                            <svg
+                                className="w-5 h-5 text-[#1d322d] mr-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                            </svg>
+                            {/* Right Arrow */}
+                            <svg
+                                className="w-5 h-5 text-[#1d322d] ml-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
+
+                {/* chanllenge and solution */}
+                {/* <div className="max-w-2xl mx-auto p-6 md:mt-22 inter-placeholder">
+                    <div className="space-y-8">
+                        {challengeSolutions.map((item, index) => (
+                            <div key={index} className="space-y-4">
+                                {/* Challenge Section */}
+                                {/* <div>
+                                    <h3 className="text-md  text-[#1d322d] mb-6">
+                                        <span className="font-[700]">Challenge:</span>{" "}
+                                        <span className="font-[500]">{item.challenge}</span>
+                                    </h3>
+                                    <p className="text-[#1d322d] font-medium text-md leading-relaxed mb-4">
+                                        {item.challengeDescription}
+                                    </p>
+                                </div> */}
+
+                                {/* Solution Section */}
+                                {/* <div>
+                                    <h3 className="text-md  text-[#1d322d] mb-3">
+                                        <span className="font-[700]">Solution:</span>{" "}
+                                        <span className="font-[500]">
+                                            {item.solution}
+                                        </span>
+                                    </h3>
+                                </div> */}
+                            {/* </div> */}
+                        {/* ))} */}
+                    {/* </div> */}
+                {/* </div> */} */
             </div>
-            <div className="max-w-4xl mx-auto p-6 md:mt-22 inter-placeholder">
-                <div className="space-y-8">
-                    {challengeSolutions.map((item, index) => (
-                        <div key={index} className="space-y-4">
-                            {/* Challenge Section */}
-                            <div>
-                                <h3 className="text-lg  text-[#1d322d] mb-3">
-                                    <span className="font-[600]">Challenge:</span>{" "}
-                                    <span className="font-[500]">{item.challenge}</span>
-                                </h3>
-                                <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                                    {item.challengeDescription}
-                                </p>
-                            </div>
 
-                            {/* Solution Section */}
-                            <div>
-                                <h3 className="text-lg  text-[#1d322d] mb-3">
-                                    <span className="font-[600]">Solution:</span>{" "}
-                                    <span className="font-[500]">
-                                        {item.solution}
-                                    </span>
-                                </h3>
-                            </div>
-
-                            {/* Divider between items (except last) */}
-                            {index < challengeSolutions.length - 1 && (
-                                <div className="pt-6">
-                                    <hr className="border-gray-200" />
-                                </div>
-                            )}
+            <div className="min-h-full  flex items-center justify-center p-4 sm:p-6 lg:p-8">
+                <div className="max-w-7xl w-full">
+                    {/* Main testimonial card */}
+                    <div className="bg-[#f7f6e9] rounded-lg shadow-lg p-8 sm:p-12 lg:p-16 lg:py-26 relative overflow-hidden">
+                        {/* Background decorative element */}
+                        <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 opacity-5">
+                            <svg viewBox="0 0 100 100" className="w-full h-full text-gray-400">
+                                <text x="20" y="80" fontSize="120" fontFamily="serif" fill="currentColor">"</text>
+                            </svg>
                         </div>
-                    ))}
+
+                        {/* Quote text */}
+                        <div className="relative z-10 lg:mt-12">
+                            <blockquote className="text-lg sm:text-xl lg:text-2xl xl:text-4xl inter-placeholder tracking-tight leading-tight text-[#1d322d] font-[500] text-center">
+                                " Interim has captured the essence of coastal living in every detail of our home. Their innovative design and meticulous execution have provided us with a sanctuary that is both beautiful and functional ".
+                            </blockquote>
+                        </div>
+
+                        {/* Attribution */}
+                        <div className="text-center">
+                            <div className="w-16 h-px bg-gray-300 mx-auto mb-4"></div>
+                            <p className="text-sm sm:text-[20px] text-[#1d322d]/80 font-medium inter-placeholder">
+                                Thorne Dashiell, Marine Biologist and Conservationist
+                            </p>
+                        </div>
+                    </div>
+
+                   
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
