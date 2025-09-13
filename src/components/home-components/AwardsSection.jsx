@@ -51,7 +51,7 @@ const BranchesSection = () => {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
                 >
-                    <motion.div className="flex items-center space-x-1 mb-6 text-center w-full justify-center relative top-8 right-6 md:top-19 md:right-60" variants={fadeInUp}>
+                    <motion.div className="flex items-center space-x-1 mb-6 text-center w-full justify-center relative top-8 right-10 top-10 lg:top-19 md:right-42 lg:right-60 xl:top-25 xl:right-90" variants={fadeInUp}>
                         <svg className="w-5 h-5 text-[#009f93]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <circle cx="12" cy="12" r="6" strokeWidth="2" />
                             <circle cx="12" cy="12" r="3.2" fill="currentColor" />
@@ -60,26 +60,26 @@ const BranchesSection = () => {
                     </motion.div>
 
                     <motion.h1
-                        className="text-6xl md:text-[220px] font-bold text-[#009f93] tracking-tighter  text-center w-full justify-center inter-placeholder"
+                        className="text-7xl md:text-[160px] lg:text-[300px] font-bold text-[#009f93] tracking-tighter  text-center w-full justify-center inter-placeholder"
                         variants={fadeInUp}
                     >
                         Branches
                     </motion.h1>
 
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 md:mt-0 lg:gap-8 relative md:bottom-4"
+                        className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 md:gap-0 xl:gap-6 mt-12 md:mt-0 lg:gap-8 relative md:bottom-4"
                         variants={staggerContainer}
                     >
                         {branches.map((branch, index) => (
                             <motion.div
                                 key={index}
-                                className=" rounded-lg overflow-hidden font-inter hover:shadow-xl transition-shadow duration-300 md:mt-40"
+                                className=" rounded-lg overflow-hidden font-inter hover:shadow-xl transition-shadow duration-300 md:mt-10 xl:mt-40"
                                 variants={fadeInUp}
                                 whileHover={{ y: -5 }}
                             >
                                 <div className=" p-2 md:py-6 pb-4">
-                                    <p className="text-sm text-[#fffef2] font-medium mb-3 md:text-[18px] md:font-bold inter-placeholder text-start">{branch.location}</p>
-                                    <h3 className="font-inter text-[#fffef2] inter-placeholder  tracking-normal leading-[63.33px]  text-2xl md:text-[40px] md:font-bold leading-none"
+                                    <p className="text-xs text-[#fffef2] font-medium mb-3 md:text-[16px] xl:text-[18px] md:font-bold inter-placeholder text-start">{branch.location}</p>
+                                    <h3 className="font-inter text-[#fffef2] inter-placeholder  tracking-normal leading-[63.33px]  text-2xl md:text-4xl xl:text-[40px] font-bold leading-none"
                                        >
                                         {branch.title}
                                     </h3>

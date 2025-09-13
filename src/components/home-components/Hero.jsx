@@ -58,27 +58,27 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative md:h-[140vh] 3xl:h-[150vh]">
+    <div className="relative xs:mt-24 sm:mt-0 sm:h-[10vh] h-[120vh] md:h-[140vh] lg:h-[140vh] xl:h-[100vh] 2xl:h-[110vh] 3xl:h-[100vh]">
       {/* hero section */}
-      <section ref={heroRef} className="h-screen flex flex-col justify-center relative z-0">
-        <div className="mx-auto px-4 sm:px-6 lg:px-12  md:py-16 lg:py-20 w-full">
+      <section ref={heroRef} className="h-screen md:h-full flex flex-col justify-center relative z-0">
+        <div className="mx-auto px-4 relative xs:bottom-0 sm:bottom-50 lg:bottom-40 xl:bottom-0 sm:px-6 lg:px-12  lg:py-20 w-full">
           <motion.div
             className="space-y-6 md:space-y-16"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="text-center md:pt-24 " variants={slideUpVariants}>
-              <h1 className="text-4xl mt-32 md:mt-0 sm:text-5xl lg:text-7xl xl:text-7xl 2xl:text-8xl font-black text-[#1d322d]  tracking-tight text-center sm:text-start inter-placeholder">
-                <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-9xl tracking-tighter text-[#1D322D]">
+            <motion.div className="text-center  " variants={slideUpVariants}>
+              <h1 className="text-4xl mt-32 md:mt-0 sm:text-5xl lg:text-3xl xl:text-7xl 2xl:text-8xl font-black text-[#1d322d]  tracking-tight text-center sm:text-start inter-placeholder">
+                <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-8xl xl:text-9xl tracking-tighter text-[#1D322D]">
                   Your Ideas,
                 </span>
-                <span className="w-full md:flex ">
-                  <span className="font-black flex md:inline text-[60px] text-start md:text-9xl tracking-tighter relative md:bottom-4 text-[#1D322D]">
+                <span className="w-full md:flex "> 
+                  <span className="font-black flex md:inline text-[60px] text-start md:text-8xl xl:text-9xl tracking-tighter relative md:bottom-4 text-[#1D322D]">
                     Our Creative{" "}
                   </span>
                   <span
-                    className="font-light  flex text-6xl text-start md:text-[145px] text-[#009f93] font-satisfy relative md:bottom-4"
+                    className="font-light  flex text-6xl text-start md:text-8xl xl:text-[145px] text-[#009f93] font-satisfy relative md:bottom-4"
                     style={{ color: "#009f93" }}
                   >
                     Twist
@@ -88,12 +88,12 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="grid  flex-row-reverse grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start "
+              className="grid  flex-row-reverse   grid-cols-1   md:mt-40 xl:mt-0  md:grid-cols-2 gap-12  lg:gap-20 items-start "
               variants={staggerContainer}
             >
               {/* Right side card - shown first on mobile, second on desktop */}
               <motion.div
-                className=" w-full bg-[#f7f6e9] p-2 md:p-4 relative max-w-md h-55 md:h-57 rounded-2xl md:space-y-6 md:relative md:bottom-15 md:left-65  lg:order-2"
+                className=" w-full bg-[#f7f6e9] p-2 md:p-4 relative max-w-md h-55 md:h-57 rounded-2xl md:space-y-6 md:relative md:bottom-15 xl:left-65  lg:order-2"
                 variants={slideUpVariants}
               >
                 <motion.p
@@ -117,10 +117,10 @@ export default function Hero() {
                   </motion.button>
 
                   <motion.button
-                    className="bg-[#088f88]  text-slate-800 p-3 rounded-md transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l  hover:text-slate-800 focus:outline-none relative z-10"
-                    whileHover={{
-                      scale: 1.05,
-                    }}
+                    className="bg-[#088f88]  text-slate-800 p-[15px] rounded-md transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l  hover:text-slate-800 focus:outline-none relative z-10"
+                    // whileHover={{
+                    //   scale: 1.05,
+                    // }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <motion.div whileHover={{ y: 2 }} transition={{ duration: 0.2 }}>
@@ -175,6 +175,7 @@ export default function Hero() {
                   ))}
                 </div>
               </motion.div>
+              
             </motion.div>
           </motion.div>
         </div>

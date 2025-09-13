@@ -55,10 +55,10 @@ const Card = ({ title, description, src, color, categories, i }) => {
   return (
     <div
       ref={cardRef}
-      className="relative flex items-center justify-center w-full"
+      className="relative flex items-center justify-center w-full xs:h-[80] sm:h-[80vh] md:h-[100vh] 2xl:h-[65vh] "
       style={{
-        top: `calc(5vh + ${i * -125}px)`,
-        height: "100vh",
+        top: `calc(5vh + ${i * +125}px)`,
+        // height: "100vh",
       }}
     >
       <motion.div 
@@ -70,12 +70,12 @@ const Card = ({ title, description, src, color, categories, i }) => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div
-          className="flex flex-col lg:flex-row items-start md:gap-8 lg:gap-16 rounded-3xl p-6 my-2 min-h-[80vh] lg:min-h-[70vh] "
+          className="flex flex-col lg:flex-row items-start md:gap-8 lg:gap-16 rounded-3xl p-6 my-2 min-h-[55vh] lg:min-h-[70vh] 2xl:min-h-[50vh] "
           style={{ backgroundColor: color }}
         >
           {/* Left - Categories */}
           <motion.div 
-            className="flex-shrink-0 flex gap-6 lg:w-1/4 "
+            className="flex-shrink-0 flex gap-6  lg:w-1/4 "
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.2 + 0.3 }}
@@ -105,7 +105,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
             transition={{ duration: 0.7, delay: i * 0.2 + 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="relative group overflow-hidden rounded-2xl w-[340px] relative right-5 md:right-0 md:w-full h-[230px] md:h-[250px] lg:h-[450px] md:right-19">
+            <div className="relative group overflow-hidden rounded-2xl w-[84vw] lg:w-[340px] relative right-5 md:right-0 md:w-full h-[230px] md:h-[250px] lg:h-[450px] md:right-19">
               <img
                 src={src}
                 alt={title}
@@ -149,7 +149,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
             
             {/* Project Description - Bottom */}
             <motion.p 
-              className="text-[#495953] md:relative md:right-28 md:top-70 text-base md:text-[16px] leading-relaxed inter-placeholder mt-auto md:min-w-120"
+              className="text-[#495953] md:relative md:right-28 2xl:pr-2 md:top-70 text-base md:text-[16px] leading-relaxed inter-placeholder mt-auto md:min-w-120"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.2 + 0.8 }}
@@ -167,7 +167,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
 const ProjectShowcase = () => {
   return (
     <div className="relative   ">
-      <div className="relative md:max-h-screen  md:bottom-9">
+      <div className="relative left-3 md:left-0 md:max-h-screen 2xl:max-h-[100vh] md:overflow-y-auto scrollbar-thin overflow-x-hidden scrollbar-hide scrollbar-thumb-gray-300 scrollbar-track-transparent  md:bottom-9  2xl:bottom-0">
         {projects.map((project, i) => (
           <Card key={i} {...project} i={i} />
         ))}

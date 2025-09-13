@@ -66,7 +66,7 @@ const Footer = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-4" >
                         {/* Left Side - Contact Info */}
                         <motion.div
-                            className=" px-4 md:px-1 md:ml-24 text-[#fdfcee] align-center md:relative md:top-36"
+                            className=" px-4 md:px-4 xl:px-0 xl:ml-24 text-[#fdfcee] align-center md:relative xl:top-6"
                             variants={slideInLeft}
                             initial="hidden"
                             whileInView="visible"
@@ -105,15 +105,48 @@ const Footer = () => {
                                     </div>
                                 </motion.div>
 
-                                {/* Office */}
+                                {/* address */}
                                 <motion.div
                                     className="bg-white/5 rounded-xl p-4 "
                                     variants={fadeInUp}
                                 >
                                     <div className="flex justify-between items-center ' inter-placeholder ">
-                                        <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee]">OFFICE</span>
+                                        <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] uppercase">Address</span>
                                         <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right ">
                                             123 Main Street Anytown, USA, 2141
+                                        </a>
+                                    </div>
+                                </motion.div>
+                                <motion.div
+                                    className="bg-white/5 rounded-xl p-4 "
+                                    variants={fadeInUp}
+                                >
+                                    <div className="flex justify-between items-center ' inter-placeholder ">
+                                        <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] uppercase">Branch-1</span>
+                                        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right ">
+                                            Chatrapati Sambhaji Nagar
+                                        </a>
+                                    </div>
+                                </motion.div>
+                                <motion.div
+                                    className="bg-white/5 rounded-xl p-4 "
+                                    variants={fadeInUp}
+                                >
+                                    <div className="flex justify-between items-center ' inter-placeholder ">
+                                        <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] uppercase">Branch-2</span>
+                                        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right ">
+                                            Chatrapati Sambhaji Nagar
+                                        </a>
+                                    </div>
+                                </motion.div>
+                                <motion.div
+                                    className="bg-white/5 rounded-xl p-4 "
+                                    variants={fadeInUp}
+                                >
+                                    <div className="flex justify-between items-center ' inter-placeholder ">
+                                        <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] uppercase">Branch-3</span>
+                                        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right ">
+                                            Jalna
                                         </a>
                                     </div>
                                 </motion.div>
@@ -208,7 +241,7 @@ const Footer = () => {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.1 }}
             >
-                <div className="flex flex-col lg:flex-row  mb-8 md:pl-25">
+                <div className="flex flex-col lg:flex-row  mb-8 md:-ml-8 xl:pl-25">
                     <motion.div
                         className="w-full lg:w-1/2"
                         variants={slideInLeft}
@@ -260,14 +293,14 @@ const Footer = () => {
 
                         {/* Newsletter Section */}
                         <motion.div
-                            className='px-4 md:px-20'
+                            className='px-4 md:px-20  md:mx-auto'
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             <h3 className="text-sm font-semibold  mb-4 md:text[20px] md:font-medium tracking-wider inter-placeholder text-[#fdfcee]">Subscribe to the newsletter</h3>
-                            <form className="flex flex-col gap-3 max-w-md">
+                            <form className="flex flex-col gap-3 md:min-w-[38rem] xl:max-w-md">
                                 <input
                                     type="email"
                                     placeholder="jane@prime.com"
@@ -275,7 +308,7 @@ const Footer = () => {
                                 />
                                 <button
                                     type="submit"
-                                    className="w-full px-6 py-3 bg-[#165a65] md:text[24px] md:font-medium inter-placeholder rounded-md text-[#fdfcee] font-medium hover:bg-gray-200 text-sm uppercase rounded-md"
+                                    className="w-full px-6 py-3 bg-[#165a65] md:text[24px] md:font-medium inter-placeholder rounded-md text-[#fdfcee] font-medium  text-sm uppercase rounded-md"
                                 >
                                     Submit
                                 </button>
@@ -285,13 +318,13 @@ const Footer = () => {
 
                     {/* Right Column (50% width) */}
                     <motion.div
-                        className="w-full lg:w-1/2"
+                        className="w-full xl:w-1/2 "
                         variants={slideInRight}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <div className="flex flex-col md:flex-row  items-center ">
+                        <div className="flex flex-col md:flex-row  items-center md:mt-20 xl:mt-0 ">
                             {/* Menu Column */}
                             <motion.div
                                 className="w-full md:w-1/2 relative md:bottom-21"
@@ -369,7 +402,7 @@ const Footer = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <div className="inter-placeholder font-black text-[#009f93] leading-[0.8] tracking-tight mb-8 relative">
-                       <div className="text-[clamp(130px,30vw,400px)] md:text-[clamp(200px,40vw,500px)] relative z-10 tracking-[-0.05em]">Prime</div>
+                       <div className="text-[clamp(130px,30vw,400px)] xl:text-[clamp(200px,40vw,500px)] relative z-10 tracking-[-0.05em]">Prime</div>
                         <div className="absolute inset-0 flex items-center justify-center">
                             {/* <div className="text-[clamp(210px,41vw,710px)] text-[#009f93]/10 blur-[2px]">Prime</div> */}
                         </div>

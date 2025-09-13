@@ -171,14 +171,14 @@ const SpecialtiesSection = () => {
   return (
     <motion.section
       ref={componentRef}
-      className="flex flex-col lg:flex-row md:max-h-[40em] overflow-hidden rounded-2xl mx-2 md:mx-8 justify-center items-center"
+      className="flex flex-col lg:flex-row xl:max-h-[40em] overflow-hidden rounded-2xl mx-2 xl:mx-8 justify-center items-center"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.1 }}
     >
       <motion.div
-        className="relative md:w-300 h-160 md:h-[40em] overflow-hidden rounded-2xl mx-2 mb-4 md:mb-0"
+        className="relative xl:w-300 h-160 md:h-[40rem] xl:h-[40em] overflow-hidden rounded-2xl mx-2 mb-4 md:mx-3 xl:mx-0 md:mb-0"
         variants={slideInLeft}
         initial="hidden"
         whileInView="visible"
@@ -188,7 +188,7 @@ const SpecialtiesSection = () => {
           <img
             src="https://framerusercontent.com/images/KGTXISgxyxmkCq256EXQwsbnNto.jpg"
             alt="Interior design background"
-            className="w-full h-160 md:h-full object-cover rounded-2xl"
+            className="w-full h-160 md:h-280 xl:h-full object-cover rounded-2xl"
           />
         </div>
 
@@ -225,10 +225,8 @@ const SpecialtiesSection = () => {
 
             <div className="relative group flex items-center">
               <motion.button
-                className="bg-[#FDFCEE] md:text-[18px] ,d:font-medium text-[#1F3630] px-6 py-3 md:px-4 md:py-2 rounded-2xl font-semibold text-base md:text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
-                whileHover={{
-                  scale: 1.02,
-                }}
+                className="bg-[#FDFCEE] md:text-[18px]  md:font-medium text-[#1F3630] px-6 py-3 md:px-4 md:py-2 rounded-2xl font-semibold text-base md:text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
+                
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10">Start a project</span>
@@ -236,24 +234,22 @@ const SpecialtiesSection = () => {
               </motion.button>
 
               <motion.button
-                className="bg-[#00374b] text-white p-3 md:p-2 rounded-xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l  focus:outline-none relative z-10"
-                whileHover={{
-                  scale: 1.05,
-                }}
+                className="bg-[#00374b] text-white p-[12.5px] md:p-[11.5px] lg:p-[11px] md:p-2 rounded-xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l-none  focus:outline-none relative z-10"
+                
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div whileHover={{ y: 2 }} transition={{ duration: 0.2 }}>
-                  <ArrowRight className="h-5 w-5 md:h-6 md:w-6 hover:rotate-45 transition-transform duration-500" />
+                  <ArrowRight className="h-6 w-6 md:h-6 md:w-6 hover:rotate-45 transition-transform duration-500" />
                 </motion.div>
               </motion.button>
 
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 left-0 h-full rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out bg-[#00374b]"
                 style={{
                   width: "calc(100% - 8px)",
                   zIndex: 5,
                 }}
-              />
+              /> */}
             </div>
           </motion.div>
         </motion.div>
@@ -262,7 +258,7 @@ const SpecialtiesSection = () => {
       {/* Right Section - Specialties */}
       <motion.div
         ref={rightSectionRef}
-        className={`w-full md:max-h-[40em] lg:w-5/5 rounded-2xl md:px-4 md:pt-6 mb-4 md:mb-0 scrollbar-hide overflow-y-auto ${isScrolling ? "scroll-smooth" : ""}`}
+        className={`w-full md:mt-15 md:ml-5 md:w-6xl  xl:mt-0 md:w-full md:max-h-[40em] lg:w-5/5 rounded-2xl md:px-3  xl:px-4 md:pt-6 mb-4 md:mb-0 scrollbar-hide overflow-y-auto ${isScrolling ? "scroll-smooth" : ""}`}
         variants={slideInRight}
         initial="hidden"
         whileInView="visible"
@@ -273,7 +269,7 @@ const SpecialtiesSection = () => {
         }}
       >
         <motion.div
-          className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative top-5 md:bottom-10 md:right-3"
+          className="flex justify-center md:justify-start items-center mb-4 md:mb-6 relative top-5 md:bottom-10 md:right-3 flex"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
@@ -288,20 +284,20 @@ const SpecialtiesSection = () => {
             <circle cx="12" cy="12" r="6" strokeWidth="2" />
             <circle cx="12" cy="12" r="3.2" fill="currentColor" />
           </svg>
-          <span className="text-xs font-semibold md:text-[12px] relative md:bottom-11 ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative md:bottom-1 md:right-3">
+          <span className="text-xs font-semibold md:text-[12px] relative bottom-[3px] md:bottom-11 xl:ml-2 text-[#009f93] tracking-wider uppercase inter-placeholder relative xl:bottom-11 md:right-1 xl:right-3">
             OUR SPECIALITIES
           </span>
         </motion.div>
 
         <div className="">
           <motion.div
-            className="mb-4 md:mb-0"
+            className="mb-4 md:mb-13"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-2xl font-bold leading-tight lg:text-[48px] text-center px-8 md:px-2 font-semibold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
+            <h1 className="xs:text-lg text-2xl md:text-4xl font-bold leading-tight lg:text-[48px] text-center px-8 md:px-2 font-semibold inter-placeholder tracking-tight md:text-left text-[#009f93] relative md:bottom-13 md:right-3">
               Why you'll love working with Prime
             </h1>
           </motion.div>
