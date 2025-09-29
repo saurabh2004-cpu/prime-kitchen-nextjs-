@@ -1,6 +1,7 @@
 'use client'
 import FAQSection from '@/components/home-components/FAQSection'
 import Footer from '@/components/home-components/Footer'
+import Navbar from '@/components/home-components/Navbar'
 import LuxuryWardrobeAbout from '@/components/services-components/About'
 import DesignFunctionBlendSection from '@/components/services-components/DesignAndBlendSection'
 import FAQ from '@/components/services-components/FAQ'
@@ -77,6 +78,7 @@ const page = () => {
 
   return (
     <>
+      <Navbar />
       <ClosetHeroSection />
       <LuxuryWardrobeAbout image={aboutLuxuryKitchenImg} />
       <WardrobeGallerySection wardrobeImages={wardrobeImages} />
