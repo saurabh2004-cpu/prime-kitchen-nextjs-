@@ -55,16 +55,16 @@ const Card = ({ title, description, src, color, categories, i }) => {
   return (
     <div
       ref={cardRef}
-      className="relative flex items-center justify-center w-full xs:h-[80] sm:h-[80vh] md:h-[100vh] 2xl:h-[65vh] "
+      className="relative flex items-center justify-center w-full xs:h-[80] sm:h-[80vh] md:h-[100vh] 2xl:h-[64vh]  "
       style={{
         top: `calc(5vh + ${i * +125}px)`,
         // height: "100vh",
       }}
     >
-      <motion.div 
+      <div 
         className="w-full md:min-w-[1250px] mx-auto lg:px-20 " 
         style={{ y }}
-        variants={cardVariants}
+        // variants={cardVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -74,7 +74,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
           style={{ backgroundColor: color }}
         >
           {/* Left - Categories */}
-          <motion.div 
+          <div 
             className="flex-shrink-0 flex gap-6  lg:w-1/4 "
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
                 {category}
               </motion.button>
             ))}
-          </motion.div>
+          </div>
 
           {/* Center - Project Image */}
           <motion.div 
@@ -105,7 +105,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
             transition={{ duration: 0.7, delay: i * 0.2 + 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="relative group overflow-hidden rounded-2xl w-[84vw] lg:w-[340px] relative right-5 md:right-0 md:w-full h-[230px] md:h-[250px] lg:h-[450px] md:right-19">
+            <div className="relative group overflow-hidden rounded-2xl w-[84vw] lg:w-[340px] relative right-2 md:right-0 md:w-full h-[230px] md:h-[250px] lg:h-[450px] md:right-19">
               <img
                 src={src}
                 alt={title}
@@ -130,7 +130,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
 
           {/* Right Column - Project Details */}
           <motion.div 
-            className="flex-1 md:lg:w-2/3 h-full flex flex-col justify-between relative right-4 md:right-0 "
+            className="flex-1 md:lg:w-2/3 px-4 h-full flex flex-col justify-between relative right-4 md:right-0 "
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.2 + 0.6 }}
@@ -138,7 +138,7 @@ const Card = ({ title, description, src, color, categories, i }) => {
           >
             {/* Project Title - Top */}
             <motion.h2 
-              className="text-[24px] font-[900] md:text-[23px] w-full md:w-1/2 font-bold md:relative md:right-28 text-start text-black font-black leading-tight inter-placeholder mb-4 mt-4 md:mt-0 lg:mb-0"
+              className="text-[24px] font-[900] md:text-[23px]  w-full md:w-1/2 font-bold md:relative md:right-28 text-start text-black font-black leading-tight inter-placeholder mb-4 mt-4 md:mt-0 lg:mb-0"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.2 + 0.7 }}
@@ -159,7 +159,149 @@ const Card = ({ title, description, src, color, categories, i }) => {
             </motion.p>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
+    </div>
+  )
+}
+
+
+export const MobileCard = ({ title, description, src, color, categories, i }) => {
+  const cardRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "start start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50])
+
+  // Animation variants for the card entrance
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -100, // All cards come from left
+      y: -50,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: i * 0.2
+      }
+    }
+  }
+
+  return (
+    <div
+      ref={cardRef}
+      className="relative flex items-center justify-center w-full xs:h-[80] sm:h-[80vh] md:h-[100vh] 2xl:h-[65vh] "
+      style={{
+        // top: `calc(5vh + ${i * +125}px)`,
+        // height: "100vh",
+      }}
+    >
+      <div 
+        className="w-full md:min-w-[1250px] mx-auto lg:px-20 " 
+        style={{ y }}
+        // variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div
+          className="flex flex-col lg:flex-row items-start md:gap-8 lg:gap-16 rounded-3xl p-6 my-2 min-h-[55vh] lg:min-h-[70vh] 2xl:min-h-[50vh] "
+          style={{ backgroundColor: color }}
+        >
+          {/* Left - Categories */}
+          <div 
+            className="flex-shrink-0 flex gap-6  lg:w-1/4 "
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.2 + 0.3 }}
+            viewport={{ once: true }}
+          >
+            {categories.map((category, idx) => (
+              <motion.button
+                key={idx}
+                className="px-1 py-2 border mb-3 md:mb-0 border-[#f7f7e9]-200 px-2 rounded-lg text-[12px]  font-semibold text-[#495953] hover:border-gray-600 transition-colors duration-200 text-sm inter-placeholder w-fit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.2 + 0.5 + idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Center - Project Image */}
+          <motion.div 
+            className="flex-shrink-0 lg:w-3/10"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: i * 0.2 + 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative group overflow-hidden rounded-2xl w-[84vw] lg:w-[340px] relative right-2 md:right-0 md:w-full h-[230px] md:h-[250px] lg:h-[450px] md:right-19">
+              <img
+                src={src}
+                alt={title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.src = "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80";
+                }}
+              />
+              {/* Hover Button Overlay */}
+              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end justify-center md:p-6">
+                <div className="w-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-out opacity-0 group-hover:opacity-100">
+                  <button className="bg-[#f7f6e9] text-[#1D322D] px-6 py-3 rounded-xl font-semibold flex items-center justify-between w-full shadow-lg transition-all duration-200">
+                    <span>View Project</span>
+                    <div className="bg-slate-800 text-white p-2 rounded-full">
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Project Details */}
+          <motion.div 
+            className="flex-1 md:lg:w-2/3 px-4 h-full flex flex-col justify-between relative right-4 md:right-0 "
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.2 + 0.6 }}
+            viewport={{ once: true }}
+          >
+            {/* Project Title - Top */}
+            <motion.h2 
+              className="text-[24px] font-[900] md:text-[23px]  w-full md:w-1/2 font-bold md:relative md:right-28 text-start text-black font-black leading-tight inter-placeholder mb-4 mt-4 md:mt-0 lg:mb-0"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.2 + 0.7 }}
+              viewport={{ once: true }}
+            >
+              {title}
+            </motion.h2>
+            
+            {/* Project Description - Bottom */}
+            <motion.p 
+              className="text-[#495953] md:relative md:right-28 2xl:pr-2 md:top-70 text-base md:text-[16px] leading-relaxed inter-placeholder mt-auto md:min-w-120"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.2 + 0.8 }}
+              viewport={{ once: true }}
+            >
+              {description}
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -209,4 +351,4 @@ const ProjectShowcase = () => {
   )
 }
 
-export default ProjectShowcase
+export default Card 

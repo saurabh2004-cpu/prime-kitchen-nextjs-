@@ -3,7 +3,8 @@ import { Inter, Satisfy } from "next/font/google";
 import "./globals.css";
 import SmoothScrollWrapper from "@/components/home-components/SmoothScrollWrapper";
 import { CustomizerContextProvider } from "@/context/CustomizerContext";
-
+import './globals.css'
+import { useSmoothScroll } from "@/hooks/smoothScrooling";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // useSmoothScroll()
   return (
     <html lang="en">
       <body

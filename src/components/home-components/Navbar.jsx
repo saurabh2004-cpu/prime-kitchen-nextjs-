@@ -13,7 +13,7 @@ export default function Navbar({ setNavItem = '' }) {
   const navItems = [
     { name: "Home", href: "/", active: false },
     { name: "About", href: "/about", active: false },
-    { name: "Services", href: "#Services", active: false },
+    { name: "Services", href: "/services", active: false },
     { name: "Projects", href: "/projects", active: false },
     { name: "Gallery", href: "/gallery", active: false },
     { name: "Blog", href: "/blogs", active: false },
@@ -66,8 +66,8 @@ export default function Navbar({ setNavItem = '' }) {
           <div className="flex items-center space-x-3">
             <div className="rounded flex items-center justify-center">
               <img
-                className="w-[120px] h-[30px]"
-                src="/logo/logo.png"
+                className="w-[170px] h-full"
+                src="/logo/Prime-Kitchen-1.png"
                 alt="Logo"
               />
             </div>

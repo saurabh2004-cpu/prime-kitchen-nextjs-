@@ -36,17 +36,22 @@ export default function AboutUs() {
       x: 0,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 2.6,
         ease: "easeOut",
       },
     },
   }
 
   return (
-    <section className="bg-[#Fffef2] text-[#1D2B29] px-6 md:px-12 pb-6 md:m-x-12 sm:px-10 lg:px-20">
-      <div className=" mx-auto flex flex-col lg:flex-row items-start gap-12">
-        <div className="flex items-start gap-1 min-w-[100px] relative top-10 md:top-5 md:right-6">
-          <svg className="w-5 h-5 text-[#009f93]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <section className="bg-[#Fffef2] text-[#1D2B29] px-6 md:px-12 pb-6 md:m-x-12 sm:px-10 xl:px-20">
+      <div className=" mx-auto flex flex-col lg:flex-row  items-start gap-12">
+        <div className="flex items-center gap-2 relative md:top-15 xl:top-0 xl:mt-12 min-w-[120px] pr-4">
+          <svg
+            className="w-5 h-5 text-[#009f93]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
             <circle cx="12" cy="12" r="6" strokeWidth="2" />
             <circle cx="12" cy="12" r="3.2" fill="currentColor" />
           </svg>
@@ -58,15 +63,16 @@ export default function AboutUs() {
           </span>
         </div>
 
+
         <motion.div
-          className="flex-1 max-w-6xl relative z-10 sm:left-50 md:left-0"
+          className="flex-1 max-8-6xl relative z-10 sm:left-50 md:left-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
         >
           <div
-            className="text-[26px] font-[700]  md:font-semibold md:px-2 text-[#1D322D] text-start lg:text-[32px] leading-tight tracking-[-1px] inter-placeholder md:pl-32 md:pt-12 md:ml-16"
+            className="text-[26px] font-[600]  md:font-medium md:px-2 text-[#1D322D] text-start lg:text-[36px] leading-tight tracking-[-1px] inter-placeholder md:pl-32 md:pt-12 md:ml-16"
             style={{ fontWeight: 540 }}
           >
             <span className="inline-block w-8 md:w-20"></span>
@@ -79,7 +85,7 @@ export default function AboutUs() {
           </div>
 
           <motion.div className="group w-fit cursor-pointer pt-8" variants={lineVariants}>
-            <div className="flex items-center gap-2 pb-1 relative right-4 md:right-0">
+            <div className="flex items-center gap-2 pb-1 relative xl:right-4 md:right-0">
               <span
                 className="text-md sm:text-base font-semibold  uppercase text-[#1D2B29] inter-placeholder  md:pl-32  md:ml-16"
                 style={{ color: "#009f93" }}

@@ -16,6 +16,7 @@ import SpecialitiesSection from "@/components/home-components/SpecialitiesSectio
 import Footer from "@/components/home-components/Footer";
 import { useState } from "react";
 import ProjectShowcase from "@/components/home-components/ProjectsShowcase";
+import { ProjectsWithStats } from "@/components/home-components/ProjectsWithStats";
 
 export default function Home() {
   const [navItem, setNavItem] = useState("");
@@ -25,7 +26,8 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <ProjectsHeader />
-      <NewProjectsSection />
+      {/* <NewProjectsSection /> */}
+      <ProjectsWithStats />
       <ServicesHeader />
       <ServicesGrid />
       <ImagesGrid />

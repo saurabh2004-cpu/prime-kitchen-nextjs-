@@ -13,7 +13,9 @@ export default function Hero() {
     offset: ["start start", "end start"],
   })
 
-  const videoY = useTransform(scrollYProgress, [0, 1], [0, -600])
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, -800])
+  const videoYMackbook = useTransform(scrollYProgress, [0, 1], [0, -1400])
+  const videoYMobile = useTransform(scrollYProgress, [0, 1], [0, -350])
 
   const quotes = [
     {
@@ -181,10 +183,56 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* video section */}
+      {/* video section desktops*/}
       <motion.section
-        className="w-full flex justify-center items-center relative px-2 pb-6 md:pb-14 mt-35 md:mt-12 z-20 "
+        className="hidden md:hidden xl:hidden md:flex w-full flex justify-center items-center relative px-2 pb-6 md:pb-14 mt-35 md:mt-12 z-20 "
         style={{ y: videoY }}
+      >
+        <motion.div
+          className="w-full overflow-hidden rounded-2xl shadow-xl"
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <video
+            src="https://framerusercontent.com/assets/mSsTg3IQcSmGsgmBbKnv84RbHUw.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-[40vh] md:h-[90vh] object-cover"
+          />
+        </motion.div>
+      </motion.section>
+
+      {/*mackbooks  */}
+      <motion.section
+        className="hidden md:flex w-full flex justify-center items-center relative px-2 pb-6 md:pb-14 mt-35 md:mt-12 z-20 "
+        style={{ y: videoYMackbook }}
+      >
+        <motion.div
+          className="w-full overflow-hidden rounded-2xl shadow-xl"
+          // initial={{ opacity: 0, y: 50 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <video
+            src="https://framerusercontent.com/assets/mSsTg3IQcSmGsgmBbKnv84RbHUw.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-[40vh] md:h-[90vh] 2xl:h-[90vh] object-cover"
+          />
+        </motion.div>
+      </motion.section>
+
+      {/* mobile video */}
+      <motion.section
+        className=" md:hidden flex w-full flex justify-center items-center relative px-2 pb-6 md:pb-14 mt-35 md:mt-12 z-20 "
+        style={{ y: videoYMobile }}
       >
         <motion.div
           className="w-full overflow-hidden rounded-2xl shadow-xl"
