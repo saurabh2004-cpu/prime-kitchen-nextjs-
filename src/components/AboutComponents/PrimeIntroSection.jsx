@@ -317,7 +317,7 @@ const PrimeIntroStyled = () => {
                                 className="col-span-6 row-span-2 bg-white/10 rounded-2xl overflow-hidden relative flex flex-col justify-end min-h-[400px] lg:min-h-[500px] xl:max-h-[500px]"
                             >
                                 <img
-                                    src="/images/aboutus-2.png"
+                                    src="/home-images/WhatsApp-Image-5.jpeg"
                                     alt="Interior"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />

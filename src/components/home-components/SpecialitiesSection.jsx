@@ -186,7 +186,7 @@ const SpecialtiesSection = () => {
       >
         <div className="absolute inset-0">
           <img
-            src="https://framerusercontent.com/images/KGTXISgxyxmkCq256EXQwsbnNto.jpg"
+            src="/home-images/PXL_20231228_134951829-1.jpg"
             alt="Interior design background"
             className="w-full h-160 md:h-280 xl:h-full object-cover rounded-2xl"
           />
