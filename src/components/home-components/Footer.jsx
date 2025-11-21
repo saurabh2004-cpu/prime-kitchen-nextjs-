@@ -66,7 +66,7 @@ const Footer = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-4" >
                         {/* Left Side - Contact Info */}
                         <motion.div
-                            className=" px-4 md:px-4 xl:px-0 xl:ml-24 text-[#fdfcee] align-center md:relative xl:top-6"
+                            className=" px-4 md:px-4 xl:px-0 xl:ml-24 text-[#fdfcee] align-center md:relative xl:top-16"
                             variants={slideInLeft}
                             initial="hidden"
                             whileInView="visible"
@@ -87,7 +87,7 @@ const Footer = () => {
                                     <div className="flex justify-between items-center">
                                         <span className=" text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] ">EMAIL</span>
                                         <a href="mailto:Prime@email.com" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder  ">
-                                            Prime@email.com
+                                            prime.kitchenstudio@gmail.com
                                         </a>
                                     </div>
                                 </motion.div>
@@ -100,13 +100,13 @@ const Footer = () => {
                                     <div className="flex justify-between items-center ">
                                         <span className="  text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee]">PHONE</span>
                                         <a href="tel:+1458741139" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder  ">
-                                            +1458741139
+                                            +91 9637374796
                                         </a>
                                     </div>
                                 </motion.div>
 
                                 {/* address */}
-                                <motion.div
+                                {/* <motion.div
                                     className="bg-white/5 rounded-xl p-4 "
                                     variants={fadeInUp}
                                 >
@@ -116,7 +116,7 @@ const Footer = () => {
                                             123 Main Street Anytown, USA, 2141
                                         </a>
                                     </div>
-                                </motion.div>
+                                </motion.div> */}
                                 <motion.div
                                     className="bg-white/5 rounded-xl p-4 "
                                     variants={fadeInUp}
@@ -135,7 +135,7 @@ const Footer = () => {
                                     <div className="flex justify-between items-center ' inter-placeholder ">
                                         <span className="text-sm font-medium inter-placeholder md:text[12px] md:font-semibold text-[#fdfcee] uppercase">Branch-2</span>
                                         <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right ">
-                                            Chatrapati Sambhaji Nagar
+                                           Parbhani
                                         </a>
                                     </div>
                                 </motion.div>

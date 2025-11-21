@@ -9,29 +9,40 @@ const JobListings = () => {
   const jobs = [
     {
       id: 1,
-      title: "Project Manager",
+      title: "Accountant",
       type: "FULL TIME",
       salary: "$120K-$140K",
       date: "12 NOV, 2024",
-      description: "Bachelor's degree in Project Management, Architecture, or a related field, 3+ years of experience in project management, excellent organizational skills, proficiency in project management software (Microsoft Project, Trello).",
+      description: ` Manage financial transactions, reconciliations, invoicing, and month-end closings.
+ Require accounting software proficiency, analytical skills, and compliance knowledge.
+ Assist management with financial reports and budgeting processes.
+ Ensure accuracy, transparency, and timely record maintenance.
+`,
       tags: ["FULL TIME", "$120K-$140K", "12 NOV, 2024"]
     },
     {
       id: 2,
-      title: "Senior Interior Designer",
+      title: "Designer",
       type: "FULL TIME",
       salary: "NEGOTIABLE",
       date: "12 NOV, 2024",
-      description: "Bachelor's degree in Interior Design or a related field, 5+ years of experience, proficiency in design software (AutoCAD, SketchUp, Adobe Creative Suite), strong communication skills.",
+      description: ` Create modular furniture or interior designs using CAD software.
+ Strong conceptualization, attention to detail, and teamwork required.
+ Collaborate with clients to bring ideas to life through innovative designs.
+ Maintain design quality, functionality, and alignment with brand aesthetics.
+`,
       tags: ["FULL TIME", "NEGOTIABLE", "12 NOV, 2024"]
     },
     {
       id: 3,
-      title: "Junior Interior Designer",
+      title: "Sales Marketing Executive",
       type: "PROJECT BASED",
       salary: "NEGOTIABLE",
       date: "9 AUG, 2024",
-      description: "Bachelor's degree in Interior Design, strong proficiency in design software (AutoCAD, Revit, Adobe Creative Suite), excellent communication and teamwork skills, a creative portfolio.",
+      description: ` Handle client acquisition, market research, and sales campaigns.
+ Must excel in communication, negotiation, and achieving sales targets.
+ Build and maintain strong client relationships to drive repeat business.
+ Develop creative marketing strategies to expand brand visibility.`,
       tags: ["PROJECT BASED", "NEGOTIABLE", "9 AUG, 2024"]
     }
   ];

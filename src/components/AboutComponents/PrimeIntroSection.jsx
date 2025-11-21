@@ -57,9 +57,11 @@ const PrimeIntroStyled = () => {
     //bottom 
     const [activeTab, setActiveTab] = useState('Mission');
 
-    const missionText = "To create unique, functional, and sustainable living spaces that enhance the quality of life for our clients. We aim to blend creativity with practicality, delivering designs that are both aesthetically pleasing and deeply personal.";
+    const missionText = `To design, deliver, and install exceptional modular furniture that brings lasting joy, comfort, and functionality to every home we serve.
+ At Prime Kitchen Studio, we’re committed to transforming everyday spaces into elegant, efficient, and personalized living environments—today and for generations to come.`;
 
-    const visionText = "To be the leading architectural firm that transforms communities through innovative design, sustainable practices, and meaningful spaces that inspire and connect people across the globe.";
+    const visionText = `To be the most trusted and innovative modular furniture brand in the region, setting new standards in design, quality, and customer satisfaction.
+We envision a future where every home reflects smart living—beautifully crafted, space-efficient, and built with a perfect blend of local insight and global design excellence.`;
 
     const values = [
         {
@@ -148,12 +150,12 @@ const PrimeIntroStyled = () => {
                     >
                         <motion.div variants={itemVariants} className="space-y-6 min-w-9xl">
                             <p className="text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-3xl md:font-semibold leading-tight tracking-tighter text-[#fdfcee] inter-placeholder md:pr-8 ">
-                                Welcome to Prime a preme interior design studio where innovation meets elegance. Established in 2010 by visionary designer Real Mehedi, Prime has grown from a humble home office to an internationally recognized name in the world of interior design. Our mission is to create unique, functional, and sustainable living spaces that enhance the quality of life for our clients.
+                                Founded in 2011 in Sambhajinagar, Maharashtra, Prime Kitchen Studio was built on the belief that exceptional design should be accessible, long-lasting, and uniquely personal. As a leading modular furniture expert, we have devoted over 14 years to mastering the perfect blend of contemporary style and practical functionality.
                             </p>
 
                             <div className="w-full flex justify-start md:justify-end">
                                 <p className="text-[18px] md:text-lg lg:text-medium leading-relaxed text-[#fdfcee] inter-placeholder md:max-w-[600px] lg:max-w-[500px] xl:max-w-[600px] relative md:right-15">
-                                    We believe that every space has a story to tell. Our team of passionate designers, architects, and project managers work collaboratively to transform your vision into reality. With a focus on creating sustainability, and client satisfaction, we have successfully completed numerous residential and commercial projects, earning accolades and industry awards along the way.
+                                    At Prime Kitchen Studio, we believe every space has its own story. Our passionate team of designers, architects, and project managers collaborate closely to turn your vision into reality. Focusing on sustainability and client satisfaction, we’ve completed countless residential and commercial projects, earning industry awards and widespread recognition
                                 </p>
                             </div>
                         </motion.div>

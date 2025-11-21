@@ -9,79 +9,94 @@ export default function ServicesGrid() {
   const services = [
     {
       id: 1,
-      title: "Residential Interior Design",
+      title: "Kitchens",
       description:
-        "Tailored design services for private homes, including room makeovers and complete home transformations.",
+        `Crafted with precision, our modular kitchens blend style, smart storage, and durability.
+From sleek modern layouts to warm classic designs, every kitchen is tailored to your lifestyle.
+Quality materials and ergonomic planning ensure a seamless cooking experience.
+`,
       icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
     },
     {
       id: 2,
-      title: "Commercial Interior Design",
+      title: "Wardrobes",
       description:
-        "Designing functional and attractive interiors for businesses, including offices, retail spaces, and hospitality venues.",
+        `Designed for maximum space and elegance, our wardrobes combine smart organization with premium finishes.
+From sliding to fully customized walk-ins, we create storage that fits perfectly into your home.
+Beautiful, functional, and built to last.
+`,
       icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
     },
     {
       id: 3,
-      title: "Space Planning",
-      description: "Optimizing the layout of a space to improve functionality and flow.",
+      title: "Appliances",
+      description: `We offer a curated range of high-performance kitchen appliances that elevate everyday living.
+From chimneys to built-in hobs, ovens, and dishwashers — everything is chosen for reliability and design.
+Seamless integration, modern technology, and trusted brands.
+`,
       icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
     },
     {
       id: 4,
-      title: "Design Consultation",
-      description: "Providing professional advice on concepts, color schemes & material selection.",
+      title: "Furniture",
+      description: `Our furniture collection focuses on comfort, aesthetics, and durability.
+From living-room to bedroom solutions, each piece is designed to enhance your space.
+Thoughtfully crafted to complement modern homes with style and function.
+`,
       icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
     },
     {
       id: 5,
-      title: "Lighting Design",
-      description: "Crafting lighting solutions that enhance the ambiance and functionality of a space.",
+      title: "Office",
+      description: `
+Prime’s office interior solutions blend professionalism with modern design.
+We create efficient, stylish workspaces that boost productivity and reflect your brand identity.
+Ergonomic layouts, premium materials, and smart storage for a seamless workflow.`,
       icon: "https://framerusercontent.com/images/JbyjEq4WEAx6qDzQgw6Zkax3iY.png",
     },
-    {
-      id: 6,
-      title: "Furniture Design",
-      description: "Designing and creating bespoke furniture pieces that perfectly fit the your space and style.",
-      icon: "https://framerusercontent.com/images/IV4BUPwYOVqQsCgGwzjpM6TnN38.png",
-    },
-    {
-      id: 7,
-      title: "Art and Accessory Procurement",
-      description: "Sourcing and selecting art pieces and accessories to complement the overall design.",
-      icon: "https://framerusercontent.com/images/bREeJ5St6Fj7cNJuxeIsZZKdBg.png",
-    },
-    {
-      id: 8,
-      title: "Color Consultation",
-      description: "Assisting clients in selecting color schemes that enhance the mood and aesthetic of a space.",
-      icon: "https://framerusercontent.com/images/hRVFsVQ3zt4SHEWeKVbvVrXKFZ4.png",
-    },
-    // Additional 4 services for desktop
-    {
-      id: 9,
-      title: "Kitchen & Bath Design",
-      description: "Specialized design services for kitchens and bathrooms, focusing on functionality and aesthetics.",
-      icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
-    },
-    {
-      id: 10,
-      title: "Sustainable Design",
-      description: "Eco-friendly interior design solutions using sustainable materials and energy-efficient practices.",
-      icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
-    },
-    {
-      id: 11,
-      title: "Project Management",
-      description: "Complete project oversight from conception to completion, ensuring timely and budget-friendly execution.",
-      icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
-    },
-    {
-      id: 12,
-      title: "3D Visualization",
-      description: "Advanced 3D rendering and virtual reality services to help clients visualize their future spaces.",
-      icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
-    },
+    // {
+    //   id: 6,
+    //   title: "Furniture Design",
+    //   description: "Designing and creating bespoke furniture pieces that perfectly fit the your space and style.",
+    //   icon: "https://framerusercontent.com/images/IV4BUPwYOVqQsCgGwzjpM6TnN38.png",
+    // },
+    // {
+    //   id: 7,
+    //   title: "Art and Accessory Procurement",
+    //   description: "Sourcing and selecting art pieces and accessories to complement the overall design.",
+    //   icon: "https://framerusercontent.com/images/bREeJ5St6Fj7cNJuxeIsZZKdBg.png",
+    // },
+    // {
+    //   id: 8,
+    //   title: "Color Consultation",
+    //   description: "Assisting clients in selecting color schemes that enhance the mood and aesthetic of a space.",
+    //   icon: "https://framerusercontent.com/images/hRVFsVQ3zt4SHEWeKVbvVrXKFZ4.png",
+    // },
+    // // Additional 4 services for desktop
+    // {
+    //   id: 9,
+    //   title: "Kitchen & Bath Design",
+    //   description: "Specialized design services for kitchens and bathrooms, focusing on functionality and aesthetics.",
+    //   icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
+    // },
+    // {
+    //   id: 10,
+    //   title: "Sustainable Design",
+    //   description: "Eco-friendly interior design solutions using sustainable materials and energy-efficient practices.",
+    //   icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
+    // },
+    // {
+    //   id: 11,
+    //   title: "Project Management",
+    //   description: "Complete project oversight from conception to completion, ensuring timely and budget-friendly execution.",
+    //   icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
+    // },
+    // {
+    //   id: 12,
+    //   title: "3D Visualization",
+    //   description: "Advanced 3D rendering and virtual reality services to help clients visualize their future spaces.",
+    //   icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
+    // },
   ]
 
   // Get services to display based on screen size and state
@@ -322,7 +337,7 @@ export default function ServicesGrid() {
 
             <motion.button
               className="bg-[#009f93] text-[#1d322d] p-5 rounded-2xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l focus:outline-none relative z-10"
-             
+
               whileTap={{ scale: 0.95 }}
               onClick={handleButtonClick}
             >

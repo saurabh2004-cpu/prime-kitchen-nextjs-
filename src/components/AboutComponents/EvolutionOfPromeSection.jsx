@@ -14,29 +14,34 @@ const EvolutionSection = () => {
   const faqs = [
     {
       question:
-        "In 2010, Prime was founded by passionate interior designer Jane Doe, who envisioned creating a design studio that combines innovative ideas with sustainable practices.Starting as a small operation from a home office, Jane's unique approach quickly attracted attention.",
-      year: "2010",
+        `Founded in 2011 in Sambhajinagar, Prime Kitchen Studio transformed carpentry with modular furniture.
+ Led by Mr. Vallabh Chavan, it crafts precision kitchens and wardrobes for smart spaces.
+ Their designs bring beauty, efficiency, and innovation to homes.
+ Today, they keep redefining living with space-savvy solutions.
+`,
+      year: "2011",
       label: "The Beginning",
     },
     {
       question:
-        "In 2010, Prime was founded by passionate interior designer Jane Doe, who envisioned creating a design studio that combines innovative ideas with sustainable practices. Starting as a small operation from a home office, Jane's unique approach quickly attracted attention.",
-      year: "2012",
+        `2011–2016: Mastering Modular Excellence
+ Prime Kitchen Studio perfected modular design, redefining kitchens with precision and innovation.
+ By delivering quality and educating customers, we earned the trust of Sambhajinagar families—building a strong foundation for continued excellence
+.`,
+      year: "2016",
       label: "Establishing a Presence",
     },
     {
-      question: `In 2013, Prime received its first major accolade, the "Emerging Design Firm" award at the National 
-                        Interior Design Awards. This recognition boosted the company's profile and brought in a wave of new 
-                        clients.`,
-      year: "2013",
+      question: `2017–2022: Expanding the Vision
+With growing trust and recognition, Prime Kitchen Studio expanded beyond kitchens to offer full home interiors—custom wardrobes and modular spaces blending style with smart functionality, marking our evolution into a complete home transformation studio.
+`,
+      year: "2017",
       label: "First Major Award",
     },
     {
-      question: `Prime's innovative projects began to attract media attention in 2018. Features in prominent design 
-                            magazines and blogs showcased the studio's unique approach and stunning results. This year also saw 
-                            Prime winning the "Innovative Space Design" award for their groundbreaking co-working space 
-                            project.`,
-      year: "2018",
+      question: `2022–Present: Innovation and Community Focus
+ With 14+ years of expertise, Prime Kitchen Studio leads regional modular design innovation—bringing global trends, sustainable materials, and smart integrations to Sambhajinagar, crafting quality spaces that define modern living`,
+      year: "2022",
       label: "Media Coverage",
     },
     {
@@ -116,7 +121,7 @@ const EvolutionSection = () => {
       >
         <motion.div style={{ y, scale, opacity }} className="transform-gpu">
           {/* Desktop Layout - Hidden on mobile/tablet h-1/2 */}
-          <div className=" lg:block "> 
+          <div className=" lg:block ">
             <div className="bg-[#f7f6e9] md:max-w-[50rem] md:max-h-[16.0625rem] relative md:left-14 mb-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
               <button className="w-full p-6 text-left focus:outline-none">
                 <div className="flex items-start gap-4">
@@ -147,7 +152,7 @@ const EvolutionSection = () => {
             </div>
           </div>
 
-          
+
         </motion.div>
       </motion.div>
     )

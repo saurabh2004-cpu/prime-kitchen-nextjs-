@@ -5,11 +5,10 @@ import { ArrowRight } from "lucide-react"
 export default function AboutUs() {
   // Split the paragraph into lines for individual animation
   const paragraphLines = [
-    "Founded in 2010, our studio started as a small team of design enthusiasts ",
-    "with big dreams. At Prime, we're not just about creating beautiful spaces –",
-    "we're about crafting stories and making dreams come true! Our passionate",
-    "team of design enthusiasts loves turning ordinary rooms into extraordinary",
-    "experiences, blending creativity with a touch of whimsy. ",
+    "Founded in 2011, Prime Kitchen Studio began with a dream to redefine kitchens across Maharashtra",
+    "We craft more than just cooking spaces — we create the vibrant heart of every home, blending beauty with purpose",
+    "Our expert team designs premium modular kitchens that reflect elegance, innovation, and the joy of modern living",
+    
   ]
 
   // Animation variants for the container

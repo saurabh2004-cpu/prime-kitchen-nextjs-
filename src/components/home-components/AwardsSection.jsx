@@ -30,7 +30,7 @@ const BranchesSection = () => {
             image: "/images/image-315.png",
         },
         {
-            location: "Branch 2 - Chatrapati Sambhaji Nagar",
+            location: "Branch 2 - Parbhani",
             title: "Timeless Italian Kitchen",
             image: "/images/image-316.png",
         },

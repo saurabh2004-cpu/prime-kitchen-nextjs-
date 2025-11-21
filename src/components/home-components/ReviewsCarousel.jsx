@@ -7,40 +7,149 @@ import { Maximize2, Minimize2 } from "lucide-react"
 const reviews = [
   {
     id: 1,
-    name: "Theron P.",
+    name: "Mr. & Mrs. Pingle",
     title: "RESTAURANT OWNER",
     avatar: "https://framerusercontent.com/images/dAcR1mFFOnJ1M0v56dPZt2uVR0Q.jpg",
     review:
-      "The custom furniture designed by Prime has transformed our home. Each piece is a masterpiece that fits perfectly into our space and meets our aesthetic desires. The quality and craftsmanship are outstanding. We can't wait to collaborate with Prime on future projects!",
-    projectImage: "https://framerusercontent.com/images/YKkTgOVxPurWe9Jsrj7OBGVS4kU.jpg",
+      `The furniture is exceptionally sturdy and durable, far exceeding our expectations for the price.
+      You can truly see the difference in craftsmanship—it’s a cut above the rest.
+      Every detail reflects quality and care, making our home both beautiful and functional.
+      We’re extremely satisfied with the overall experience and final result.
+`,
   },
   {
     id: 2,
-    name: "Soren F.",
+    name: "Mr. & Mrs. Gawhane",
     title: "HOME OWNER",
     avatar: "https://framerusercontent.com/images/M42LatEEMyCZIYxJ6WTCmgMpAkY.jpg",
     review:
-      "Prime has been a game-changer for my home. Their ability to blend functionality with exquisite design is unparalleled. They transformed my living room into a space that is both stylish and comfortable. Their team was professional, creative, and attentive to my needs. I couldn't be happier!",
-    projectImage: "https://framerusercontent.com/images/paHVIhNEbGxecA1Pf2fSVsBf0GU.jpg",
+      `We needed furniture that perfectly fit our compact apartment space, and the team absolutely nailed it.
+The design is stylish, space-efficient, and thoughtfully planned for everyday comfort.
+The smart storage solutions have truly improved our home’s functionality and workflow.
+They turned our vision into reality, creating a home we genuinely love.
+`,
   },
   {
     id: 3,
-    name: "Isolde V.",
+    name: "Mr. & Mrs. Munde",
     title: "HOME OWNER",
     avatar: "https://framerusercontent.com/images/lbTX1WoSdRtumjKKMoW37tNM1dk.jpg",
     review:
-      "I was skeptical about virtual design services, but Prime made the process seamless and enjoyable. Their e-design package was comprehensive and perfectly tailored to my needs. Even from afar, they managed to transform my apartment into a chic and functional space. Fantastic work!",
-    projectImage: "https://framerusercontent.com/images/H8xRswbK4LrDXyXiJ6fgbKka0E.jpg",
+      `Working with the company was a seamless experience from start to finish.
+The team was professional, responsive, and patient throughout the design process, accommodating every change.
+Installation was completely hassle-free and completed right on time.
+The final outcome is perfect—just what we envisioned for our home.
+`,
   },
   {
     id: 4,
-    name: "Zephyr K.",
+    name: "Mr. & Mrs. Polkam",
     title: "SHOP OWNER",
     avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
     review:
-      "Prime turned our retail store into an inviting and stylish space that customers love. The design is not only visually appealing but also highly functional. Our sales have increased, and we receive compliments daily. Prime's work has truly elevated our business!",
+      `Great experience overall! The team offered cost-efficient solutions with honest, competitive pricing—without ever compromising on quality.
+We truly received excellent value for money and complete satisfaction.
+Their professionalism and transparency made the entire process smooth and trustworthy.
+`,
     projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
   },
+  {
+    id: 5,
+    name: "Mr. Sumit Suradkar",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Absolutely the best service and quality! The team delivered beyond expectations with excellent attention to detail.
+ Every element reflects precision and care, making the entire experience smooth and satisfying.
+ Truly a perfect blend of professionalism and craftsmanship — highly recommended!
+`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 6,
+    name: "Mr. Pranit Wadatkar",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      `The work quality is truly first-rate, and the service exceeded my expectations.Every detail was handled with care, reflecting true professionalism and skill.Thank you, Prime Kitchen Studio, for your excellent service and flawless execution!
+`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+ 
+  {
+    id: 8,
+    name: "Mr. Ganesh Karhade",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      `Exceptional work and a seamless experience throughout the project.
+The Prime Kitchen Studio team delivered top-notch quality with impressive attention to detail.Their professionalism and dedication made the entire process smooth and satisfying.Highly appreciate their effort and craftsmanship!
+`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 9,
+    name: "Ms. Sonali Gudadhe Chavan",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Fantastic experience with Prime Kitchen Studio! The team truly understood my needs and turned my ideas into a beautiful reality.
+ The design, quality, and finishing are simply outstanding.
+ I’m extremely happy with their professionalism and the elegance they brought to my home.`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 10,
+    name: "Mr. Soham Chavan",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Prime Kitchen Studio did an amazing job from concept to completion.
+        The designs are modern, practical, and finished with exceptional quality.
+        The team was professional, responsive, and made the entire process effortless.
+        Truly impressed with their creativity and commitment to perfection!`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 11,
+    name: "Mr. Achut Moharir",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Prime Kitchen Studio did an amazing job from concept to completion.
+        The designs are modern, practical, and finished with exceptional quality.
+        The team was professional, responsive, and made the entire process effortless.
+        Truly impressed with their creativity and commitment to perfection!`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 12,
+    name: "Mr. Achut Moharir",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Outstanding experience with Prime Kitchen Studio!
+ The team delivered exceptional craftsmanship and thoughtful design that perfectly fit my space.
+ Everything was handled with professionalism, precision, and care.
+ I’m highly satisfied with the result — elegant, durable, and beautifully executed.
+`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+  {
+    id: 13,
+    name: "Mr. Hrishikesh Sangit",
+    title: "SHOP OWNER",
+    avatar: "https://framerusercontent.com/images/UtT0EbdUaHYnyWs7ho4NFiQE0k.jpg",
+    review:
+      ` Excellent work by Prime Kitchen Studio!
+ The team was professional, punctual, and paid great attention to every detail.
+ The final outcome exceeded my expectations with top-quality finishes and smart design.
+ Truly happy with their dedication and flawless execution.
+
+`,
+    projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
+  },
+
 ]
 
 const ReviewCard = ({ review, index, onExpandChange }) => {
@@ -98,7 +207,7 @@ const ReviewCard = ({ review, index, onExpandChange }) => {
           transition={{ duration: 0.4 }}
           className={`w-full h-full object-cover rounded-lg `}
           onError={(e) => {
-            e.target.src = "/placeholder.svg?height=100&width=300&text=Project+Image"
+            // e.target.src = "/placeholder.svg?height=100&width=300&text=Project+Image"
           }}
         />
 
@@ -123,7 +232,7 @@ export default function ReviewsCarousel() {
   const [isHovered, setIsHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [isAnyExpanded, setIsAnyExpanded] = useState(false)
-  
+
   // Animation controls and position tracking
   const controls = useAnimationControls()
   const [currentX, setCurrentX] = useState(0)
@@ -200,7 +309,7 @@ export default function ReviewsCarousel() {
         const elapsed = (Date.now() - animationStartTime - totalPausedDuration) / 1000
         const cycleProgress = elapsed % animationDuration
         const remainingTime = animationDuration - cycleProgress
-        
+
         // Calculate current position based on progress
         const progress = cycleProgress / animationDuration
         const startPosition = -totalDistance * progress
@@ -258,10 +367,10 @@ export default function ReviewsCarousel() {
           onHoverEnd={handleHoverEnd}
         >
           {duplicatedReviews.map((review, index) => (
-            <ReviewCard 
-              key={`${review.id}-${index}`} 
-              review={review} 
-              index={index} 
+            <ReviewCard
+              key={`${review.id}-${index}`}
+              review={review}
+              index={index}
               onExpandChange={handleExpandChange}
             />
           ))}
