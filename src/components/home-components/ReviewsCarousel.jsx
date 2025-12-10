@@ -75,7 +75,7 @@ Their professionalism and transparency made the entire process smooth and trustw
 `,
     projectImage: "https://framerusercontent.com/images/RmuI2pxfTjlOuiW99H1cZ6zZY08.jpg",
   },
- 
+
   {
     id: 8,
     name: "Mr. Ganesh Karhade",
@@ -171,15 +171,31 @@ const ReviewCard = ({ review, index, onExpandChange }) => {
       {/* Header with avatar and info */}
       <div className="flex items-start mb-4 sm:mb-6 z-10">
         <div className="p-2 relative  bottom-6 right-6 bg-[#FFFEF2] rounded-tl-lg rounded-br-lg">
-          <img
+          {/* <img
             src={review.avatar || "/placeholder.svg"}
             alt={review.name}
             className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover flex-shrink-0"
-          />
+          /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="12" cy="10" r="3" />
+            <path d="M7 18c1-2 3-3 5-3s4 1 5 3" />
+          </svg>
+
         </div>
         <div className="flex-1">
           <h3 className="font-medium md:text-[18px] md:font-medium text-base sm:text-lg text-[#1d322d] mb-1 inter-placeholder relative md:bottom-6" >{review.name}</h3>
-          <p className="text-xs text-[#1d322d]/85 md:text-[#1d322d]/75 md:text-[12px] font-semibold uppercase tracking-wide inter-placeholder relative md:bottom-6">{review.title}</p>
+          {/* <p className="text-xs text-[#1d322d]/85 md:text-[#1d322d]/75 md:text-[12px] font-semibold uppercase tracking-wide inter-placeholder relative md:bottom-6">{review.title}</p> */}
         </div>
       </div>
 
@@ -191,7 +207,7 @@ const ReviewCard = ({ review, index, onExpandChange }) => {
       )}
 
       {/* Project image overlay */}
-      <motion.div
+      {/* <motion.div
         layout
         transition={{ duration: 0.4 }}
         className={`absolute bottom-0 left-0 w-full cursor-pointer z-20 ${expanded ? "h-[85%] px-4" : "h-[60px] px-2"
@@ -218,7 +234,7 @@ const ReviewCard = ({ review, index, onExpandChange }) => {
             <Maximize2 className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
           )}
         </div>
-      </motion.div>
+      </motion.div> */}
 
     </motion.div>
   )

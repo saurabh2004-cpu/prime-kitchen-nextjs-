@@ -7,34 +7,36 @@ const ImagesGrid = () => {
   const [hovered, setHovered] = useState(false)
 
   const images = [
-    "/home-images/WhatsApp-Image-6.jpeg",
-    "/home-images/PXL_20231228_135237449.jpg",
-    "/home-images/PXL_20240220_133801345.jpg",
-    "/home-images/PXL_20240220_131301749~3.jpg",
-    "/home-images/PXL_20240220_133630150.jpg",
-    "/home-images/PXL_20250719_104942407.jpg",
-    "/home-images/WhatsApp-Image-4.jpeg",
-    "/home-images/PXL_20250719_105036289.jpg",
-    "/home-images/PXL_20240322_133833407.jpg",
-    "/home-images/PXL_20240220_130937450~2.jpg",
-    // "/imagehome-imagess/Gallery-Image-(10).png",
-    "/home-images/PXL_20240322_134538562.jpg",
-    "/home-images/PXL_20240322_134913355.jpg",
-    "/home-images/PXL_20240322_135159544.jpg",
-    "/home-images/WhatsApp-Image-3.jpeg",
-    "/home-images/PXL_20240220_131551858~2.jpg",
-    "/home-images/PXL_20240322_151857011.jpg",
-    "/home-images/PXL_20250719_104942407.jpg",
-    "/home-images/WhatsApp-Image-2.jpeg",
-    "/home-images/PXL_20231228_134951829.jpg",
-    "/home-images/PXL_20250719_105350693.jpg",
-    "/home-images/PXL_20250719_105621087-(1).jpg",
-    "/home-images/PXL_20240322_134538562.jpg",
-    "/home-images/PXL_20250719_105621087.jpg",
-    "/home-images/WhatsApp-Image-1.jpeg",
-    "/home-images/PXL_20240322_133132884.jpg",
-    "/home-images/WhatsApp-Image-5.jpeg",
+    "/home-page/home-images/WhatsApp-Image-6.jpeg",
+    "/home-page/home-images/PXL_20231228_135237449.jpg",
+    "/home-page/home-images/PXL_20240220_133801345.jpg",
+    "/home-page/home-images/PXL_20240220_131301749~3.jpg",
+    "/home-page/home-images/PXL_20240220_133630150.jpg",
+    "/home-page/home-images/PXL_20250719_104942407.jpg",
+    "/home-page/home-images/WhatsApp-Image-4.jpeg",
+    "/home-page/home-images/PXL_20250719_105036289.jpg",
+    "/home-page/home-images/PXL_20240322_133833407.jpg",
+    "/home-page/home-images/PXL_20240220_130937450~2.jpg",
+    "/home-page/home-images/PXL_20240322_134538562.jpg",
+    "/home-page/home-images/PXL_20240322_134913355.jpg",
+    "/home-page/home-images/PXL_20240322_135159544.jpg",
+    "/home-page/home-images/WhatsApp-Image-3.jpeg",
+    "/home-page/home-images/PXL_20240220_131551858~2.jpg",
+    "/home-page/home-images/PXL_20240322_151857011.jpg",
+    "/home-page/home-images/PXL_20250719_104942407.jpg",
+    "/home-page/home-images/WhatsApp-Image-2.jpeg",
+    "/home-page/home-images/PXL_20231228_134951829.jpg",
+    "/home-page/home-images/PXL_20250719_105350693.jpg",
+    "/home-page/home-images/PXL_20250719_105621087-(1).jpg",
+    "/home-page/home-images/PXL_20240322_134538562.jpg",
+    "/home-page/home-images/PXL_20250719_105621087.jpg",
+    "/home-page/home-images/WhatsApp-Image-1.jpeg",
+    "/home-page/home-images/PXL_20240322_133132884.jpg",
+    "/home-page/home-images/WhatsApp-Image-5.jpeg",
   ]
+
+  const baseUrl = process.env.NEXT_PUBLIC_CLOUDFRONT_URL;
+  const cloudfrontImages = images.map(img => `${baseUrl}${img}`);
 
   const IMG_H = 280
   const GAP = 6
@@ -87,7 +89,7 @@ const ImagesGrid = () => {
                   willChange: "transform",
                 }}
               >
-                {[...images, ...images].map((src, idx) => (
+                {[...cloudfrontImages, ...cloudfrontImages].map((src, idx) => (
                   <div key={`${colIdx}-${idx}`} className="relative">
                     <img
                       src={src || "/placeholder.svg"}

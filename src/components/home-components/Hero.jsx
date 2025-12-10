@@ -20,15 +20,15 @@ export default function Hero() {
   const quotes = [
     {
       text: "I was skeptical about virtual design services but their e-design package was comprehensive and perfectly tailored to my needs.",
-      author: "Tony M.",
+      author: "Sumit Suradkar",
     },
     {
       text: "The custom furniture designed by Prime has transformed our home. Each piece is a masterpiece that fits perfectly into our space and meets our aesthetic desires.",
-      author: "Samantha",
+      author: "Vijay Wagh",
     },
     {
       text: "Prime has been a game-changer for my home. Their ability to blend functionality with exquisite design is unparalleled.",
-      author: "Mathews R.",
+      author: "Pranit Wadatkar",
     },
   ]
 
@@ -75,7 +75,7 @@ export default function Hero() {
                 <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-8xl xl:text-9xl tracking-tighter text-[#1D322D]">
                   Your Ideas,
                 </span>
-                <span className="w-full md:flex "> 
+                <span className="w-full md:flex ">
                   <span className="font-black flex md:inline text-[60px] text-start md:text-8xl xl:text-9xl tracking-tighter relative md:bottom-4 text-[#1D322D]">
                     Our Creative{" "}
                   </span>
@@ -168,16 +168,15 @@ export default function Hero() {
                   {quotes.map((_, index) => (
                     <div
                       key={index}
-                      className={`h-0.5 rounded-full transition-all duration-300 ${
-                        index === currentQuote
-                          ? "w-8 bg-gray-900" // Active line (longer & darker)
-                          : "w-4 bg-gray-300" // Inactive lines (shorter & lighter)
-                      }`}
+                      className={`h-0.5 rounded-full transition-all duration-300 ${index === currentQuote
+                        ? "w-8 bg-gray-900" // Active line (longer & darker)
+                        : "w-4 bg-gray-300" // Inactive lines (shorter & lighter)
+                        }`}
                     ></div>
                   ))}
                 </div>
               </motion.div>
-              
+
             </motion.div>
           </motion.div>
         </div>
@@ -196,7 +195,7 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <video
-            src="https://framerusercontent.com/assets/mSsTg3IQcSmGsgmBbKnv84RbHUw.mp4"
+            src={`https://d33mc6cj8ws4rf.cloudfront.net/home-page-video/Prime-Kitchen-Studio.mp4`}
             autoPlay
             muted
             loop
@@ -219,7 +218,7 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <video
-            src="https://framerusercontent.com/assets/mSsTg3IQcSmGsgmBbKnv84RbHUw.mp4"
+            src={`https://d33mc6cj8ws4rf.cloudfront.net/home-page-video/Prime-Kitchen-Studio.mp4`}
             autoPlay
             muted
             loop
@@ -242,7 +241,7 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <video
-            src="https://framerusercontent.com/assets/mSsTg3IQcSmGsgmBbKnv84RbHUw.mp4"
+             src={`https://d33mc6cj8ws4rf.cloudfront.net/home-page-video/Prime-Kitchen-Studio.mp4`}
             autoPlay
             muted
             loop

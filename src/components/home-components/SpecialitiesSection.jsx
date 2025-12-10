@@ -77,34 +77,34 @@ const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      title: "Personalized Design Solutions",
+      title: "Personalized Designs Crafted Around You",
       content:
-        "We tailor each project to meet your unique vision and needs, ensuring every design reflects your personality and preferences, creating spaces that are truly yours.",
+        "At Prime Kitchen Studios, every design is an exclusive creation, shaped precisely to fit your lifestyle and taste—bringing vision and functionality into perfect harmony.",
       icon: <Pencil />,
     },
     {
-      title: "Extensive Experience",
-      content: "Content for Extensive Experience...",
+      title: "Innovation That Transforms Spaces",
+      content: "We harness the latest technologies and design concepts to craft kitchens and interiors that are as forward-thinking as they are beautiful.",
       icon: <Star />,
     },
     {
-      title: "Budget Friendly",
-      content: "Content for Budget Friendly...",
+      title: "Quality Materials, Expert Craftsmanship",
+      content: "Our commitment to excellence shines through every cabinet, surface, and fixture, ensuring spaces built to last and impress.",
       icon: <DollarSign />,
     },
     {
-      title: "Client-Centric Approach",
-      content: "Content for Client-Centric Approach...",
+      title: "Where Style Meets Function Seamlessly",
+      content: "Our designs blend aesthetic appeal with practical solutions, creating environments that are as efficient as they are stunning.",
       icon: <Handshake />,
     },
     {
-      title: "Sustainable Practices",
-      content: "Content for Sustainable Practices...",
+      title: "Transparent and Responsive Service",
+      content: "We partner with you through every step, ensuring clarity, timeliness, and a collaborative experience that makes your dream space a reality.",
       icon: <Leaf />,
     },
     {
-      title: "Dedicated Team & Support",
-      content: "Content for Dedicated Team & Support...",
+      title: "Versatility Across Residential and Commercial",
+      content: "From cozy homes to bustling offices, our diverse portfolio showcases our adaptability and passion for delivering outstanding results in every setting.",
       icon: <Briefcase />,
     },
   ]
@@ -186,7 +186,7 @@ const SpecialtiesSection = () => {
       >
         <div className="absolute inset-0">
           <img
-            src="/home-images/PXL_20231228_134951829-1.jpg"
+            src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20231228_134951829-1.jpg`}
             alt="Interior design background"
             className="w-full h-160 md:h-280 xl:h-full object-cover rounded-2xl"
           />

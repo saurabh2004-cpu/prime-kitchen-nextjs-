@@ -5,38 +5,112 @@ import { useState, useEffect } from "react"
 const testimonials = [
   {
     id: 1,
-    text: "From the first consultation to final installation, the experience was seamless. The kitchen is not only stunning but incredibly functional — it truly feels like it was made just for us.",
-    author: "Kintal S.",
+    text: `The furniture is exceptionally sturdy and durable, far exceeding our expectations for the price.
+          You can truly see the difference in craftsmanship—it’s a cut above the rest.
+          Every detail reflects quality and care, making our home both beautiful and functional.
+          We’re extremely satisfied with the overall experience and final result.
+          `,
+    author: "Mr. & Mrs. Pingle",
     role: "Homeowner",
   },
   {
     id: 2,
-    text: "From the first consultation to final installation, the experience was seamless. The kitchen is not only stunning but incredibly functional — it truly feels like it was made just for us.",
-    author: "Kintal S.",
+    text: `We needed furniture that perfectly fit our compact apartment space, and the team absolutely nailed it.
+          The design is stylish, space-efficient, and thoughtfully planned for everyday comfort.
+          The smart storage solutions have truly improved our home’s functionality and workflow.
+          They turned our vision into reality, creating a home we genuinely love.
+          `,
+    author: "Mr. & Mrs. Gawhane",
     role: "Homeowner",
   },
   {
     id: 3,
-    text: "From the first consultation to final installation, the experience was seamless. The kitchen is not only stunning but incredibly functional — it truly feels like it was made just for us.",
-    author: "Kintal S.",
+    text: `Working with the company was a seamless experience from start to finish.
+          The team was professional, responsive, and patient throughout the design process, accommodating every change.
+          Installation was completely hassle-free and completed right on time.
+          The final outcome is perfect—just what we envisioned for our home.
+        `,
+    author: "Mr. & Mrs. Munde",
     role: "Homeowner",
   },
   {
     id: 4,
-    text: "From the first consultation to final installation, the experience was seamless. The kitchen is not only stunning but incredibly functional — it truly feels like it was made just for us.",
-    author: "Kintal S.",
+    text: `Great experience overall! The team offered cost-efficient solutions with honest, competitive pricing—without ever compromising on quality.
+          We truly received excellent value for money and complete satisfaction.
+          Their professionalism and transparency made the entire process smooth and trustworthy.
+          `,
+    author: "Mr. & Mrs. Polkam",
     role: "Homeowner",
   },
   {
     id: 5,
-    text: "Amazing service and quality work. The team exceeded our expectations in every way possible. Highly recommend to anyone looking for professional results.",
-    author: "Sarah M.",
+    text: `“Absolutely the best service and quality! The team delivered beyond expectations with excellent attention to detail.
+        Every element reflects precision and care, making the entire experience smooth and satisfying.
+        Truly a perfect blend of professionalism and craftsmanship — highly recommended!`,
+    author: "Mr. Sumit Suradkar",
     role: "Business Owner",
   },
   {
     id: 6,
-    text: "Professional, reliable, and delivered exactly what was promised. The attention to detail was remarkable and the final result speaks for itself.",
-    author: "David L.",
+    text: `The work quality is truly first-rate, and the service exceeded my expectations.Every detail was handled with care, reflecting true professionalism and skill.Thank you, Prime Kitchen Studio, for your excellent service and flawless execution!`,
+    author: "Mr. Pranit Wadatkar ",
+    role: "Property Manager",
+  },
+  {
+    id: 7,
+    text: `Wonderful experience from start to finish! The team at Prime Kitchen Studio was professional, creative, and attentive to every detail.
+The final outcome perfectly matched my vision — elegant, functional, and beautifully crafted.
+Truly delighted with the quality and service!
+`,
+    author: "Ms. Shraddha Deshmukh ",
+    role: "Property Manager",
+  },
+  {
+    id: 8,
+    text: `Exceptional work and a seamless experience throughout the project.
+The Prime Kitchen Studio team delivered top-notch quality with impressive attention to detail.Their professionalism and dedication made the entire process smooth and satisfying.Highly appreciate their effort and craftsmanship!
+
+`,
+    author: "Mr. Ganesh Karhade",
+    role: "Property Manager",
+  },
+  {
+    id: 9,
+    text: `Fantastic experience with Prime Kitchen Studio! The team truly understood my needs and turned my ideas into a beautiful reality.
+ The design, quality, and finishing are simply outstanding.
+ I’m extremely happy with their professionalism and the elegance they brought to my home.
+`,
+    author: "Ms. Sonali Gudadhe Chavan",
+    role: "Property Manager",
+  },
+  {
+    id: 10,
+    text: `Prime Kitchen Studio did an amazing job from concept to completion.
+ The designs are modern, practical, and finished with exceptional quality.
+ The team was professional, responsive, and made the entire process effortless.
+ Truly impressed with their creativity and commitment to perfection!
+`,
+    author: "Mr. Soham Chavan",
+    role: "Property Manager",
+  },
+  {
+    id: 11,
+    text: `Outstanding experience with Prime Kitchen Studio!
+ The team delivered exceptional craftsmanship and thoughtful design that perfectly fit my space.
+ Everything was handled with professionalism, precision, and care.
+ I’m highly satisfied with the result — elegant, durable, and beautifully executed.
+`,
+    author: "Mr. Achut Moharir",
+    role: "Property Manager",
+  },
+  {
+    id: 12,
+    text: `Excellent work by Prime Kitchen Studio!
+ The team was professional, punctual, and paid great attention to every detail.
+ The final outcome exceeded my expectations with top-quality finishes and smart design.
+ Truly happy with their dedication and flawless execution.
+`,
+    author: "Mr. Hrishikesh Sangit",
     role: "Property Manager",
   },
 ]
@@ -109,19 +183,19 @@ export default function TestimonialsCarousel() {
                 className="flex-shrink-0 bg-black rounded-lg p-4 sm:p-6 md:p-8 text-white"
                 style={{
                   width: `calc((100% - ${(cardsPerView - 1) * (cardsPerView === 1 ? 0.75 : 1.5)}rem) / ${cardsPerView})`,
-                  height: cardsPerView === 1 ? "auto" : "288px",
-                  minHeight: cardsPerView === 1 ? "250px" : "288px",
+                  height: cardsPerView === 1 ? "auto" : "419px",
+                  minHeight: cardsPerView === 1 ? "250px" : "419px",
                   minWidth: cardsPerView === 1 ? "280px" : "396px",
                 }}
               >
-                <div className="h-full flex flex-col justify-between mb-[28px] px-[20px]">
+                <div className="h-full flex flex-col justify-between mb-[28px] px-[20px] ">
                   <p className="text-base sm:text-lg md:text-[20px] font-medium tracking-tight leading-[25px] mb-4 sm:mb-6 ">
                     "{testimonial.text}"
                   </p>
 
                   <div className="mt-auto">
                     <p className="text-lg sm:text-xl font-medium">
-                      — {testimonial.author}, {testimonial.role}
+                      — {testimonial.author}
                     </p>
                   </div>
                 </div>
@@ -135,9 +209,8 @@ export default function TestimonialsCarousel() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors duration-200 ${
-                Math.floor(currentIndex / cardsPerView) === index ? "bg-black" : "bg-gray-300"
-              }`}
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors duration-200 ${Math.floor(currentIndex / cardsPerView) === index ? "bg-black" : "bg-gray-300"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}

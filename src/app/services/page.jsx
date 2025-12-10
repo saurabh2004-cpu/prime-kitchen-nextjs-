@@ -13,27 +13,27 @@ import React from 'react'
 
 const page = () => {
 
-  const aboutLuxuryKitchenImg = '/home-images/PXL_20250719_105350693.jpg'
+  const aboutLuxuryKitchenImg = `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20250719_105350693.jpg`
 
   const wardrobeImages = [
     {
       id: 1,
-      src: "/home-images/PXL_20240220_133630150.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240220_133630150.jpg`,
       alt: "Modern luxury wardrobe with organized storage and LED lighting"
     },
     {
       id: 2,
-      src: "/home-images/PXL_20250719_104942407.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20250719_104942407.jpg`,
       alt: "Contemporary walk-in closet with premium finishes"
     },
     {
       id: 3,
-      src: "/home-images/WhatsApp-Image-5.jpeg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/WhatsApp-Image-5.jpeg`,
       alt: "Elegant wardrobe interior with mirror and organized compartments"
     },
     {
       id: 4,
-      src: "/home-images/PXL_20240322_135159544.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240322_135159544.jpg`,
       alt: "Premium wardrobe with hanging clothes and sophisticated lighting"
     }
   ];
@@ -41,17 +41,17 @@ const page = () => {
   const blendImages = [
     {
       id: 1,
-      src: "/home-images/WhatsApp-Image-3.jpeg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/WhatsApp-Image-3.jpeg`,
       alt: "Modern wardrobe with organized white clothing and smart storage compartments",
     },
     {
       id: 2,
-      src: "/home-images/PXL_20250719_105036289.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20250719_105036289.jpg`,
       alt: "Luxury walk-in closet with warm LED lighting and premium finishes",
     },
     {
       id: 3,
-      src: "/home-images/PXL_20240322_133132884.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240322_133132884.jpg`,
       alt: "Luxury walk-in closet with warm LED lighting and premium finishes",
     },
   ]
@@ -59,22 +59,22 @@ const page = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/home-images/PXL_20231228_135237449.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20231228_135237449.jpg`,
       alt: "Modern luxury wardrobe with organized white clothing and LED strip lighting"
     },
     {
       id: 2,
-      src: "/home-images/PXL_20240322_133833407.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240322_133833407.jpg`,
       alt: "Walk-in closet with warm wood tones and central seating ottoman"
     },
     {
       id: 3,
-      src: "/home-images/PXL_20240322_134538562.jpg",
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240322_134538562.jpg`,
       alt: "Contemporary wardrobe with glass fronts and sophisticated storage solutions"
     }
   ];
 
-  const faqImage = '/home-images/PXL_20240220_130937450~2.jpg'
+  const faqImage = `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240220_130937450~2.jpg`
 
   return (
     <>

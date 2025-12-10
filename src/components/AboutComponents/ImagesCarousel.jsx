@@ -6,49 +6,49 @@ const InfiniteCarousel = () => {
   const images = [
     {
       id: 1,
-      src: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(1).png',
       alt: 'Modern workspace with laptop',
       shape: 'rounded-full' // Circle
     },
     {
       id: 2,
-      src: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(2).png',
       alt: 'Creative office setup',
       shape: 'rounded-2xl' // Rounded rectangle
     },
     {
       id: 3,
-      src: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(3).png',
       alt: 'Business meeting room',
       shape: 'rounded-2xl' // Circle
     },
     {
       id: 4,
-      src: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(4).png',
       alt: 'Modern office interior',
       shape: 'rounded-[3rem]' // Large rounded rectangle
     },
     {
       id: 5,
-      src: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(5).png',
       alt: 'Collaborative workspace',
       shape: 'rounded-2xl' // Rounded rectangle
     },
     {
       id: 6,
-      src: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(6).png',
       alt: 'Design studio',
       shape: 'rounded-full' // Circle
     },
     {
       id: 7,
-      src: 'https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(8).png',
       alt: 'Tech workspace',
       shape: 'rounded-2xl' // Rounded rectangle
     },
     {
       id: 8,
-      src: 'https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=400&h=300',
+      src: '1+(9).png',
       alt: 'Creative office space',
       shape: 'rounded-full' // Circle
     }
@@ -72,7 +72,7 @@ const InfiniteCarousel = () => {
         {/* Responsive gradient overlays for smooth fade effect */}
         {/* <div className="absolute left-0 top-0 w-16 sm:w-24 lg:w-32 h-full bg-gradient-to-r from-[#f7f6e9] via-[#f7f6e9]/80 to-transparent z-10 pointer-events-none" /> */}
         {/* <div className="absolute right-0 top-0 w-16 sm:w-24 lg:w-32 h-full bg-gradient-to-l from-[#f7f6e9] via-[#f7f6e9]/80 to-transparent z-10 pointer-events-none" /> */}
-        
+
         {/* Infinite scrolling container */}
         <motion.div
           className="flex gap-2 sm:gap-4 lg:gap-6"
@@ -97,8 +97,8 @@ const InfiniteCarousel = () => {
               className="flex-shrink-0 relative group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.2, 
+              transition={{
+                duration: 0.2,
                 delay: (index % images.length) * 0.03,
                 ease: "easeOut"
               }}
@@ -106,13 +106,12 @@ const InfiniteCarousel = () => {
             >
               <div className={`relative overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group-hover:scale-105 ${image.shape}`}>
                 <img
-                  src={image.src}
+                  src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/about-page-images/team-carousel-images/${image.src}`}
                   alt={image.alt}
-                  className={`object-cover transition-transform duration-700 group-hover:scale-110 ${
-                    image.shape === 'rounded-full' 
-                      ? 'aspect-square w-[388px] h-[288px]  ' 
+                  className={`object-cover transition-transform duration-700 group-hover:scale-110 ${image.shape === 'rounded-full'
+                      ? 'aspect-square w-[388px] h-[288px]  '
                       : 'w-[388px] h-[288px]'
-                  }`}
+                    }`}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

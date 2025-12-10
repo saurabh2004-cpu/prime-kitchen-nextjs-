@@ -11,9 +11,7 @@ export default function ServicesGrid() {
       id: 1,
       title: "Kitchens",
       description:
-        `Crafted with precision, our modular kitchens blend style, smart storage, and durability.
-From sleek modern layouts to warm classic designs, every kitchen is tailored to your lifestyle.
-Quality materials and ergonomic planning ensure a seamless cooking experience.
+        `At Prime Kitchen Studios, kitchens are our passion and expertise. We design and create kitchens that perfectly blend form and function. From modular kitchens to traditional layouts, every design is tailored to fit your lifestyle, offering ergonomic spaces, premium materials, and innovative storage solutions. Our kitchens are built to inspire creativity and simplify daily cooking while elevating home aesthetics.
 `,
       icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
     },
@@ -21,37 +19,32 @@ Quality materials and ergonomic planning ensure a seamless cooking experience.
       id: 2,
       title: "Wardrobes",
       description:
-        `Designed for maximum space and elegance, our wardrobes combine smart organization with premium finishes.
-From sliding to fully customized walk-ins, we create storage that fits perfectly into your home.
-Beautiful, functional, and built to last.
+        `Our custom wardrobes combine style with smart organization. Designed to maximize space and accessibility, our wardrobes feature customizable shelving, drawers, and hanging solutions tailored to individual needs. Using quality materials and finishes, these wardrobes add a sophisticated charm to bedrooms while keeping everything neatly arranged.
 `,
       icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
     },
     {
       id: 3,
-      title: "Appliances",
-      description: `We offer a curated range of high-performance kitchen appliances that elevate everyday living.
-From chimneys to built-in hobs, ovens, and dishwashers — everything is chosen for reliability and design.
-Seamless integration, modern technology, and trusted brands.
+      title: "Furniture",
+      description: `Complement your living spaces with our bespoke furniture solutions. From dining tables to lounge seating, each piece is crafted to match your interior style and enhance comfort. Our furniture designs emphasize quality, durability, and timeless elegance, perfect for any room in your home.
+
 `,
       icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
     },
     {
       id: 4,
-      title: "Furniture",
-      description: `Our furniture collection focuses on comfort, aesthetics, and durability.
-From living-room to bedroom solutions, each piece is designed to enhance your space.
-Thoughtfully crafted to complement modern homes with style and function.
+      title: "Office",
+      description: `Our office furniture and design solutions focus on creating productive and inspiring workspaces. We offer ergonomic desks, smart storage options, and stylish seating that blend professionalism with comfort. Whether for home offices or corporate environments, our designs promote efficiency and well-being.
+
 `,
       icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
     },
     {
       id: 5,
-      title: "Office",
+      title: "Appliances",
       description: `
-Prime’s office interior solutions blend professionalism with modern design.
-We create efficient, stylish workspaces that boost productivity and reflect your brand identity.
-Ergonomic layouts, premium materials, and smart storage for a seamless workflow.`,
+Prime Kitchen Studios provides a curated selection of the latest kitchen appliances known for their durability, efficiency, and modern technology. Whether you need state-of-the-art ovens, refrigerators, or dishwashers, we integrate appliances seamlessly into your kitchen design for a sleek and functional look.
+`,
       icon: "https://framerusercontent.com/images/JbyjEq4WEAx6qDzQgw6Zkax3iY.png",
     },
     // {
@@ -314,8 +307,8 @@ Ergonomic layouts, premium materials, and smart storage for a seamless workflow
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="relative group flex justify-center items-center">
-            <motion.button
+          {/* <div className="relative group flex justify-center items-center">
+            {/* <motion.button
               className="bg-[#00374b] text-[#fdfcee] px-8 py-4 rounded-2xl font-medium md:font-semibold text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
               whileHover={{
                 scale: 1.02,
@@ -325,17 +318,17 @@ Ergonomic layouts, premium materials, and smart storage for a seamless workflow
             >
               <span className="relative z-10 inter-placeholder">
                 {/* Show different text on mobile vs desktop */}
-                <span className="md:hidden">
+          {/* <span className="md:hidden">
                   {showAllServices ? "Show Less" : "View All Services"}
-                </span>
-                <span className="hidden md:inline">
+                </span> */}
+          {/* <span className="hidden md:inline">
                   View All Services
-                </span>
-              </span>
-              <motion.div className="absolute top-0 right-0 h-full w-0 group-hover:w-4 transition-all duration-500 ease-out" />
-            </motion.button>
+                </span> */}
+          {/* </span> */}
+          {/* <motion.div className="absolute top-0 right-0 h-full w-0 group-hover:w-4 transition-all duration-500 ease-out" /> */}
+          {/* </motion.button> */}
 
-            <motion.button
+          {/* <motion.button
               className="bg-[#009f93] text-[#1d322d] p-5 rounded-2xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l focus:outline-none relative z-10"
 
               whileTap={{ scale: 0.95 }}
@@ -350,8 +343,8 @@ Ergonomic layouts, premium materials, and smart storage for a seamless workflow
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </motion.div>
-            </motion.button>
-          </div>
+            </motion.button> */}
+          {/* </div> */}
         </motion.div>
       </div>
     </section>

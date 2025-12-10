@@ -126,6 +126,17 @@ We envision a future where every home reflects smart living—beautifully crafte
         }
     };
 
+    const teasmsImages = [
+        '/about-page-images/about-us-section/1(1).png',
+        '/about-page-images/about-us-section/1(2).png',
+        '/about-page-images/about-us-section/1(3).png',
+        '/about-page-images/about-us-section/1(4).png',
+        '/about-page-images/about-us-section/1(5).png',
+        '/about-page-images/about-us-section/1(6).png',
+        '/about-page-images/about-us-section/1(7).png',
+        '/about-page-images/about-us-section/1(9).png',
+    ]
+
     return (
         <section className="w-full md:px-4 lg:px-6 xl:px-8 2xl:px-12 py-8 md:pt-24 bg-[#1f3630] min-h-screen rounded-t-2xl md:rounded-t-2xl">
             <motion.div
@@ -178,7 +189,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                             className="bg-white/10 rounded-xl h-96 md:h-full overflow-hidden relative flex flex-col justify-end h-80"
                         >
                             <img
-                                src="/images/aboutus-2.png"
+                                src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/WhatsApp-Image-5.jpeg`}
                                 alt="Interior"
                                 className="absolute inset-0 w-full h-96 md:h-full object-cover"
                             />
@@ -190,12 +201,12 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 </p>
                                 <div className="flex items-center gap-3">
                                     <img
-                                        src="https://randomuser.me/api/portraits/men/32.jpg"
+                                        src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/about-page-images/about-us-section/prime-founder.png`}
                                         alt="Founder"
                                         className="md:w-10 md:h-10 h-15 w-15 rounded-md object-cover"
                                     />
                                     <div>
-                                        <p className="inter-placeholder text-lg font-medium">Real Mehedi</p>
+                                        <p className="inter-placeholder text-lg font-medium">Vallav Chavan</p>
                                         <p className="text-md opacity-75 inter-placeholder">Founder, Prime Kitchen Studio</p>
                                     </div>
                                 </div>
@@ -247,7 +258,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="bg-[#f7f6e9] h-44 rounded-2xl p-4 flex flex-col justify-center"
                             >
-                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">150+</p>
+                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">2000+</p>
                                 <p className="text-lg font-medium text-[#1d322d] text-start inter-placeholder">Happy Clients</p>
                             </motion.div>
 
@@ -260,9 +271,9 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="bg-[#fffef2] h-44 rounded-2xl p-4 flex flex-col justify-center"
                             >
-                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">200+</p>
+                                <p className="text-7xl font-bold text-[#1d322d] text-start inter-placeholder">3000+</p>
                                 <p className="text-lg font-medium text-[#1d322d] text-start inter-placeholder mt-4">Projects</p>
-                                <p className="text-[#1d322d] text-[13px] mb-4 flex items-end h-full inter-placeholder">Over 200 successful projects completed</p>
+                                <p className="text-[#1d322d] text-[13px] mb-4 flex items-end h-full inter-placeholder">Over 3000 successful projects completed</p>
 
                             </motion.div>
                         </div>
@@ -277,16 +288,16 @@ We envision a future where every home reflects smart living—beautifully crafte
                             className="bg-[#2c5f4f] h-44 rounded-2xl flex flex-col items-center justify-center p-6 "
                         >
                             <div className="flex -space-x-6">
-                                {Array.from({ length: 6 }).map((_, i) => (
+                                {teasmsImages.map((img, i) => (
                                     <img
                                         key={i}
-                                        src={`https://randomuser.me/api/portraits/men/${30 + i}.jpg`}
+                                        src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}${img}`}
                                         alt="Team member"
                                         className="w-16 h-16 rounded-full border-2 border-white object-cover"
                                     />
                                 ))}
                             </div>
-                            <p className="mt-2 text-white text-lg text-[#1d322d]/75 text-center inter-placeholder">18 Creative Masterminds</p>
+                            <p className="mt-2 text-white text-lg text-[#1d322d]/75 text-center inter-placeholder">8 Creative Masterminds</p>
                         </motion.div>
 
                         {/* Awards */}
@@ -298,7 +309,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                             variants={fadeUp}
                             className="bg-[#2c5f4f] h-44 rounded-2xl p-4 text-white flex flex-col justify-center"
                         >
-                            <p className="text-7xl font-bold inter-placeholder text-[#fffef2] text-start border-b">8+</p>
+                            <p className="text-7xl font-bold inter-placeholder text-[#fffef2] text-start border-b">14+</p>
                             <p className="text-lg font-bold text-[#fffef2] text-start inter-placeholder mt-6" style={{ fontWeight: 900 }}>Prestigious Experience</p>
                             <p className="mt-2 text-[#fffef2]/85 text-[14px] mb-4 flex items-end h-1/5 inter-placeholder relative">
                                 Over 8 Awards won showcasing our extensive experience and portfolio.
@@ -319,7 +330,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 className="col-span-6 row-span-2 bg-white/10 rounded-2xl overflow-hidden relative flex flex-col justify-end min-h-[400px] lg:min-h-[500px] xl:max-h-[500px]"
                             >
                                 <img
-                                    src="/home-images/WhatsApp-Image-5.jpeg"
+                                    src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/WhatsApp-Image-5.jpeg`}
                                     alt="Interior"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
@@ -331,12 +342,12 @@ We envision a future where every home reflects smart living—beautifully crafte
                                     </p>
                                     <div className="flex items-center gap-3">
                                         <img
-                                            src="https://randomuser.me/api/portraits/men/32.jpg"
+                                            src="/about-page-images/about-us-section/prime-founder.png"
                                             alt="Founder"
                                             className="w-10 h-10 lg:w-12 lg:h-12 rounded-md object-cover"
                                         />
                                         <div>
-                                            <p className="inter-placeholder text-sm lg:text-base font-semibold">Real Mehedi</p>
+                                            <p className="inter-placeholder text-sm lg:text-base font-semibold">Vallav Chavan</p>
                                             <p className="text-xs lg:text-sm opacity-75 inter-placeholder">Founder, Prime Design Studio</p>
                                         </div>
                                     </div>
@@ -386,7 +397,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="col-span-3 bg-[#f7f6e9] rounded-2xl p-4 lg:p-2  flex flex-col justify-center items-center text-center min-h-[180px] lg:min-h-[110px] xl:max-h-[195px]"
                             >
-                                <p className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#1d322d] inter-placeholder">150+</p>
+                                <p className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#1d322d] inter-placeholder">2000+</p>
                                 <p className="text-sm lg:text-base text-[#1d322d] inter-placeholder mt-2">Happy Clients</p>
                             </motion.div>
 
@@ -401,10 +412,10 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="col-span-3 bg-[#fffef2] rounded-2xl p-4 lg:p-6 flex flex-col justify-between min-h-[140px] lg:min-h-[350px]"
                             >
-                                <p className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[#1d322d] inter-placeholder">200+</p>
+                                <p className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[#1d322d] inter-placeholder">3000+</p>
                                 <div>
                                     <p className="text-sm lg:text-base font-bold text-[#1d322d] inter-placeholder">Projects</p>
-                                    <p className="text-xs lg:text-sm text-[#1d322d] inter-placeholder mt-1">Over 200 successful projects completed</p>
+                                    <p className="text-xs lg:text-sm text-[#1d322d] inter-placeholder mt-1">Over 3000 successful projects completed</p>
                                 </div>
                             </motion.div>
 
@@ -418,16 +429,16 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 className="col-span-6 bg-[#2c5f4f] rounded-2xl flex flex-col items-center justify-center p-4 lg:p-6 min-h-[140px] lg:min-h-[180px]"
                             >
                                 <div className="flex -space-x-2 lg:-space-x-3">
-                                    {Array.from({ length: 6 }).map((_, i) => (
+                                    {teasmsImages.map((img, i) => (
                                         <img
                                             key={i}
-                                            src={`https://randomuser.me/api/portraits/men/${30 + i}.jpg`}
+                                            src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}${img}`}
                                             alt="Team member"
                                             className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 rounded-full border-2 border-white object-cover"
                                         />
                                     ))}
                                 </div>
-                                <p className="mt-3 text-white inter-placeholder text-sm lg:text-base font-medium">18 Creative Masterminds</p>
+                                <p className="mt-3 text-white inter-placeholder text-sm lg:text-base font-medium">8 Creative Masterminds</p>
                             </motion.div>
 
 
@@ -441,11 +452,11 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="col-span-3 bg-[#2c5f4f] rounded-2xl p-4 lg:p-6 text-white flex flex-col justify-between min-h-[140px] lg:min-h-[180px]"
                             >
-                                <p className="text-4xl lg:text-5xl xl:text-6xl font-bold inter-placeholder text-[#fffef2] border-b border-[#fffef2] pb-2">8+</p>
+                                <p className="text-4xl lg:text-5xl xl:text-6xl font-bold inter-placeholder text-[#fffef2] border-b border-[#fffef2] pb-2">14+</p>
                                 <div>
                                     <p className="text-sm lg:text-base font-bold text-[#fffef2] inter-placeholder">Experience</p>
                                     <p className="text-xs lg:text-sm text-[#fffef2]/85 inter-placeholder mt-1">
-                                        Over 8 Years of experience .
+                                        Over 14 Years of experience .
                                     </p>
                                 </div>
                             </motion.div>

@@ -28,7 +28,7 @@ const ClosetHeroSection = () => {
                     {/* Main Heading */}
                     <h1 className="text-white font-light leading-[] xl:text-8xl font-medium tracking-tighter leading-tighter text-[#fffef2]">
                         <span className="block  ">
-                            More Than Storage  — A
+                            More Than Storage A
                         </span>
                         <span className="block ">
                             Space That Reflects You

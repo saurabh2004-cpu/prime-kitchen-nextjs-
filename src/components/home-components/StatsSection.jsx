@@ -4,22 +4,27 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion"
 
 function AnimatedCounter({ value, duration = 2 }) {
   const ref = useRef(null)
-  const motionValue = useMotionValue(0)
-  const springValue = useSpring(motionValue, { duration: duration * 1000 })
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true })
   const [displayValue, setDisplayValue] = useState(0)
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value)
-    }
-  }, [motionValue, isInView, value])
+      const start = performance.now()
 
-  useEffect(() => {
-    springValue.on("change", (latest) => {
-      setDisplayValue(Math.floor(latest))
-    })
-  }, [springValue])
+      const animateCounter = (time) => {
+        const progress = Math.min((time - start) / (duration * 1000), 1)
+        const currentValue = Math.floor(progress * value)
+
+        setDisplayValue(currentValue)
+
+        if (progress < 1) {
+          requestAnimationFrame(animateCounter)
+        }
+      }
+
+      requestAnimationFrame(animateCounter)
+    }
+  }, [isInView, value, duration])
 
   return <span ref={ref}>{displayValue}</span>
 }
@@ -27,17 +32,17 @@ function AnimatedCounter({ value, duration = 2 }) {
 export default function StatsSection() {
   const stats = [
     {
-      number: 200,
+      number: 3000,
       title: "Project Completed",
       description: "Over 200 successful projects completed, showcasing our extensive experience and portfolio.",
     },
     {
-      number: 15,
+      number: 14,
       title: "Years of Expertise",
       description: "With 15 years in the industry, we bring a wealth of knowledge and skill to every project.",
     },
     {
-      number: 150,
+      number: 2000,
       title: "Happy Clients",
       description:
         "Proudly serving more than 150 satisfied clients who have trusted us with their interior design needs.",

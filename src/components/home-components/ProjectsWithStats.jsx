@@ -5,17 +5,17 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion"
 export function ProjectsWithStats() {
     const projects = [
         {
-            title: "Midnight Dream Home",
+            title: "Modern Modular Kitchen in Aurangabad",
             description:
-                "The Coastal Harmony Home project was a comprehensive renovation of a beachside house, transforming it into a serene and stylish retreat that reflects the client's love for the ocean and nature.",
+                `A stylish and luxurious modular kitchen created with customized cabinetry and premium finishes. Designed to maximize space and usability, this kitchen embodies both elegance and practicality, making it a true "Super Kitchen`,
             src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80",
             color: "#F7F6E9",
             categories: ["RESIDENTIAL", "SINGLE HOME"],
         },
         {
-            title: "Modern Chic Boutique",
+            title: "Modular Kitchen Projects",
             description:
-                "A stunning transformation of an industrial space into a contemporary living environment, featuring clean lines, natural materials, and innovative storage solutions.",
+                `Prime Kitchen Studios offers innovative modular kitchen solutions designed to maximize space, functionality, and style. Our modular kitchens are built with precision, incorporating flexible components that can be customized to fit any home or lifestyle.`,
             src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
             color: "#F7F6E9",
             categories: ["COMERCIAL", "SHOWROOM"],
@@ -25,19 +25,19 @@ export function ProjectsWithStats() {
     const stats = [
         {
             id: 1,
-            number: "200",
+            number: "3000",
             title: "Project Completed",
             description: "Over 200 successful projects completed, showcasing our extensive experience and portfolio.",
         },
         {
             id: 2,
-            number: "15",
+            number: "14",
             title: "Years of Expertise",
             description: "With 15 years in the industry, we bring a wealth of knowledge and skill to every project.",
         },
         {
             id: 3,
-            number: "90",
+            number: "2000",
             title: "Happy Clients",
             description: "With 15 years in the industry, we bring a wealth of knowledge and skill to every project.",
         },
@@ -122,7 +122,7 @@ export function ProjectsWithStats() {
                     {stats.map((stat) => (
                         <div key={stat.id} className="bg-[#F7F6E9] px-6 py-2 rounded-lg shadow-sm">
                             <div className="flex items-center gap-2 mt-4 md:mt-0">
-                                <div className=" text-[138px]  font-medium text-[#1F3630] inter-placeholder leading-none tracking-tight">
+                                <div className=" text-[100px]  font-medium text-[#1F3630] inter-placeholder leading-none tracking-tight">
                                     <AnimatedCounter value={stat.number} duration={2.5} />
                                 </div>
                                 <span className=" text-[#F3AC85] inter-placeholder font-semibold text-8xl  ml-1 text-[#009f93]" style={{ color: "#009f93" }}>+</span>

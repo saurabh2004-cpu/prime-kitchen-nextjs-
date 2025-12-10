@@ -5,33 +5,33 @@ import { ChevronDownIcon } from "lucide-react"
 
 const faqData = [
   {
-    question: "What services do you offer?",
+    question: " What is a modular kitchen?",
     answer:
-      "We offer comprehensive kitchen renovation services including design consultation, installation, and project management. Our team handles everything from initial planning to final touches.",
+      "A modular kitchen consists of pre-fabricated cabinet units designed to optimize space, storage, and workflow with customizable layouts to fit your home perfectly.",
   },
   {
-    question: "How long does a typical project take?",
+    question: "Do you offer customized furniture designs?",
     answer:
-      "Most kitchen renovation projects take between 4-8 weeks depending on the scope and complexity. We provide detailed timelines during the consultation phase.",
+      "Yes, we craft bespoke furniture tailored to your home’s aesthetics and functional needs, using premium materials and finishes.",
   },
   {
-    question: "Do you provide warranties on your work?",
+    question: " What makes your office furniture special?",
     answer:
-      "Yes, we provide comprehensive warranties on all our work. Installation work comes with a 2-year warranty, and we also honor manufacturer warranties on all products.",
+      "Our office furniture focuses on ergonomic design, comfort, and style to create productive work environments tailored to modern needs.",
   },
   {
-    question: "Can you work with my existing layout?",
+    question: "How do I get started with designing my kitchen or interior?",
     answer:
-      "We can work with your existing layout or help you redesign the space entirely. Our design team will assess your current setup and provide recommendations.",
+      "The process begins with a consultation where we understand your needs, style preferences, and budget. From there, we create customized design concepts and layouts, guiding you through material choices and functionality to bring your vision to life.",
   },
   {
-    question: "What is included in the consultation?",
+    question: "What happens if I want to make changes after the design is finalized?",
     answer:
-      "Our consultation includes space assessment, design recommendations, material suggestions, timeline planning, and a detailed quote. The initial consultation is complimentary.",
+      "We understand that ideas evolve. Minor changes can often be accommodated during the process, but significant alterations after final approval may affect timelines and costs. We recommend open communication early to ensure satisfaction.",
   },
 ]
 
-export default function FAQ({faqImage}) {
+export default function FAQ({ faqImage }) {
   const [openItems, setOpenItems] = useState([])
 
   const toggleItem = (index) => {
@@ -72,9 +72,8 @@ export default function FAQ({faqImage}) {
                     {faq.question}
                   </span>
                   <ChevronDownIcon
-                    className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-500 transition-transform duration-200 flex-shrink-0 ${
-                      openItems.includes(index) ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-500 transition-transform duration-200 flex-shrink-0 ${openItems.includes(index) ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
 

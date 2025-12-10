@@ -7,20 +7,27 @@ import { MobileCard } from "./ProjectsShowcase"
 
 function AnimatedCounter({ value, duration = 2 }) {
     const ref = useRef(null)
-    const motionValue = useMotionValue(0)
-    const springValue = useSpring(motionValue, { duration: duration * 1000 })
-    const isInView = useInView(ref, { once: true, margin: "-100px" })
+    const isInView = useInView(ref, { once: true })
     const [displayValue, setDisplayValue] = useState(0)
 
     useEffect(() => {
-        if (isInView) motionValue.set(value)
-    }, [motionValue, isInView, value])
+        if (isInView) {
+            const start = performance.now()
 
-    useEffect(() => {
-        springValue.on("change", (latest) => {
-            setDisplayValue(Math.floor(latest))
-        })
-    }, [springValue])
+            const animateCounter = (time) => {
+                const progress = Math.min((time - start) / (duration * 1000), 1)
+                const currentValue = Math.floor(progress * value)
+
+                setDisplayValue(currentValue)
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateCounter)
+                }
+            }
+
+            requestAnimationFrame(animateCounter)
+        }
+    }, [isInView, value, duration])
 
     return <span ref={ref}>{displayValue}</span>
 }
@@ -28,7 +35,7 @@ function AnimatedCounter({ value, duration = 2 }) {
 export default function NewProjectsSection() {
     const projects = [
         {
-            title: "Midnight Dream Home",
+            title: "Modern Modular Kitchen in Aurangabad",
             description: "The Coastal Harmony Home project was a comprehensive renovation...",
             src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2075&q=80",
             color: "#F7F6E9",
@@ -44,9 +51,9 @@ export default function NewProjectsSection() {
     ]
 
     const stats = [
-        { number: 200, title: "Project Completed" },
-        { number: 15, title: "Years of Expertise" },
-        { number: 150, title: "Happy Clients" },
+        { number: 3000, title: "Project Completed" },
+        { number: 14, title: "Years of Expertise" },
+        { number: 2000, title: "Happy Clients" },
     ]
 
     const cardVariants = {
