@@ -234,8 +234,8 @@ We envision a future where every home reflects smart living—beautifully crafte
                             variants={fadeUp}
                             className="relative rounded-2xl h-99 md:h-full overflow-hidden h-48"
                         >
-                            <img
-                                src="/images/abouus-1.png"
+                            <video
+                                src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/about-page-video/C1132.mp4`}
                                 alt="Studio"
                                 className="w-full h-99 md:h-full object-cover"
                             />
@@ -375,8 +375,8 @@ We envision a future where every home reflects smart living—beautifully crafte
                                 variants={fadeUp}
                                 className="col-span-3 row-span-2 relative rounded-2xl overflow-hidden min-h-[400px] lg:min-h-[500px] xl:max-h-[500px]"
                             >
-                                <img
-                                    src="/images/abouus-1.png"
+                                <video
+                                    src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/about-page-video/C1132.mp4`}
                                     alt="Studio"
                                     className="w-full h-full object-cover"
                                 />
