@@ -1,10 +1,16 @@
-"use client"
-import { motion, useMotionValue, useAnimationFrame, useSpring } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import { useEffect, useState } from "react"
+"use client";
+import {
+  motion,
+  useMotionValue,
+  useAnimationFrame,
+  useSpring,
+} from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const ImagesGrid = () => {
-  const [hovered, setHovered] = useState(false)
+  const [hovered, setHovered] = useState(false);
 
   const images = [
     "/home-page/home-images/WhatsApp-Image-6.jpeg",
@@ -33,40 +39,40 @@ const ImagesGrid = () => {
     "/home-page/home-images/WhatsApp-Image-1.jpeg",
     "/home-page/home-images/PXL_20240322_133132884.jpg",
     "/home-page/home-images/WhatsApp-Image-5.jpeg",
-  ]
+  ];
 
   const baseUrl = process.env.NEXT_PUBLIC_CLOUDFRONT_URL;
-  const cloudfrontImages = images.map(img => `${baseUrl}${img}`);
+  const cloudfrontImages = images.map((img) => `${baseUrl}${img}`);
 
-  const IMG_H = 280
-  const GAP = 6
-  const LOOP_DISTANCE = images.length * (IMG_H + GAP)
+  const IMG_H = 280;
+  const GAP = 6;
+  const LOOP_DISTANCE = images.length * (IMG_H + GAP);
 
-  const baseY1 = useMotionValue(0) // For columns 0, 2 (even)
-  const baseY2 = useMotionValue(-LOOP_DISTANCE / 2) // For columns 1, 3 (odd) - start offset
+  const baseY1 = useMotionValue(0); // For columns 0, 2 (even)
+  const baseY2 = useMotionValue(-LOOP_DISTANCE / 2); // For columns 1, 3 (odd) - start offset
 
-  const speed = useSpring(50, { stiffness: 120, damping: 20, mass: 0.3 })
+  const speed = useSpring(50, { stiffness: 120, damping: 20, mass: 0.3 });
 
   useEffect(() => {
-    speed.set(hovered ? 10 : 50)
-  }, [hovered, speed])
+    speed.set(hovered ? 10 : 50);
+  }, [hovered, speed]);
 
   useAnimationFrame((t, delta) => {
-    const v = speed.get()
-    const dy = (delta / 1000) * v
+    const v = speed.get();
+    const dy = (delta / 1000) * v;
 
     // baseY1 moves down (for even columns)
-    let next1 = baseY1.get() - dy
-    if (next1 <= -LOOP_DISTANCE) next1 += LOOP_DISTANCE
-    baseY1.set(next1)
+    let next1 = baseY1.get() - dy;
+    if (next1 <= -LOOP_DISTANCE) next1 += LOOP_DISTANCE;
+    baseY1.set(next1);
 
     // baseY2 moves up (for odd columns)
-    let next2 = baseY2.get() + dy
-    if (next2 >= 0) next2 -= LOOP_DISTANCE
-    baseY2.set(next2)
-  })
+    let next2 = baseY2.get() + dy;
+    if (next2 >= 0) next2 -= LOOP_DISTANCE;
+    baseY2.set(next2);
+  });
 
-  const colY = (colIdx) => (colIdx % 2 === 0 ? baseY1 : baseY2)
+  const colY = (colIdx) => (colIdx % 2 === 0 ? baseY1 : baseY2);
 
   return (
     <section style={{ padding: "2rem 1rem", backgroundColor: "#fffef2" }}>
@@ -79,7 +85,10 @@ const ImagesGrid = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#2c5f4f]/70 to-[#1f3630]/98 pointer-events-none" />
 
           {Array.from({ length: 4 }).map((_, colIdx) => (
-            <div key={colIdx} className="flex flex-col overflow-hidden rounded-xl">
+            <div
+              key={colIdx}
+              className="flex flex-col overflow-hidden rounded-xl"
+            >
               <motion.div
                 style={{
                   display: "flex",
@@ -110,31 +119,37 @@ const ImagesGrid = () => {
           ))}
 
           <div className="absolute  inset-0 flex flex-col items-center justify-center z-10 text-center  md:bottom-5 ">
-            <div className="absolute inset-0  mt-[20%] md:mt-0   transition-colors duration-300 sm:relative top-50 rounded-[12px] h-[10rem] md:h-[10.75rem]  md:top-1/7 md:w-[550px] md:left-68 md:-translate-x-1/2" >
-              <h2 className="text-3xl md:text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder ">Get inspired by our</h2>
-              <h2 className="text-3xl md:text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder">1000+ project images</h2>
+            <div className="absolute inset-0  mt-[20%] md:mt-0   transition-colors duration-300 sm:relative top-50 rounded-[12px] h-[10rem] md:h-[10.75rem]  md:top-1/7 md:w-[550px] md:left-68 md:-translate-x-1/2">
+              <h2 className="text-3xl md:text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder ">
+                Get inspired by our
+              </h2>
+              <h2 className="text-3xl md:text-5xl font-black text-[#fffef2] z-10 realtive inter-placeholder">
+                1000+ project images
+              </h2>
             </div>
-            <div className="flex gap-2 sm:-mt-[9rem]   md:mt-8">
-              <motion.button
-                className="bg-[#FDFCEE] z-10 text-[#1F3630] px-6 py-3 rounded-xl font-semibold"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore Gallery
-              </motion.button>
-              <motion.button
-                className="bg-[#009f93] text-white px-3 py-3 rounded-xl"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowRight className="h-5 w-5" />
-              </motion.button>
-            </div>
+            <Link href="/gallery" >
+              <div className="flex gap-2 sm:-mt-[9rem] md:mt-8">
+                <motion.button
+                  className="bg-[#FDFCEE] z-10 text-[#1F3630] px-6 py-3 rounded-xl font-semibold cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Explore Gallery
+                </motion.button>
+                <motion.button
+                  className="bg-[#009f93] text-white px-3 py-3 rounded-xl"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowRight className="h-5 w-5" />
+                </motion.button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ImagesGrid
+export default ImagesGrid;

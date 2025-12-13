@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Star, ArrowRight } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Star, ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const [currentQuote, setCurrentQuote] = useState(0)
-  const heroRef = useRef(null)
+  const [currentQuote, setCurrentQuote] = useState(0);
+  const heroRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const videoY = useTransform(scrollYProgress, [0, 1], [0, -800])
-  const videoYMackbook = useTransform(scrollYProgress, [0, 1], [0, -1400])
-  const videoYMobile = useTransform(scrollYProgress, [0, 1], [0, -350])
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, -800]);
+  const videoYMackbook = useTransform(scrollYProgress, [0, 1], [0, -1400]);
+  const videoYMobile = useTransform(scrollYProgress, [0, 1], [0, -350]);
 
   const quotes = [
     {
@@ -30,14 +30,14 @@ export default function Hero() {
       text: "Prime has been a game-changer for my home. Their ability to blend functionality with exquisite design is unparalleled.",
       author: "Pranit Wadatkar",
     },
-  ]
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [quotes.length])
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [quotes.length]);
 
   const slideUpVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -46,7 +46,7 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -57,12 +57,15 @@ export default function Hero() {
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   return (
     <div className="relative xs:mt-24 sm:mt-0 sm:h-[10vh] h-[120vh] md:h-[140vh] lg:h-[140vh] xl:h-[100vh] 2xl:h-[110vh] 3xl:h-[100vh]">
       {/* hero section */}
-      <section ref={heroRef} className="h-screen md:h-full flex flex-col justify-center relative z-0">
+      <section
+        ref={heroRef}
+        className="h-screen md:h-full flex flex-col justify-center relative z-0"
+      >
         <div className="mx-auto px-4 relative xs:bottom-0 sm:bottom-50 lg:bottom-40 xl:bottom-0 sm:px-6 lg:px-12  lg:py-20 w-full">
           <motion.div
             className="space-y-6 md:space-y-16"
@@ -73,7 +76,7 @@ export default function Hero() {
             <motion.div className="text-center  " variants={slideUpVariants}>
               <h1 className="text-4xl mt-32 md:mt-0 sm:text-5xl lg:text-3xl xl:text-7xl 2xl:text-8xl font-black text-[#1d322d]  tracking-tight text-center sm:text-start inter-placeholder">
                 <span className="block font-black text-6xl text-start mt-16 mb-2 md:mb-0 md:mt-0 md:text-8xl xl:text-9xl tracking-tighter text-[#1D322D]">
-                  Your Ideas,
+                  Your Kitchen,
                 </span>
                 <span className="w-full md:flex ">
                   <span className="font-black flex md:inline text-[60px] text-start md:text-8xl xl:text-9xl tracking-tighter relative md:bottom-4 text-[#1D322D]">
@@ -83,7 +86,7 @@ export default function Hero() {
                     className="font-light  flex text-6xl text-start md:text-8xl xl:text-[145px] text-[#009f93] font-satisfy relative md:bottom-4"
                     style={{ color: "#009f93" }}
                   >
-                    Twist
+                    Design
                   </span>
                 </span>
               </h1>
@@ -102,19 +105,22 @@ export default function Hero() {
                   className="text-[#1d322d]/65 text-[17px] leading-relaxed font-[500] pr-0  lg:pr-20"
                   whileHover={{ color: "#374151" }}
                 >
-                  With a commitment to sustainability and innovative solutions where we craft beautiful, functional
-                  spaces that stand the test of time.
+                  With a commitment to sustainability and innovative solutions
+                  where we craft beautiful, functional spaces that stand the
+                  test of time.
                 </motion.p>
 
                 <div className="relative group flex justify-start items-center align-center item-center mb-32 mt-6">
                   <motion.button
-                    className="bg-[#00374b] h-full text-white px-8 py-3 rounded-md font-semibold text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
+                    className="bg-[#00374b] h-full text-white px-8 py-3 rounded-md font-semibold text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4 cursor-pointer"
                     whileHover={{
                       scale: 1.02,
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className="relative z-10 rounded-md">Download Brochure</span>
+                    <span className="relative z-10 rounded-md">
+                      Download Brochure
+                    </span>
                     <motion.div className="absolute top-0 right-0 h-full w-0 group-hover:w-4 transition-all duration-500 ease-out" />
                   </motion.button>
 
@@ -125,7 +131,10 @@ export default function Hero() {
                     // }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <motion.div whileHover={{ y: 2 }} transition={{ duration: 0.2 }}>
+                    <motion.div
+                      whileHover={{ y: 2 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <ArrowRight className="w-6 h-6 text-white " />
                     </motion.div>
                   </motion.button>
@@ -147,7 +156,10 @@ export default function Hero() {
               >
                 <div className="flex md:space-x-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#9b6e55] text-[#9b6e55]" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-[#9b6e55] text-[#9b6e55]"
+                    />
                   ))}
                 </div>
 
@@ -159,7 +171,8 @@ export default function Hero() {
                   transition={{ duration: 0.5 }}
                 >
                   <blockquote className="text-[#1d322d]/65 text-md leading-relaxed mb-3 font-medium">
-                    "{quotes[currentQuote].text} - {quotes[currentQuote].author}"
+                    "{quotes[currentQuote].text} - {quotes[currentQuote].author}
+                    "
                   </blockquote>
                   {/* <cite className="text-gray-900 font-semibold text-sm">- {quotes[currentQuote].author}</cite> */}
                 </motion.div>
@@ -168,15 +181,15 @@ export default function Hero() {
                   {quotes.map((_, index) => (
                     <div
                       key={index}
-                      className={`h-0.5 rounded-full transition-all duration-300 ${index === currentQuote
-                        ? "w-8 bg-gray-900" // Active line (longer & darker)
-                        : "w-4 bg-gray-300" // Inactive lines (shorter & lighter)
-                        }`}
+                      className={`h-0.5 rounded-full transition-all duration-300 ${
+                        index === currentQuote
+                          ? "w-8 bg-gray-900" // Active line (longer & darker)
+                          : "w-4 bg-gray-300" // Inactive lines (shorter & lighter)
+                      }`}
                     ></div>
                   ))}
                 </div>
               </motion.div>
-
             </motion.div>
           </motion.div>
         </div>
@@ -241,7 +254,7 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <video
-             src={`https://d33mc6cj8ws4rf.cloudfront.net/home-page-video/Prime-Kitchen-Studio.mp4`}
+            src={`https://d33mc6cj8ws4rf.cloudfront.net/home-page-video/Prime-Kitchen-Studio.mp4`}
             autoPlay
             muted
             loop
@@ -251,5 +264,5 @@ export default function Hero() {
         </motion.div>
       </motion.section>
     </div>
-  )
+  );
 }

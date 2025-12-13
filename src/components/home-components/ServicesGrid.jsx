@@ -1,25 +1,23 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ServicesGrid() {
-  const [showAllServices, setShowAllServices] = useState(false)
+  const [showAllServices, setShowAllServices] = useState(false);
 
   const services = [
     {
       id: 1,
       title: "Kitchens",
-      description:
-        `At Prime Kitchen Studios, kitchens are our passion and expertise. We design and create kitchens that perfectly blend form and function. From modular kitchens to traditional layouts, every design is tailored to fit your lifestyle, offering ergonomic spaces, premium materials, and innovative storage solutions. Our kitchens are built to inspire creativity and simplify daily cooking while elevating home aesthetics.
+      description: `At Prime Kitchen Studios, kitchens are our passion and expertise. We design and create kitchens that perfectly blend form and function. From modular kitchens to traditional layouts, every design is tailored to fit your lifestyle, offering ergonomic spaces, premium materials, and innovative storage solutions. Our kitchens are built to inspire creativity and simplify daily cooking while elevating home aesthetics.
 `,
       icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
     },
     {
       id: 2,
       title: "Wardrobes",
-      description:
-        `Our custom wardrobes combine style with smart organization. Designed to maximize space and accessibility, our wardrobes feature customizable shelving, drawers, and hanging solutions tailored to individual needs. Using quality materials and finishes, these wardrobes add a sophisticated charm to bedrooms while keeping everything neatly arranged.
+      description: `Our custom wardrobes combine style with smart organization. Designed to maximize space and accessibility, our wardrobes feature customizable shelving, drawers, and hanging solutions tailored to individual needs. Using quality materials and finishes, these wardrobes add a sophisticated charm to bedrooms while keeping everything neatly arranged.
 `,
       icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
     },
@@ -90,32 +88,40 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
     //   description: "Advanced 3D rendering and virtual reality services to help clients visualize their future spaces.",
     //   icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
     // },
-  ]
+  ];
 
   // Get services to display based on screen size and state
   const getDisplayedServices = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (window.innerWidth < 768) {
         // Mobile: show 2 initially, all 12 when expanded
-        return showAllServices ? services : services.slice(0, 2)
+        return showAllServices ? services : services.slice(0, 2);
       } else {
         // Desktop: show 8 initially, all 12 when expanded
-        return showAllServices ? services : services.slice(0, 8)
+        return showAllServices ? services : services.slice(0, 8);
       }
     }
-    return services.slice(0, 8) // Default for SSR
-  }
+    return services.slice(0, 8); // Default for SSR
+  };
 
   // Get only the newly revealed services for animation
   const getNewServices = () => {
-    if (typeof window !== 'undefined' && window.innerWidth >= 768 && showAllServices) {
-      return services.slice(8, 12) // Services 9-12 for desktop
+    if (
+      typeof window !== "undefined" &&
+      window.innerWidth >= 768 &&
+      showAllServices
+    ) {
+      return services.slice(8, 12); // Services 9-12 for desktop
     }
-    if (typeof window !== 'undefined' && window.innerWidth < 768 && showAllServices) {
-      return services.slice(2) // Services 3-12 for mobile
+    if (
+      typeof window !== "undefined" &&
+      window.innerWidth < 768 &&
+      showAllServices
+    ) {
+      return services.slice(2); // Services 3-12 for mobile
     }
-    return []
-  }
+    return [];
+  };
 
   // Animation variants
   const containerVariants = {
@@ -127,7 +133,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const cardVariants = {
     hidden: {
@@ -144,7 +150,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         ease: "easeOut",
       },
     },
-  }
+  };
 
   const iconVariants = {
     visible: {
@@ -156,7 +162,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         ease: "easeOut",
       },
     },
-  }
+  };
 
   // Animation variants for new cards
   const newCardVariants = {
@@ -174,7 +180,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         ease: "easeOut",
       },
     },
-  }
+  };
 
   const newCardsContainerVariants = {
     hidden: { opacity: 0 },
@@ -185,11 +191,11 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const handleButtonClick = () => {
-    setShowAllServices(!showAllServices)
-  }
+    setShowAllServices(!showAllServices);
+  };
 
   return (
     <section className="bg-[#F7F6E9] pt-8 relative md:bottom-24">
@@ -197,7 +203,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         {/* Services Grid Container with Fade Effect */}
         <div className="relative">
           {/* Services Grid */}
-          <motion.div
+          {/* <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-3 justify-center"
             variants={containerVariants}
             initial="hidden"
@@ -206,7 +212,7 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
           >
             {(showAllServices ? services.slice(0, typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 8) : getDisplayedServices()).map((service, index) => (
               <motion.div
-                className="rounded-2xl p-6 transition-all duration-300 group flex flex-col justify-between min-h-[400px]"
+                className="rounded-2xl p-6 transition-all duration-300 group flex flex-col justify-between min-h-[400px] border"
                 key={service.id}
                 style={{ backgroundColor: "#fffef2" }}
                 variants={cardVariants}
@@ -214,13 +220,13 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
                   backgroundColor: "#F7F6E9",
                 }}
               >
-                <motion.div className="flex justify-start mb-6 lg:mb-8 flex-grow items-start" variants={iconVariants}>
-                  <motion.div className="py-4 rounded-xl transition-colors duration-300">
+                <motion.div className="flex justify-start mb-6 lg:mb-8 flex-grow items-start border" variants={iconVariants}>
+                  <motion.div className="py-4 rounded-xl transition-colors duration-300 border">
                     <img src={service.icon || "/placeholder.svg"} alt={service.title} className="w-28 h-28" />
                   </motion.div>
                 </motion.div>
 
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-4 border">
                   <motion.h3
                     className="text-[24px] w-3/5 font-extrabold md:w-4/5  md:font-black md:text-[30px] inter-placeholder  text-[#1d322d] leading-[1.2] text-start"
                     initial={{ opacity: 0 }}
@@ -236,6 +242,67 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    {service.description}
+                  </motion.p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div> */}
+          {/* Services Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 items-stretch"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {(showAllServices
+              ? services.slice(
+                  0,
+                  typeof window !== "undefined" && window.innerWidth < 768
+                    ? 2
+                    : 8
+                )
+              : getDisplayedServices()
+            ).map((service) => (
+              <motion.div
+                key={service.id}
+                className="h-full rounded-2xl p-6 bg-[#fffef2] flex flex-col transition-all duration-300"
+                variants={cardVariants}
+                whileHover={{ backgroundColor: "#F7F6E9" }}
+              >
+                <motion.div
+                  className="flex justify-start mb-6"
+                  variants={iconVariants}
+                >
+                  <div className="py-4rounded-xl">
+                    <img
+                      src={service.icon || "/placeholder.svg"}
+                      alt={service.title}
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
+                </motion.div>
+
+                <div className="flex flex-col flex-grow text-left space-y-4">
+                  <motion.h3
+                    // className="text-[22px] md:text-[26px] font-extrabold text-[#1d322d] leading-snug"
+                    className="text-[24px] w-3/5 font-extrabold md:w-4/5  md:font-black md:text-[30px] inter-placeholder  text-[#1d322d] leading-[1.2] text-start"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    {service.title}
+                  </motion.h3>
+
+                  <motion.p
+                    className="text-[#1d322d]/80 text-[15px] md:text-[16px] font-medium leading-relaxed text-justify"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.45, duration: 0.5 }}
                     viewport={{ once: true }}
                   >
                     {service.description}
@@ -271,7 +338,11 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
               >
                 <motion.div className="flex justify-start mb-6 lg:mb-8 flex-grow items-start">
                   <motion.div className="py-4 rounded-xl transition-colors duration-300">
-                    <img src={service.icon || "/placeholder.svg"} alt={service.title} className="w-28 h-28" />
+                    <img
+                      src={service.icon || "/placeholder.svg"}
+                      alt={service.title}
+                      className="w-28 h-28"
+                    />
                   </motion.div>
                 </motion.div>
 
@@ -348,5 +419,5 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

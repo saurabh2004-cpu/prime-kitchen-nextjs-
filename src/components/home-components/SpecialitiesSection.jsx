@@ -1,79 +1,95 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Pencil, Star, DollarSign, Handshake, Leaf, Briefcase } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowRight,
+  Pencil,
+  Star,
+  DollarSign,
+  Handshake,
+  Leaf,
+  Briefcase,
+} from "lucide-react";
 
 const SpecialtiesSection = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null)
-  const rightSectionRef = useRef(null)
-  const componentRef = useRef(null)
-  const [isScrolling, setIsScrolling] = useState(false)
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const rightSectionRef = useRef(null);
+  const componentRef = useRef(null);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const toggleAccordion = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index)
-    
+    setExpandedIndex(expandedIndex === index ? null : index);
+
     // Scroll the expanded item into view after a short delay
     if (expandedIndex !== index && rightSectionRef.current) {
       setTimeout(() => {
-        const accordionItem = rightSectionRef.current.children[1]?.children[1]?.children[index]
+        const accordionItem =
+          rightSectionRef.current.children[1]?.children[1]?.children[index];
         if (accordionItem) {
           accordionItem.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-          })
+            behavior: "smooth",
+            block: "nearest",
+          });
         }
-      }, 300)
+      }, 300);
     }
-  }
+  };
 
   useEffect(() => {
-    let scrollTimeout
+    let scrollTimeout;
 
     const handleScroll = () => {
-      if (!rightSectionRef.current || !componentRef.current) return
+      if (!rightSectionRef.current || !componentRef.current) return;
 
-      const component = componentRef.current
-      const rightSection = rightSectionRef.current
-      const componentRect = component.getBoundingClientRect()
+      const component = componentRef.current;
+      const rightSection = rightSectionRef.current;
+      const componentRect = component.getBoundingClientRect();
 
       // Check if component is in viewport
-      if (componentRect.top <= window.innerHeight && componentRect.bottom >= 0) {
-        setIsScrolling(true)
+      if (
+        componentRect.top <= window.innerHeight &&
+        componentRect.bottom >= 0
+      ) {
+        setIsScrolling(true);
 
         // Calculate scroll progress based on component position
-        const componentHeight = componentRect.height
-        const viewportHeight = window.innerHeight
+        const componentHeight = componentRect.height;
+        const viewportHeight = window.innerHeight;
         const scrollProgress = Math.max(
           0,
-          Math.min(1, (viewportHeight - componentRect.top) / (componentHeight + viewportHeight)),
-        )
+          Math.min(
+            1,
+            (viewportHeight - componentRect.top) /
+              (componentHeight + viewportHeight)
+          )
+        );
 
         // Calculate right section scroll position
-        const maxScroll = rightSection.scrollHeight - rightSection.clientHeight
-        const targetScroll = scrollProgress * maxScroll
+        const maxScroll = rightSection.scrollHeight - rightSection.clientHeight;
+        const targetScroll = scrollProgress * maxScroll;
 
         // Smooth scroll the right section
         rightSection.scrollTo({
           top: targetScroll,
           behavior: "auto", // Use 'auto' for immediate response
-        })
+        });
 
         // Clear timeout and set new one
-        clearTimeout(scrollTimeout)
+        clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
-          setIsScrolling(false)
-        }, 150)
+          setIsScrolling(false);
+        }, 150);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      clearTimeout(scrollTimeout)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   const specialties = [
     {
@@ -84,30 +100,35 @@ const SpecialtiesSection = () => {
     },
     {
       title: "Innovation That Transforms Spaces",
-      content: "We harness the latest technologies and design concepts to craft kitchens and interiors that are as forward-thinking as they are beautiful.",
+      content:
+        "We harness the latest technologies and design concepts to craft kitchens and interiors that are as forward-thinking as they are beautiful.",
       icon: <Star />,
     },
     {
       title: "Quality Materials, Expert Craftsmanship",
-      content: "Our commitment to excellence shines through every cabinet, surface, and fixture, ensuring spaces built to last and impress.",
+      content:
+        "Our commitment to excellence shines through every cabinet, surface, and fixture, ensuring spaces built to last and impress.",
       icon: <DollarSign />,
     },
     {
       title: "Where Style Meets Function Seamlessly",
-      content: "Our designs blend aesthetic appeal with practical solutions, creating environments that are as efficient as they are stunning.",
+      content:
+        "Our designs blend aesthetic appeal with practical solutions, creating environments that are as efficient as they are stunning.",
       icon: <Handshake />,
     },
     {
       title: "Transparent and Responsive Service",
-      content: "We partner with you through every step, ensuring clarity, timeliness, and a collaborative experience that makes your dream space a reality.",
+      content:
+        "We partner with you through every step, ensuring clarity, timeliness, and a collaborative experience that makes your dream space a reality.",
       icon: <Leaf />,
     },
     {
       title: "Versatility Across Residential and Commercial",
-      content: "From cozy homes to bustling offices, our diverse portfolio showcases our adaptability and passion for delivering outstanding results in every setting.",
+      content:
+        "From cozy homes to bustling offices, our diverse portfolio showcases our adaptability and passion for delivering outstanding results in every setting.",
       icon: <Briefcase />,
     },
-  ]
+  ];
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -116,7 +137,7 @@ const SpecialtiesSection = () => {
       y: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -127,7 +148,7 @@ const SpecialtiesSection = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   // New animation variants for the main sections
   const slideInLeft = {
@@ -137,7 +158,7 @@ const SpecialtiesSection = () => {
       x: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const slideInRight = {
     hidden: { opacity: 0, x: 50 },
@@ -146,7 +167,7 @@ const SpecialtiesSection = () => {
       x: 0,
       transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
     },
-  }
+  };
 
   const accordionItemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -155,7 +176,7 @@ const SpecialtiesSection = () => {
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" },
     },
-  }
+  };
 
   const accordionContainer = {
     hidden: { opacity: 0 },
@@ -166,12 +187,12 @@ const SpecialtiesSection = () => {
         delayChildren: 0.4,
       },
     },
-  }
+  };
 
   return (
     <motion.section
       ref={componentRef}
-      className="flex flex-col lg:flex-row xl:max-h-[40em] overflow-hidden rounded-2xl mx-2 xl:mx-8 justify-center items-center"
+      className="flex flex-col lg:flex-row xl:max-h-[40em] overflow-hidden rounded-2xl mx-2 xl:mx-8 justify-center items-center mt-20"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -211,7 +232,8 @@ const SpecialtiesSection = () => {
               variants={fadeInUp}
               style={{ color: "#FDFCEE" }}
             >
-              Our specialty lies in transforming spaces into harmonious environments
+              Our specialty lies in transforming spaces into harmonious
+              environments
             </motion.h2>
 
             <motion.p
@@ -219,14 +241,14 @@ const SpecialtiesSection = () => {
               variants={fadeInUp}
               style={{ color: "#FDFCEE" }}
             >
-              Our craft, a delicate dance of light and shadow, seeks to conjure spaces that echo with the whispers of
-              timeless elegance and bespoke charm.
+              Our craft, a delicate dance of light and shadow, seeks to conjure
+              spaces that echo with the whispers of timeless elegance and
+              bespoke charm.
             </motion.p>
 
             <div className="relative group flex items-center">
               <motion.button
                 className="bg-[#FDFCEE] md:text-[18px]  md:font-medium text-[#1F3630] px-6 py-3 md:px-4 md:py-2 rounded-2xl font-semibold text-base md:text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
-                
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10">Start a project</span>
@@ -235,10 +257,12 @@ const SpecialtiesSection = () => {
 
               <motion.button
                 className="bg-[#00374b] text-white p-[12.5px] md:p-[11.5px] lg:p-[11px] md:p-2 rounded-xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l-none  focus:outline-none relative z-10"
-                
                 whileTap={{ scale: 0.95 }}
               >
-                <motion.div whileHover={{ y: 2 }} transition={{ duration: 0.2 }}>
+                <motion.div
+                  whileHover={{ y: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <ArrowRight className="h-6 w-6 md:h-6 md:w-6 hover:rotate-45 transition-transform duration-500" />
                 </motion.div>
               </motion.button>
@@ -258,7 +282,9 @@ const SpecialtiesSection = () => {
       {/* Right Section - Specialties */}
       <motion.div
         ref={rightSectionRef}
-        className={`w-full md:mt-15 md:ml-5 md:w-6xl  xl:mt-0 md:w-full md:max-h-[40em] lg:w-5/5 rounded-2xl md:px-3  xl:px-4 md:pt-6 mb-4 md:mb-0 scrollbar-hide overflow-y-auto ${isScrolling ? "scroll-smooth" : ""}`}
+        className={`w-full md:mt-15 md:ml-5 md:w-6xl  xl:mt-0 md:w-full md:max-h-[40em] lg:w-5/5 rounded-2xl md:px-3  xl:px-4 md:pt-6 mb-4 md:mb-0 scrollbar-hide overflow-y-auto ${
+          isScrolling ? "scroll-smooth" : ""
+        }`}
         variants={slideInRight}
         initial="hidden"
         whileInView="visible"
@@ -321,14 +347,22 @@ const SpecialtiesSection = () => {
                     <div className="text-white bg-[#009f93] p-2 h-10 w-10 md:h-12 md:w-12 rounded-lg flex items-center justify-center">
                       {item.icon}
                     </div>
-                    <h3 className="text-base md:text-[18px] md:font-medium text-[#FDFCEE]">{item.title}</h3>
+                    <h3 className="text-base md:text-[18px] md:font-medium text-[#FDFCEE]">
+                      {item.title}
+                    </h3>
                   </div>
                   <motion.div
                     animate={{ rotate: expandedIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                     className="text-[#FDFCEE]"
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
                         d="M6 9L12 15L18 9"
                         stroke="currentColor"
@@ -361,7 +395,7 @@ const SpecialtiesSection = () => {
         </div>
       </motion.div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default SpecialtiesSection
+export default SpecialtiesSection;

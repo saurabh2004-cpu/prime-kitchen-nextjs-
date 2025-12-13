@@ -2,11 +2,11 @@
 
 import AwardsSection from "@/components/home-components/AwardsSection";
 import AboutUs from "@/components/home-components/AboutUs";
-import ClientsSection from "@/components/home-components/ClientsSection";
+// import ClientsSection from "@/components/home-components/ClientsSection";
 import Hero from "@/components/home-components/Hero";
 import ImagesGrid from "@/components/home-components/ImagesGridSection";
 import Navbar from "@/components/home-components/Navbar";
-import NewProjectsSection from "@/components/home-components/NewProjectsSection";
+// import NewProjectsSection from "@/components/home-components/NewProjectsSection";
 import ProjectsHeader from "@/components/home-components/ProjectsHeader";
 import ReviewsCarousel from "@/components/home-components/ReviewsCarousel";
 import ReviewsHeader from "@/components/home-components/ReviewsHeader";
@@ -15,7 +15,7 @@ import ServicesHeader from "@/components/home-components/ServicesHeader";
 import SpecialitiesSection from "@/components/home-components/SpecialitiesSection";
 import Footer from "@/components/home-components/Footer";
 import { useState } from "react";
-import ProjectShowcase from "@/components/home-components/ProjectsShowcase";
+// import ProjectShowcase from "@/components/home-components/ProjectsShowcase";
 import { ProjectsWithStats } from "@/components/home-components/ProjectsWithStats";
 
 export default function Home() {
@@ -34,9 +34,9 @@ export default function Home() {
       <ReviewsHeader />
       <ReviewsCarousel />
       <AwardsSection />
-      <ClientsSection />
+      {/* <ClientsSection /> */}
       <SpecialitiesSection />
-      <Footer />d
+      <Footer />
     </>
   );
 }

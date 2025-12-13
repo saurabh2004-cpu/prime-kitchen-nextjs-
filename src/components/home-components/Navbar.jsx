@@ -14,9 +14,9 @@ export default function Navbar({ setNavItem = '' }) {
     { name: "Home", href: "/", active: false },
     { name: "About", href: "/about", active: false },
     { name: "Services", href: "/services", active: false },
-    { name: "Projects", href: "/projects", active: false },
+    // { name: "Projects", href: "#projects", active: false },
     { name: "Gallery", href: "/gallery", active: false },
-    { name: "Blog", href: "/blogs", active: false },
+    // { name: "Blog", href: "/blogs", active: false },
     { name: "Reviews", href: "/reviews", active: false },
     { name: "Contact", href: "/contact", active: false },
   ]
@@ -79,7 +79,7 @@ export default function Navbar({ setNavItem = '' }) {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`flex items-center text-gray-700 hover:text-gray-900 mx-2 md:py-1 md:px-2 rounded-lg font-medium transition-colors duration-200 relative group inter-placeholder
+                className={`flex items-center text-gray-700 hover:text-gray-900 mx-2 md:py-1 md:px-2 rounded-lg font-medium transition-colors duration-200 relative group inter-placeholder cursor-pointer hover:bg-[#0000000D]/80
                   ${activeItem === item.name ? "bg-[#0000000D]" : ""}`}
               >
                 <span className="text-sm font-medium inter-placeholder text-[#1d322d]">

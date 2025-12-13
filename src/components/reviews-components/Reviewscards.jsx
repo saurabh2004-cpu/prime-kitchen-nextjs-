@@ -89,7 +89,7 @@ const ReviewCard = ({ review, scrollProgress, columnIndex }) => {
       </div>
 
       {/* Media Content */}
-      {review.type === "image" && (
+      {/* {review.type === "image" && (
         <div className={`${getImageHeight()} overflow-hidden mx-5 rounded-2xl`}>
           <img 
             src={review.image} 
@@ -97,9 +97,9 @@ const ReviewCard = ({ review, scrollProgress, columnIndex }) => {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
           />
         </div>
-      )}
+      )} */}
 
-      {review.type === "video" && (
+      {/* {review.type === "video" && (
         <div className={`relative ${getImageHeight()} bg-gray-200 overflow-hidden mx-5 rounded-2xl`}>
           <img 
             src={review.videoThumbnail} 
@@ -112,7 +112,7 @@ const ReviewCard = ({ review, scrollProgress, columnIndex }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Content */}
       <div className="p-5 pt-4 flex flex-col flex-grow">

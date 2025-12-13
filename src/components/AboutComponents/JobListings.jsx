@@ -1,6 +1,12 @@
-'use client'
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Calendar, DollarSign, Clock, MapPin } from 'lucide-react';
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  ChevronRight,
+  Calendar,
+  DollarSign,
+  Clock,
+  MapPin,
+} from "lucide-react";
 
 const JobListings = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -18,7 +24,8 @@ const JobListings = () => {
  Assist management with financial reports and budgeting processes.
  Ensure accuracy, transparency, and timely record maintenance.
 `,
-      tags: ["FULL TIME", "$120K-$140K", "12 NOV, 2024"]
+      // tags: ["FULL TIME", "$120K-$140K", "12 NOV, 2024"]
+      tags: ["FULL TIME"],
     },
     {
       id: 2,
@@ -31,7 +38,8 @@ const JobListings = () => {
  Collaborate with clients to bring ideas to life through innovative designs.
  Maintain design quality, functionality, and alignment with brand aesthetics.
 `,
-      tags: ["FULL TIME", "NEGOTIABLE", "12 NOV, 2024"]
+      // tags: ["FULL TIME", "NEGOTIABLE", "12 NOV, 2024"]
+      tags: ["FULL TIME"],
     },
     {
       id: 3,
@@ -43,8 +51,9 @@ const JobListings = () => {
  Must excel in communication, negotiation, and achieving sales targets.
  Build and maintain strong client relationships to drive repeat business.
  Develop creative marketing strategies to expand brand visibility.`,
-      tags: ["PROJECT BASED", "NEGOTIABLE", "9 AUG, 2024"]
-    }
+      // tags: ["PROJECT BASED", "NEGOTIABLE", "9 AUG, 2024"]
+      tags: ["FULL TIME"],
+    },
   ];
 
   useEffect(() => {
@@ -52,15 +61,17 @@ const JobListings = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleCards(prev => new Set([...prev, entry.target.dataset.id]));
+            setVisibleCards(
+              (prev) => new Set([...prev, entry.target.dataset.id])
+            );
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    const cards = document.querySelectorAll('[data-job-card]');
-    cards.forEach(card => observerRef.current.observe(card));
+    const cards = document.querySelectorAll("[data-job-card]");
+    cards.forEach((card) => observerRef.current.observe(card));
 
     return () => {
       if (observerRef.current) {
@@ -71,8 +82,8 @@ const JobListings = () => {
 
   const getAnimationClass = (id) => {
     return visibleCards.has(id.toString())
-      ? 'animate-slide-in-up opacity-100 transform translate-y-0'
-      : 'opacity-0 transform translate-y-8';
+      ? "animate-slide-in-up opacity-100 transform translate-y-0"
+      : "opacity-0 transform translate-y-8";
   };
 
   return (
@@ -88,43 +99,48 @@ const JobListings = () => {
             transform: translateY(0);
           }
         }
-        
+
         .animate-slide-in-up {
           animation: slideInUp 0.6s ease-out forwards;
         }
-        
+
         .card-hover {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .card-hover:hover {
           transform: translateY(-8px);
         }
-        
+
         .tag-animation {
           transition: all 0.2s ease;
         }
-        
+
         .tag-animation:hover {
           transform: scale(1.05);
         }
-        
+
         .apply-btn {
           position: relative;
           overflow: hidden;
         }
-        
+
         .apply-btn::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
           transition: left 0.5s;
         }
-        
+
         .apply-btn:hover::before {
           left: 100%;
         }
@@ -134,7 +150,12 @@ const JobListings = () => {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-slide-in-up">
           <div className="flex items-center justify-center text-sm space-x-3">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#009f93]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 text-[#009f93]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
               <circle cx="12" cy="12" r="6" strokeWidth="2" />
               <circle cx="12" cy="12" r="3.2" fill="currentColor" />
             </svg>
@@ -142,7 +163,10 @@ const JobListings = () => {
               Career
             </span>
           </div>
-          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-tight font-extrabold inter-placeholder text-[#1D322D]" style={{ color: "#009f93", fontWeight: 1000 }}>
+          <h2
+            className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-tight font-extrabold inter-placeholder text-[#1D322D]"
+            style={{ color: "#009f93", fontWeight: 1000 }}
+          >
             We are hiring, Join our team
           </h2>
         </div>
@@ -154,7 +178,9 @@ const JobListings = () => {
               key={job.id}
               data-id={job.id}
               data-job-card
-              className={`bg-[#fffef2] rounded-xl sm:rounded-2xl shadow-lg max-h-58 card-hover p-4 sm:p-6 lg:p-8 transition-all duration-700 ${getAnimationClass(job.id)}`}
+              className={`bg-[#fffef2] rounded-xl sm:rounded-2xl shadow-lg max-h-58 card-hover p-4 sm:p-6 lg:p-8 transition-all duration-700 ${getAnimationClass(
+                job.id
+              )}`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Desktop Layout - Hidden on mobile/tablet */}
@@ -165,17 +191,26 @@ const JobListings = () => {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-3 mb-32">
                       {job.tags.map((tag, tagIndex) => {
-                        let bgColor = 'text-gray-700';
+                        let bgColor = "text-gray-700";
                         let icon = null;
 
-                        if (tag.includes('FULL TIME') || tag.includes('PROJECT BASED')) {
-                          bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                        if (
+                          tag.includes("FULL TIME") ||
+                          tag.includes("PROJECT BASED")
+                        ) {
+                          bgColor =
+                            "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                           icon = <Clock className="w-3 h-3 mr-1" />;
-                        } else if (tag.includes('$') || tag.includes('NEGOTIABLE')) {
-                          bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                        } else if (
+                          tag.includes("$") ||
+                          tag.includes("NEGOTIABLE")
+                        ) {
+                          bgColor =
+                            "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                           icon = <DollarSign className="w-3 h-3 mr-1" />;
-                        } else if (tag.includes('NOV') || tag.includes('AUG')) {
-                          bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                        } else if (tag.includes("NOV") || tag.includes("AUG")) {
+                          bgColor =
+                            "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                           icon = <Calendar className="w-3 h-3 mr-1" />;
                         }
 
@@ -206,7 +241,9 @@ const JobListings = () => {
                       </p>
                     </div>
                     <button className="inline-flex items-center py-4 text-white font-semibold rounded-full">
-                      <span className="mr-2 text-[#1d322d]  font-bold text-[1rem] inter-placeholder">APPLY NOW</span>
+                      <span className="mr-2 text-[#1d322d]  font-bold text-[1rem] inter-placeholder">
+                        APPLY NOW
+                      </span>
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                   </div>
@@ -227,17 +264,26 @@ const JobListings = () => {
                   {/* Mobile Tags */}
                   <div className="flex flex-wrap gap-2 sm:gap-3">
                     {job.tags.map((tag, tagIndex) => {
-                      let bgColor = 'text-gray-700';
+                      let bgColor = "text-gray-700";
                       let icon = null;
 
-                      if (tag.includes('FULL TIME') || tag.includes('PROJECT BASED')) {
-                        bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                      if (
+                        tag.includes("FULL TIME") ||
+                        tag.includes("PROJECT BASED")
+                      ) {
+                        bgColor =
+                          "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                         icon = <Clock className="w-3 h-3 mr-1" />;
-                      } else if (tag.includes('$') || tag.includes('NEGOTIABLE')) {
-                        bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                      } else if (
+                        tag.includes("$") ||
+                        tag.includes("NEGOTIABLE")
+                      ) {
+                        bgColor =
+                          "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                         icon = <DollarSign className="w-3 h-3 mr-1" />;
-                      } else if (tag.includes('NOV') || tag.includes('AUG')) {
-                        bgColor = 'text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]';
+                      } else if (tag.includes("NOV") || tag.includes("AUG")) {
+                        bgColor =
+                          "text-[#1d322d] border border-gray-200 inter-placeholder bg-[#0000000D]";
                         icon = <Calendar className="w-3 h-3 mr-1" />;
                       }
 
@@ -261,7 +307,9 @@ const JobListings = () => {
                   {/* Mobile Apply Button */}
                   <div className="flex justify-between items-center pt-2">
                     <button className="inline-flex items-center text-[#1d322d] font-semibold">
-                      <span className="mr-2 underline font-bold text-sm sm:text-base inter-placeholder">APPLY NOW</span>
+                      <span className="mr-2 underline font-bold text-sm sm:text-base inter-placeholder">
+                        APPLY NOW
+                      </span>
                       <ChevronRight className="w-4 h-4 transition-transform duration-200" />
                     </button>
                   </div>

@@ -36,13 +36,13 @@ const EvolutionSection = () => {
 With growing trust and recognition, Prime Kitchen Studio expanded beyond kitchens to offer full home interiors—custom wardrobes and modular spaces blending style with smart functionality, marking our evolution into a complete home transformation studio.
 `,
       year: "2017",
-      label: "First Major Award",
+      label: "Expanding the Vision",
     },
     {
       question: `2022–Present: Innovation and Community Focus
  With 14+ years of expertise, Prime Kitchen Studio leads regional modular design innovation—bringing global trends, sustainable materials, and smart integrations to Sambhajinagar, crafting quality spaces that define modern living`,
       year: "2022",
-      label: "Media Coverage",
+      label: "Leader in modular design",
     },
     {
       question: `In 2024, Prime continues to grow and innovate. The company is working on several high-profile 

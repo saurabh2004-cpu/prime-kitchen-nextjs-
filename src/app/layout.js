@@ -5,6 +5,7 @@ import SmoothScrollWrapper from "@/components/home-components/SmoothScrollWrappe
 import { CustomizerContextProvider } from "@/context/CustomizerContext";
 import './globals.css'
 import { useSmoothScroll } from "@/hooks/smoothScrooling";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       >
         {/* <SmoothScrollWrapper> */}
           <CustomizerContextProvider>
+            <ToastContainer position="top-right" />
             
             {children}
           </CustomizerContextProvider>,
