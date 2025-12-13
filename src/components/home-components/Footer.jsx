@@ -586,31 +586,22 @@ const Footer = () => {
 
                 <div className="flex flex-col gap-3 px-4">
                   {[
-                    "Residential Interior Design",
-                    "Commercial Interior Design",
-                    "Space Planning",
-                    "Design Consultation",
-                    "Lighting Design",
-                    "Custom Furniture Design",
-                    "Art and Accessory Procurement",
-                    "Color Consultation",
-                    "Outdoor and Landscape Design",
-                    "Renovation and Remodeling",
-                    "Project Management",
-                    "Styling and Staging",
+                    "Kitchens",
+                    "Wardrobes",
+                    "Wardrobes",
+                    "Office",
+                    "Appliances",
                   ].map((service, index) => (
                     <motion.a
                       key={service}
-                      href={`/services/${service
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
+                      href={`/service`}
                       className="
-              text-[16px] font-medium inter
-              text-[#fdfcee]
-              hover:text-[#009f93]
-              transition-colors
-              animate-underline
-            "
+                            text-[16px] font-medium inter
+                            text-[#fdfcee]
+                            hover:text-[#009f93]
+                            transition-colors
+                            animate-underline
+                          "
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{
