@@ -146,9 +146,9 @@ export default function MasonryReviews() {
       type: "text",
       reviewer: "Christopher Anderson",
       location: "Portland, Oregon",
-      source: "Google Review",
+      source: "",
       stars: 5,
-      text: "Prime turned our dream home into a reality. Their designs are both practical and beautiful, making our space more functional and stylish. The team was professional, communicative, and delivered exceptional results from the initial consultation to the final walk-through. We are thrilled with our new home!",
+      text: "The work is first rate quality, excellent service. Thank you PRIME KITCHEN STUDIO",
       size: "large"
     },
     {
@@ -157,9 +157,9 @@ export default function MasonryReviews() {
       image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
       reviewer: "Michael Nguyen",
       location: "Denver, Colorado",
-      source: "Google Review",
-      stars: 5,
-      text: "I couldn't be happier with this! Prime exceeded all my expectations with their renovation design and execution. They paid attention to every detail and the final result speaks for itself. We love it so much. The quality of their work is outstanding!",
+      source: "",
+      stars: 1,
+      text: "Worst customer service. I am unhappy with the service. And suggest not to choose a prime kitchen. Because after serving they don't even response to calls.",
       size: "medium"
     },
     {
@@ -167,189 +167,189 @@ export default function MasonryReviews() {
       type: "text",
       reviewer: "Ephraim Tillinghast",
       location: "New Orleans, LA",
-      source: "Google Review",
-      stars: 5,
-      text: "Prime transformed my historic home into a masterpiece. Their attention to detail and respect for the original architecture were truly impressive. The final result exceeded all expectations and they delivered with excellent customer service communication.",
+      source: "",
+      stars: 4,
+      text: "Prime Kitchen Studio did a very good job. The technical framework was great prior to the final order. The price was reasonable; they gave what they had more.",
       size: "small"
     },
-    {
-      id: 4,
-      type: "text",
-      reviewer: "David Rodriguez",
-      location: "Seattle, Washington",
-      source: "Facebook Review",
-      stars: 5,
-      text: "Prime brought a fresh perspective to our commercial space. Their innovative designs have left a lasting impression on our clients. The transformation exceeded our expectations and created a welcoming environment. We couldn't be happier with the outstanding professional service!",
-      size: "medium"
-    },
-    {
-      id: 5,
-      type: "video",
-      videoThumbnail: "https://images.pexels.com/photos/1571467/pexels-photo-1571467.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
-      reviewer: "S. Thompson",
-      location: "Los Angeles, California",
-      source: "Video Review",
-      stars: 5,
-      text: "Prime took our vision and made it a reality. They were attentive to our needs and preferences, and their designs exceeded expectations. The attention to detail was remarkable, and we couldn't be happier with the transformation.",
-      size: "large"
-    },
-    {
-      id: 6,
-      type: "image",
-      image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop",
-      reviewer: "Lysander Grey",
-      location: "Portland, OR",
-      source: "Google Review",
-      stars: 5,
-      text: "The creativity and innovation Prime brought to our office redesign have significantly improved our work environment. Their forward-thinking approach resulted in a space that boosts employee functionality and client relationships.",
-      size: "medium"
-    },
-    {
-      id: 7,
-      type: "text",
-      reviewer: "William Thompson",
-      location: "Atlanta, Georgia",
-      source: "Facebook Review",
-      stars: 5,
-      text: "The transformation of our restaurant by Prime was nothing short of amazing. Our customers constantly compliment the design, creating a space that is both functional and beautiful. Our customers love the new look, and we've seen an increase in repeat visits. Exceptional work!",
-      size: "large"
-    },
-    {
-      id: 8,
-      type: "image",
-      image: "https://images.pexels.com/photos/1571472/pexels-photo-1571472.jpeg?auto=compress&cs=tinysrgb&w=400&h=320&fit=crop",
-      reviewer: "Ryan Martinez",
-      location: "Austin, Texas",
-      source: "Google Review",
-      stars: 5,
-      text: "From start to finish, friendly professional service and beautiful designs. My home has never looked better. They transformed my space beyond my wildest dreams. I would definitely recommend their services.",
-      size: "small"
-    },
-    {
-      id: 9,
-      type: "text",
-      reviewer: "S. Thompson",
-      location: "Los Angeles, California",
-      source: "Google Review",
-      stars: 5,
-      text: "We worked with Prime on our office space, and we couldn't be more pleased. Their innovative ideas and attention to detail resulted in a workspace that's both stylish and highly functional. The entire team was responsive, professional, and delivered beyond our expectations.",
-      size: "medium"
-    },
-    {
-      id: 10,
-      type: "text",
-      reviewer: "Darius Hawke",
-      location: "Chicago, Illinois",
-      source: "Google Review",
-      stars: 5,
-      text: "Prime's team took my vague ideas and turned them into a stunning reality. They listened carefully to my preferences and created a space that perfectly reflects my style. I highly recommend their expertise. Quality and craftsmanship is evident in every detail.",
-      size: "large"
-    },
-    {
-      id: 11,
-      type: "image",
-      image: "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
-      reviewer: "Isabella Rodriguez",
-      location: "Miami, Florida",
-      source: "Google Review",
-      stars: 5,
-      text: "Outstanding work! Prime transformed our beachfront condo into a modern paradise. The use of natural light and space optimization exceeded our expectations. Highly professional team!",
-      size: "small"
-    },
-    {
-      id: 12,
-      type: "text",
-      reviewer: "Marcus Williams",
-      location: "Nashville, Tennessee",
-      source: "Yelp Review",
-      stars: 5,
-      text: "Prime's attention to detail is unmatched. They redesigned our music studio with perfect acoustics and aesthetic appeal. The project was completed on time and within budget. Their team understood our vision perfectly and brought it to life in ways we never imagined possible.",
-      size: "large"
-    },
-    {
-      id: 13,
-      type: "video",
-      videoThumbnail: "https://images.pexels.com/photos/1571461/pexels-photo-1571461.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
-      reviewer: "Jennifer Chen",
-      location: "San Francisco, California",
-      source: "Video Review",
-      stars: 5,
-      text: "Prime redesigned our tech startup office. The modern, collaborative spaces have boosted our team's productivity and creativity. Amazing results that speak for themselves!",
-      size: "medium"
-    },
-    {
-      id: 14,
-      type: "text",
-      reviewer: "Robert Johnson",
-      location: "Phoenix, Arizona",
-      source: "Google Review",
-      stars: 5,
-      text: "Exceptional service from start to finish. Prime transformed our desert home into a cool, comfortable oasis. Their innovative cooling solutions and desert-inspired design are brilliant.",
-      size: "small"
-    },
-    {
-      id: 15,
-      type: "image",
-      image: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=400&h=350&fit=crop",
-      reviewer: "Amanda Foster",
-      location: "Boston, Massachusetts",
-      source: "Facebook Review",
-      stars: 5,
-      text: "Prime brought our historic Boston brownstone into the 21st century while preserving its classic charm. The blend of modern amenities with traditional architecture is perfect. We love our new space and get compliments from everyone who visits.",
-      size: "large"
-    },
-    {
-      id: 16,
-      type: "text",
-      reviewer: "Kevin Park",
-      location: "Minneapolis, Minnesota",
-      source: "Google Review",
-      stars: 5,
-      text: "Prime's winter-friendly design solutions for our Minnesota home are incredible. They maximized natural light and created cozy spaces perfect for long winters. Outstanding attention to detail!",
-      size: "medium"
-    },
-    {
-      id: 17,
-      type: "image",
-      image: "https://images.pexels.com/photos/1571464/pexels-photo-1571464.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop",
-      reviewer: "Sarah Mitchell",
-      location: "Charleston, South Carolina",
-      source: "Yelp Review",
-      stars: 5,
-      text: "Prime preserved the Southern charm of our Charleston home while adding modern functionality. Perfect balance of old and new! We absolutely love the transformation.",
-      size: "small"
-    },
-    {
-      id: 18,
-      type: "text",
-      reviewer: "James Turner",
-      location: "Las Vegas, Nevada",
-      source: "Google Review",
-      stars: 5,
-      text: "Prime designed our desert villa with stunning views of the mountains. The open-concept layout and floor-to-ceiling windows create an amazing indoor-outdoor living experience. The attention to detail in every room is remarkable. We couldn't be happier with the final result.",
-      size: "large"
-    },
-    {
-      id: 19,
-      type: "video",
-      videoThumbnail: "https://images.pexels.com/photos/1571465/pexels-photo-1571465.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
-      reviewer: "Lisa Wong",
-      location: "Vancouver, Canada",
-      source: "Video Review",
-      stars: 5,
-      text: "Prime created our dream kitchen with sustainable materials and energy-efficient appliances. The design is both beautiful and environmentally conscious.",
-      size: "medium"
-    },
-    {
-      id: 20,
-      type: "text",
-      reviewer: "Daniel Lee",
-      location: "Salt Lake City, Utah",
-      source: "Facebook Review",
-      stars: 5,
-      text: "Prime's mountain retreat design for our Utah cabin is breathtaking. They perfectly captured the rustic elegance we wanted while ensuring modern comfort.",
-      size: "small"
-    }
+    // {
+    //   id: 4,
+    //   type: "text",
+    //   reviewer: "David Rodriguez",
+    //   location: "Seattle, Washington",
+    //   source: "Facebook Review",
+    //   stars: 5,
+    //   text: "Prime brought a fresh perspective to our commercial space. Their innovative designs have left a lasting impression on our clients. The transformation exceeded our expectations and created a welcoming environment. We couldn't be happier with the outstanding professional service!",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 5,
+    //   type: "video",
+    //   videoThumbnail: "https://images.pexels.com/photos/1571467/pexels-photo-1571467.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+    //   reviewer: "S. Thompson",
+    //   location: "Los Angeles, California",
+    //   source: "Video Review",
+    //   stars: 5,
+    //   text: "Prime took our vision and made it a reality. They were attentive to our needs and preferences, and their designs exceeded expectations. The attention to detail was remarkable, and we couldn't be happier with the transformation.",
+    //   size: "large"
+    // },
+    // {
+    //   id: 6,
+    //   type: "image",
+    //   image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop",
+    //   reviewer: "Lysander Grey",
+    //   location: "Portland, OR",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "The creativity and innovation Prime brought to our office redesign have significantly improved our work environment. Their forward-thinking approach resulted in a space that boosts employee functionality and client relationships.",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 7,
+    //   type: "text",
+    //   reviewer: "William Thompson",
+    //   location: "Atlanta, Georgia",
+    //   source: "Facebook Review",
+    //   stars: 5,
+    //   text: "The transformation of our restaurant by Prime was nothing short of amazing. Our customers constantly compliment the design, creating a space that is both functional and beautiful. Our customers love the new look, and we've seen an increase in repeat visits. Exceptional work!",
+    //   size: "large"
+    // },
+    // {
+    //   id: 8,
+    //   type: "image",
+    //   image: "https://images.pexels.com/photos/1571472/pexels-photo-1571472.jpeg?auto=compress&cs=tinysrgb&w=400&h=320&fit=crop",
+    //   reviewer: "Ryan Martinez",
+    //   location: "Austin, Texas",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "From start to finish, friendly professional service and beautiful designs. My home has never looked better. They transformed my space beyond my wildest dreams. I would definitely recommend their services.",
+    //   size: "small"
+    // },
+    // {
+    //   id: 9,
+    //   type: "text",
+    //   reviewer: "S. Thompson",
+    //   location: "Los Angeles, California",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "We worked with Prime on our office space, and we couldn't be more pleased. Their innovative ideas and attention to detail resulted in a workspace that's both stylish and highly functional. The entire team was responsive, professional, and delivered beyond our expectations.",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 10,
+    //   type: "text",
+    //   reviewer: "Darius Hawke",
+    //   location: "Chicago, Illinois",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "Prime's team took my vague ideas and turned them into a stunning reality. They listened carefully to my preferences and created a space that perfectly reflects my style. I highly recommend their expertise. Quality and craftsmanship is evident in every detail.",
+    //   size: "large"
+    // },
+    // {
+    //   id: 11,
+    //   type: "image",
+    //   image: "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    //   reviewer: "Isabella Rodriguez",
+    //   location: "Miami, Florida",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "Outstanding work! Prime transformed our beachfront condo into a modern paradise. The use of natural light and space optimization exceeded our expectations. Highly professional team!",
+    //   size: "small"
+    // },
+    // {
+    //   id: 12,
+    //   type: "text",
+    //   reviewer: "Marcus Williams",
+    //   location: "Nashville, Tennessee",
+    //   source: "Yelp Review",
+    //   stars: 5,
+    //   text: "Prime's attention to detail is unmatched. They redesigned our music studio with perfect acoustics and aesthetic appeal. The project was completed on time and within budget. Their team understood our vision perfectly and brought it to life in ways we never imagined possible.",
+    //   size: "large"
+    // },
+    // {
+    //   id: 13,
+    //   type: "video",
+    //   videoThumbnail: "https://images.pexels.com/photos/1571461/pexels-photo-1571461.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+    //   reviewer: "Jennifer Chen",
+    //   location: "San Francisco, California",
+    //   source: "Video Review",
+    //   stars: 5,
+    //   text: "Prime redesigned our tech startup office. The modern, collaborative spaces have boosted our team's productivity and creativity. Amazing results that speak for themselves!",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 14,
+    //   type: "text",
+    //   reviewer: "Robert Johnson",
+    //   location: "Phoenix, Arizona",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "Exceptional service from start to finish. Prime transformed our desert home into a cool, comfortable oasis. Their innovative cooling solutions and desert-inspired design are brilliant.",
+    //   size: "small"
+    // },
+    // {
+    //   id: 15,
+    //   type: "image",
+    //   image: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=400&h=350&fit=crop",
+    //   reviewer: "Amanda Foster",
+    //   location: "Boston, Massachusetts",
+    //   source: "Facebook Review",
+    //   stars: 5,
+    //   text: "Prime brought our historic Boston brownstone into the 21st century while preserving its classic charm. The blend of modern amenities with traditional architecture is perfect. We love our new space and get compliments from everyone who visits.",
+    //   size: "large"
+    // },
+    // {
+    //   id: 16,
+    //   type: "text",
+    //   reviewer: "Kevin Park",
+    //   location: "Minneapolis, Minnesota",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "Prime's winter-friendly design solutions for our Minnesota home are incredible. They maximized natural light and created cozy spaces perfect for long winters. Outstanding attention to detail!",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 17,
+    //   type: "image",
+    //   image: "https://images.pexels.com/photos/1571464/pexels-photo-1571464.jpeg?auto=compress&cs=tinysrgb&w=400&h=280&fit=crop",
+    //   reviewer: "Sarah Mitchell",
+    //   location: "Charleston, South Carolina",
+    //   source: "Yelp Review",
+    //   stars: 5,
+    //   text: "Prime preserved the Southern charm of our Charleston home while adding modern functionality. Perfect balance of old and new! We absolutely love the transformation.",
+    //   size: "small"
+    // },
+    // {
+    //   id: 18,
+    //   type: "text",
+    //   reviewer: "James Turner",
+    //   location: "Las Vegas, Nevada",
+    //   source: "Google Review",
+    //   stars: 5,
+    //   text: "Prime designed our desert villa with stunning views of the mountains. The open-concept layout and floor-to-ceiling windows create an amazing indoor-outdoor living experience. The attention to detail in every room is remarkable. We couldn't be happier with the final result.",
+    //   size: "large"
+    // },
+    // {
+    //   id: 19,
+    //   type: "video",
+    //   videoThumbnail: "https://images.pexels.com/photos/1571465/pexels-photo-1571465.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+    //   reviewer: "Lisa Wong",
+    //   location: "Vancouver, Canada",
+    //   source: "Video Review",
+    //   stars: 5,
+    //   text: "Prime created our dream kitchen with sustainable materials and energy-efficient appliances. The design is both beautiful and environmentally conscious.",
+    //   size: "medium"
+    // },
+    // {
+    //   id: 20,
+    //   type: "text",
+    //   reviewer: "Daniel Lee",
+    //   location: "Salt Lake City, Utah",
+    //   source: "Facebook Review",
+    //   stars: 5,
+    //   text: "Prime's mountain retreat design for our Utah cabin is breathtaking. They perfectly captured the rustic elegance we wanted while ensuring modern comfort.",
+    //   size: "small"
+    // }
   ];
 
   // Distribute reviews across columns more evenly
