@@ -16,7 +16,8 @@ const page = () => {
     return (
         <>
             <Navbar />
-            <HeaderTitle title={'prime - Interior Design'} />
+            {/* <HeaderTitle title={'prime - Interior Design'} /> */}
+            <HeaderTitle title={'Designing Spaces That Inspire Living'} />
             <PrimeIntroStyled />
             <InfiniteCarousel />
             <EvolutionSection />

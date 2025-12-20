@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const BranchesSection = () => {
@@ -26,7 +27,7 @@ const BranchesSection = () => {
 
   const branches = [
     {
-      location: "Branch 1 - Chatrapati Sambhaji Nagar",
+      location: "Branch 1 - Chhatrapati Sambhajinagar",
       title: "Modern Luxury Kitchen",
       image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/18.png`,
     },
@@ -109,25 +110,17 @@ const BranchesSection = () => {
                   />
 
                   {/* View services button - positioned at bottom-left of image */}
-                  <Link href="/services" className="cursor-pointer">
-                    <div className="absolute bottom-6 left-6 cursor-pointer">
-                      <button className=" backdrop-blur-[2px] text-white py-3 px-6 rounded-md font-semibold text-sm uppercase tracking-wider  transition-all duration-200 flex items-center gap-2">
-                        <span className="inter-placeholder font-bold text-white">
-                          VIEW SERVICES
-                        </span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                      </button>
+                  <div className="absolute bottom-6 left-6">
+                    <div className="backdrop-blur-[2px] text-white py-3 px-6 rounded-md font-semibold text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2">
+                      <Link
+                        href="/services"
+                        className="inter-placeholder font-bold text-white hover:mr-1 cursor-pointer"
+                      >
+                        VIEW SERVICES
+                      </Link>
+                      <ArrowUpRight size={20} />
                     </div>
-                  </Link>
+                  </div>
 
                   {/* Optional dark overlay for better button visibility */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>

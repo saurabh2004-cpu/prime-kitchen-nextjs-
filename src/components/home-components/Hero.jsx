@@ -111,7 +111,9 @@ export default function Hero() {
                 </motion.p>
 
                 <div className="relative group flex justify-start items-center align-center item-center mb-32 mt-6">
-                  <motion.button
+                  <motion.a
+                    href="/images/Prime Kitchen Business Plan.pdf"
+                    target="_blank"
                     className="bg-[#00374b] h-full text-white px-8 py-3 rounded-md font-semibold text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4 cursor-pointer"
                     whileHover={{
                       scale: 1.02,
@@ -122,7 +124,7 @@ export default function Hero() {
                       Download Brochure
                     </span>
                     <motion.div className="absolute top-0 right-0 h-full w-0 group-hover:w-4 transition-all duration-500 ease-out" />
-                  </motion.button>
+                  </motion.a>
 
                   <motion.button
                     className="bg-[#088f88]  text-slate-800 p-[15px] rounded-md transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l  hover:text-slate-800 focus:outline-none relative z-10"

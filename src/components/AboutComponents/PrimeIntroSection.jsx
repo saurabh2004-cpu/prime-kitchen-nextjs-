@@ -226,8 +226,8 @@ We envision a future where every home reflects smart living—beautifully crafte
               <div className="w-full flex justify-start md:justify-end">
                 <p className="text-[18px] md:text-lg lg:text-medium leading-relaxed text-[#fdfcee] inter-placeholder md:max-w-[600px] lg:max-w-[500px] xl:max-w-[600px] relative md:right-15">
                   At Prime Kitchen Studio, we believe every space has its own
-                  story. Our passionate team of designers, architects, and
-                  project managers collaborate closely to turn your vision into
+                  story. Our passionate team of Designers, Architects, and
+                  Project Managers collaborate closely to turn your vision into
                   reality. Focusing on sustainability and client satisfaction,
                   we’ve completed countless residential and commercial projects,
                   earning industry awards and widespread recognition
@@ -272,7 +272,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                   />
                   <div>
                     <p className="inter-placeholder text-lg font-medium">
-                      Vallav Chavan
+                      Vallabh Chavan
                     </p>
                     <p className="text-md opacity-75 inter-placeholder">
                       Founder, Prime Kitchen Studio
@@ -314,17 +314,20 @@ We envision a future where every home reflects smart living—beautifully crafte
                 onPause={() => setIsPlaying2(false)}
               />
               {!isPlaying2 && (
-              <div onClick={handlePlay2} className="absolute inset-0 bg-black/40 flex flex-col items-center gap-4 justify-center text-white">
-                <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center text-black text-lg font-bold">
-                  <PlayCircleIcon />
+                <div
+                  onClick={handlePlay2}
+                  className="absolute inset-0 bg-black/40 flex flex-col items-center gap-4 justify-center text-white"
+                >
+                  <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center text-black text-lg font-bold">
+                    <PlayCircleIcon />
+                  </div>
+                  <p className="mt-2 text-md text-center inter-placeholder font-medium ">
+                    Learn more
+                    <br />
+                    About Prime Design Studio
+                  </p>
                 </div>
-                <p className="mt-2 text-md text-center inter-placeholder font-medium ">
-                  Learn more
-                  <br />
-                  About Prime Design Studio
-                </p>
-              </div>
-               )}
+              )}
             </motion.div>
 
             {/* Stats Row - Mobile */}
@@ -448,7 +451,7 @@ We envision a future where every home reflects smart living—beautifully crafte
                     />
                     <div>
                       <p className="inter-placeholder text-sm lg:text-base font-semibold">
-                        Vallav Chavan
+                        Vallabh Chavan
                       </p>
                       <p className="text-xs lg:text-sm opacity-75 inter-placeholder">
                         Founder, Prime Design Studio

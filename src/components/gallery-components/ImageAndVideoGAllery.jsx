@@ -71,9 +71,9 @@ const mediaItems = [
   {
     id: "11",
     title: "Kitchen Design Tour",
-    image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/Screenshot+2025-12-13+141900.png`,
+    image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/Screenshot+2025-12-20+113417.png`,
     type: "video",
-    videoUrl: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-videos/Prime+Kitchen+2+(1).mp4`,
+    videoUrl: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-videos/Prime%2BKitchen%2B2%2B(1).mp4`,
     duration: "2:45",
   },
   {
@@ -285,9 +285,13 @@ export default function TabbedGallery() {
   return (
     <>
       {activeTab === "photos" && (
-        <HeaderTitle title={"Portfolio - Showcase -Inspiration - About us -"} />
+        // <HeaderTitle title={"Portfolio - Showcase -Inspiration - About us -"} />
+        <HeaderTitle title={"Spaces We’ve Brought to Life"} />
       )}
-      {activeTab === "videos" && <HeaderTitle title={" Videos - Stories -"} />}
+      {activeTab === "videos" && (
+        // <HeaderTitle title={" Videos - Stories -"} />
+        <HeaderTitle title={"Spaces We’ve Brought to Life"} />
+      )}
 
       <div className="w-full max-w-8xl mx-auto px-4 md:px-22 py-8">
         {/* Tab Navigation */}
@@ -369,10 +373,12 @@ export default function TabbedGallery() {
                   // Photo card layout with enhanced hover effects
                   <>
                     <div className="relative h-[300px] sm:h-[350px] md:h-[380px] w-full overflow-hidden rounded-lg bg-gray-100">
-                      <img
+                      <Image
+                        fill
                         src={item.image || "/placeholder.svg"}
                         alt={item.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       {/* Optional: Add overlay content on hover */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />

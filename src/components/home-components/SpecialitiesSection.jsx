@@ -247,13 +247,14 @@ const SpecialtiesSection = () => {
             </motion.p>
 
             <div className="relative group flex items-center">
-              <motion.button
+              <motion.a
+              href="/contact"
                 className="bg-[#FDFCEE] md:text-[18px]  md:font-medium text-[#1F3630] px-6 py-3 md:px-4 md:py-2 rounded-2xl font-semibold text-base md:text-lg transition-all duration-500 relative z-10 group-hover:rounded-r-none group-hover:pr-4"
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10">Start a project</span>
                 <motion.div className="absolute top-0 right-0 h-full w-0 group-hover:w-4 transition-all duration-500 ease-out" />
-              </motion.button>
+              </motion.a>
 
               <motion.button
                 className="bg-[#00374b] text-white p-[12.5px] md:p-[11.5px] lg:p-[11px] md:p-2 rounded-xl transition-all duration-500 ml-2 group-hover:ml-0 group-hover:rounded-l-none  focus:outline-none relative z-10"

@@ -184,7 +184,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       className="text-[#f8f8f5] text-[16px] pl-4 md:pl-0 font-medium  md:text[16px] md:font-medium  text-[#fdfcee] hover:underline text-[#fdfcee] inter-placeholder text-right align-right "
                     >
-                      Chatrapati Sambhaji Nagar
+                      Chhatrapati Sambhajinagar
                     </a>
                   </div>
                 </motion.div>
@@ -288,7 +288,7 @@ const Footer = () => {
                     <input
                       type="tel"
                       name="user_phone"
-                      placeholder="(123) 456-7890"
+                      placeholder="+91 9637374796"
                       className="w-full bg-[#f7f6e9] border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#1d322d]"
                     />
                   </div>
@@ -360,7 +360,7 @@ const Footer = () => {
               <SocialCard
                 icon={<IconBrandInstagramFilled className="w-8 h-8" />}
                 name="INSTAGRAM"
-                href="https://instagram.com"
+                href="https://www.instagram.com/studioprimekitchen?igsh=YWI5eTdncHhhOHhp"
               />
               <SocialCard
                 icon={

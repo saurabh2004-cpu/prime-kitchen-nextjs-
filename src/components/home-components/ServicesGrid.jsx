@@ -12,14 +12,16 @@ export default function ServicesGrid() {
       title: "Kitchens",
       description: `At Prime Kitchen Studios, kitchens are our passion and expertise. We design and create kitchens that perfectly blend form and function. From modular kitchens to traditional layouts, every design is tailored to fit your lifestyle, offering ergonomic spaces, premium materials, and innovative storage solutions. Our kitchens are built to inspire creativity and simplify daily cooking while elevating home aesthetics.
 `,
-      icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
+      // icon: "https://framerusercontent.com/images/LBKuqrUKUS4DWi9ftZI8DVHVe4.png",
+      icon: "/images/ser1.png",
     },
     {
       id: 2,
       title: "Wardrobes",
       description: `Our custom wardrobes combine style with smart organization. Designed to maximize space and accessibility, our wardrobes feature customizable shelving, drawers, and hanging solutions tailored to individual needs. Using quality materials and finishes, these wardrobes add a sophisticated charm to bedrooms while keeping everything neatly arranged.
 `,
-      icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
+      // icon: "https://framerusercontent.com/images/EL0ccE4I9Ydcr6XzZyIGziwAtvw.png",
+      icon: "/images/ser2.png",
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ export default function ServicesGrid() {
       description: `Complement your living spaces with our bespoke furniture solutions. From dining tables to lounge seating, each piece is crafted to match your interior style and enhance comfort. Our furniture designs emphasize quality, durability, and timeless elegance, perfect for any room in your home.
 
 `,
-      icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
+      // icon: "https://framerusercontent.com/images/Zy6EyuSb6xNTwAGreyZYWV5X53M.png",
+      icon: "/images/ser3.png",
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ export default function ServicesGrid() {
       description: `Our office furniture and design solutions focus on creating productive and inspiring workspaces. We offer ergonomic desks, smart storage options, and stylish seating that blend professionalism with comfort. Whether for home offices or corporate environments, our designs promote efficiency and well-being.
 
 `,
-      icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
+      // icon: "https://framerusercontent.com/images/ELZWr0V10IFUobZuhITxIU9Do.png",
+      icon: "/images/ser4.png",
     },
     {
       id: 5,
@@ -43,7 +47,8 @@ export default function ServicesGrid() {
       description: `
 Prime Kitchen Studios provides a curated selection of the latest kitchen appliances known for their durability, efficiency, and modern technology. Whether you need state-of-the-art ovens, refrigerators, or dishwashers, we integrate appliances seamlessly into your kitchen design for a sleek and functional look.
 `,
-      icon: "https://framerusercontent.com/images/JbyjEq4WEAx6qDzQgw6Zkax3iY.png",
+      // icon: "https://framerusercontent.com/images/JbyjEq4WEAx6qDzQgw6Zkax3iY.png",
+      icon: "/images/ser5.png",
     },
     // {
     //   id: 6,
@@ -277,11 +282,11 @@ Prime Kitchen Studios provides a curated selection of the latest kitchen applian
                   className="flex justify-start mb-6"
                   variants={iconVariants}
                 >
-                  <div className="py-4rounded-xl">
+                  <div className="rounded-xl">
                     <img
                       src={service.icon || "/placeholder.svg"}
                       alt={service.title}
-                      className="w-24 h-24 object-contain"
+                      className="w-40 h-40 object-contain"
                     />
                   </div>
                 </motion.div>

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 const LuxuryWardrobeAbout = () => {
   const servicesContent = [
     {
@@ -12,7 +15,7 @@ const LuxuryWardrobeAbout = () => {
     },
     {
       id: 2,
-      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20250719_105350693.jpg`,
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/10.png`,
       heading: "Wardrobe",
       title: "Crafted for Your Home, Inspired by Timeless Design",
       subtitle:
@@ -22,7 +25,7 @@ const LuxuryWardrobeAbout = () => {
     },
     {
       id: 3,
-      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20250719_105350693.jpg`,
+      src: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/service-page-images/DSC09114.JPG`,
       heading: "Furniture",
       title: "Crafted for Comfort, Inspired by Elegance",
       subtitle:
@@ -70,7 +73,9 @@ const LuxuryWardrobeAbout = () => {
               }`}
             >
               <div className="relative w-full overflow-hidden shadow-lg rounded-lg">
-                <img
+                <Image
+                  width={400}
+                  height={400}
                   src={item.src}
                   alt={item.heading}
                   className="w-full h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[27rem] object-cover"
@@ -96,9 +101,12 @@ const LuxuryWardrobeAbout = () => {
                 {item.decription}
               </p>
 
-              <button className="bg-[#00374B] text-white font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[24px] px-6 sm:px-8 md:px-12 lg:px-16 py-2.5 rounded-xl hover:bg-[#004a5c] transition-colors">
-                More about us
-              </button>
+              <Link
+                href="/contact"
+                className="bg-[#00374B] text-white font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-[24px] px-6 sm:px-8 md:px-12 lg:px-16 py-2.5 rounded-xl hover:bg-[#004a5c] transition-colors"
+              >
+                Contact us
+              </Link>
             </div>
           </div>
         </div>
