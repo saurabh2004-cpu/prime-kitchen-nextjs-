@@ -5,25 +5,21 @@ const ClosetHeroSection = () => {
   return (
     <div className="relative w-full overflow-hidden h-[60vh] xl:h-[51.5625rem]">
       {/* Background Image (Fallback) */}
-      <img
+      {/* <img
         src={`${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page/home-images/PXL_20240220_130937450~2.jpg`}
         alt="Closet Background"
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
-      />
+      /> */}
 
       {/* Video Background */}
-      {/* <video
-        className="absolute inset-0 w-full h-full object-cover z-10"
+      <video
+        src={`https://d33mc6cj8ws4rf.cloudfront.net/service-page-videos/service-page-bg-video.mp4`}
         autoPlay
         muted
         loop
         playsInline
-      >
-        <source
-          src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4"
-          type="video/mp4"
-        />
-      </video> */}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
 
       {/* Optional Dark Overlay */}
       <div className="absolute inset-0 bg-black/30 z-20" />

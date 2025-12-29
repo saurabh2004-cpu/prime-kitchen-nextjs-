@@ -70,7 +70,7 @@ const mediaItems = [
   // },
   {
     id: "11",
-    title: "Kitchen Design Tour",
+    title: "Home Design Tour",
     image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/Screenshot+2025-12-20+113417.png`,
     type: "video",
     videoUrl: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-videos/Prime%2BKitchen%2B2%2B(1).mp4`,
@@ -78,20 +78,20 @@ const mediaItems = [
   },
   {
     id: "12",
-    title: "Bathroom Renovation",
+    title: "Office Renovation",
     image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/Screenshot+2025-12-13+142131.png`,
     type: "video",
     videoUrl: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/home-page-video/Prime-Kitchen-Studio.mp4`,
     duration: "3:20",
   },
-  //   {
-  //     id: "13",
-  //     title: "Kitchen Design Tour",
-  //     image: "/apartment-kitchen-2.png",
-  //     type: "video",
-  //     videoUrl: "https://www.youtube.com/embed/Ha6ThTzE6vA",
-  //     duration: "2:45",
-  //   },
+  {
+    id: "13",
+    title: "Kitchen Design Tour",
+    image: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-images/Screenshot+2025-12-29+130559.png`,
+    type: "video",
+    videoUrl: `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/gallery-page-videos/gallery-page-video-3.mp4`,
+    duration: "0:34",
+  },
   //   {
   //     id: "14",
   //     title: "Bathroom Renovation",
