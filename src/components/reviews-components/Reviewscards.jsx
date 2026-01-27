@@ -124,9 +124,9 @@ const ReviewCard = ({ review, scrollProgress, columnIndex }) => {
           <h3 className="font-bold text-[#1d322d] text-lg group-hover:text-[#0f1a16] transition-colors duration-300">
             {review.reviewer}
           </h3>
-          <p className="text-sm font-medium text-[#1d322d] opacity-70 group-hover:opacity-90 transition-opacity duration-300">
+          {/* <p className="text-sm font-medium text-[#1d322d] opacity-70 group-hover:opacity-90 transition-opacity duration-300">
             {review.location}
-          </p>
+          </p> */}
         </div>
 
         <p
